@@ -1,29 +1,5 @@
 /* roboto-regular - latin */
-@font-face {
-    font-family: 'Roboto';
-    font-style: normal;
-    font-weight: 400;
-    src: url('../fonts/roboto-v20-latin-regular.eot'); /* IE9 Compat Modes */
-    src: local('Roboto'), local('Roboto-Regular'),
-         url('../fonts/roboto-v20-latin-regular.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
-         url('../fonts/roboto-v20-latin-regular.woff2') format('woff2'), /* Super Modern Browsers */
-         url('../fonts/roboto-v20-latin-regular.woff') format('woff'), /* Modern Browsers */
-         url('../fonts/roboto-v20-latin-regular.ttf') format('truetype'), /* Safari, Android, iOS */
-         url('../fonts/roboto-v20-latin-regular.svg#Roboto') format('svg'); /* Legacy iOS */
-}
-  /* roboto-500 - latin */
-@font-face {
-    font-family: 'Roboto';
-    font-style: normal;
-    font-weight: 500;
-    src: url('../fonts/roboto-v20-latin-500.eot'); /* IE9 Compat Modes */
-    src: local('Roboto Medium'), local('Roboto-Medium'),
-         url('../fonts/roboto-v20-latin-500.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
-         url('../fonts/roboto-v20-latin-500.woff2') format('woff2'), /* Super Modern Browsers */
-         url('../fonts/roboto-v20-latin-500.woff') format('woff'), /* Modern Browsers */
-         url('../fonts/roboto-v20-latin-500.ttf') format('truetype'), /* Safari, Android, iOS */
-         url('../fonts/roboto-v20-latin-500.svg#Roboto') format('svg'); /* Legacy iOS */
-}
+
 
 html {
     box-sizing: border-box;
@@ -252,7 +228,7 @@ header {
 .our_community__slider_images{
     display: flex;
     position: absolute;
-    margin-top: 19px;
+    margin-top: 16px;
     padding-left: 102px;
     /*position: absolute;
     width: 150%;
@@ -278,7 +254,7 @@ header {
 
 .our_community__slider_block-slide_control{
     display: flex;
-    margin-top: 75px;
+    margin-top: 78px;
     width: 100px;
     margin-left: 641px;
     margin-bottom: 0px;
@@ -352,11 +328,9 @@ header {
 
 .implement__content_block-subtitle{
     font-size: 14px;
-    line-height: 140%;
+    line-height: 145%;
     margin-top: 21px;
 }
-
-
 
 .implement__content_block__main_btn{
     width: 180px;
@@ -364,7 +338,7 @@ header {
     background: #00AFDB;
     border: none;
     color: white;
-    margin-top: 31px;
+    margin-top: 29px;
     margin-right: 2px;
 }
 
