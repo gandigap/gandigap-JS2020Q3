@@ -111,6 +111,11 @@ header {
     text-decoration: none;
 
 }
+.header__list-item__link:hover {
+    color:rgb(158, 158, 158);
+    text-decoration: none;
+
+}
 
 .header__list-item__link.active {
     color:white;
@@ -254,12 +259,6 @@ header {
     position: absolute;
     margin-top: 19px;
     padding-left: 102px;
-    /*position: absolute;
-    width: 150%;
-    height: 50px;
-
-    margin-top: 7px;
-    margin-left: 102px;*/
 }
 
 .our_community__slider_images div{
@@ -539,6 +538,11 @@ header {
     margin-right: 19px;
     margin-left: 19px;
 }
+
+.footer ul > li a:hover{
+    color: #afafaf;
+}
+
 .footer  ul > li:first-child a:before{
     content: '';
     margin-right: 0px;
@@ -547,6 +551,10 @@ header {
 
 .footer__logo{
     margin-left: 381px;
+}
+
+strong {
+    font-weight: bold;
 }
 
 
