@@ -627,7 +627,6 @@ body {
 .card__button {
   /* Позиционирование */
   /* Блочная модель */
-  max-width: 187px;
   /* Типографика */
   padding: 15px 45px;
   color: #4C4C4C;
