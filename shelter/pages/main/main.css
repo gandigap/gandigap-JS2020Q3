@@ -135,8 +135,19 @@ body {
 .wrapper {
   /* Позиционирование */
   /* Блочная модель */
-  max-width: 1200px;
+  width: 1200px;
   margin: 0 auto;
+  /* Типографика */
+  /* Оформление */
+  /* Анимация */
+  /* Разное */
+}
+
+.inner__wrapper {
+  /* Позиционирование */
+  /* Блочная модель */
+  padding-top: 80px;
+  padding-bottom: 100px;
   /* Типографика */
   /* Оформление */
   /* Анимация */
@@ -238,7 +249,6 @@ body {
   font-size: 15px;
   text-decoration: none;
   color: #CDCDCD;
-  padding-top: 3px;
   padding-bottom: 5px;
   /* Оформление */
   /* Анимация */
@@ -251,7 +261,7 @@ body {
   /* Типографика */
   color: #FFFFFF;
   border-bottom: solid 3px #F1CDB3;
-  padding-top: 5px;
+  padding-top: 3px;
   padding-bottom: 5px;
   /* Оформление */
   /* Анимация */
@@ -264,7 +274,7 @@ body {
   /* Типографика */
   color: #FFFFFF;
   border-bottom: solid 3px #F1CDB3;
-  padding-top: 5px;
+  padding-top: 3px;
   padding-bottom: 5px;
   /* Оформление */
   /* Анимация */
@@ -347,14 +357,13 @@ body {
 .hero__button {
   /* Позиционирование */
   /* Блочная модель */
-  padding: 15px 45px;
-  width: 207px;
   /* Типографика */
+  padding: 15px 45px;
   color: #4C4C4C;
-  font-family: Georgia;
   font-size: 17px;
+  font-family: Georgia;
   line-height: 130%;
-  letter-spacing: 0.05em;
+  letter-spacing: 0.06em;
   /* Оформление */
   border-radius: 100px;
   border: none;
@@ -388,16 +397,13 @@ body {
   /* Блочная модель */
   display: flex;
   justify-content: center;
-  align-items: center;
-  height: 588px;
-  padding-bottom: 20px;
   /* Типографика */
   /* Оформление */
   /* Анимация */
   /* Разное */
 }
 
-.about > div {
+.about__content__img {
   /* Позиционирование */
   /* Блочная модель */
   margin: 0 60px;
@@ -411,6 +417,10 @@ body {
   /* Позиционирование */
   /* Блочная модель */
   max-width: 430px;
+  display: flex;
+  flex-direction: column;
+  margin: 14px 60px;
+  justify-content: space-between;
   /* Типографика */
   /* Оформление */
   /* Анимация */
@@ -420,7 +430,6 @@ body {
 .about__content__item {
   /* Позиционирование */
   /* Блочная модель */
-  margin: 25px 0;
   /* Типографика */
   /* Оформление */
   /* Анимация */
@@ -432,9 +441,10 @@ body {
   /* Блочная модель */
   /* Типографика */
   color: #545454;
+  color: #545454;
   font-size: 35px;
-  line-height: 130%;
   font-family: Georgia;
+  line-height: 130%;
   letter-spacing: 0.06em;
   /* Оформление */
   /* Анимация */
@@ -451,6 +461,214 @@ body {
   line-height: 160%;
   font-size: 15px;
   /* Оформление */
+  /* Анимация */
+  /* Разное */
+}
+
+.section__pets {
+  /* Позиционирование */
+  /* Блочная модель */
+  /* Типографика */
+  /* Оформление */
+  background-color: #F6F6F6;
+  /* Анимация */
+  /* Разное */
+}
+
+.pets {
+  /* Позиционирование */
+  /* Блочная модель */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 697px;
+  /* Типографика */
+  /* Оформление */
+  /* Анимация */
+  /* Разное */
+}
+
+.pets__item {
+  /* Позиционирование */
+  /* Блочная модель */
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  /* Типографика */
+  /* Оформление */
+  /* Анимация */
+  /* Разное */
+}
+
+.pets__text {
+  /* Позиционирование */
+  /* Блочная модель */
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  /* Типографика */
+  /* Оформление */
+  /* Анимация */
+  /* Разное */
+}
+
+.pets__title {
+  /* Позиционирование */
+  /* Блочная модель */
+  max-width: 430px;
+  /* Типографика */
+  color: #545454;
+  color: #545454;
+  font-size: 35px;
+  font-family: Georgia;
+  line-height: 130%;
+  letter-spacing: 0.06em;
+  /* Оформление */
+  /* Анимация */
+  /* Разное */
+}
+
+.pets__slider {
+  /* Позиционирование */
+  /* Блочная модель */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  /* Типографика */
+  /* Оформление */
+  /* Анимация */
+  /* Разное */
+}
+
+.arrow__forward {
+  /* Позиционирование */
+  /* Блочная модель */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 52px;
+  height: 52px;
+  /* Типографика */
+  /* Оформление */
+  border: 2px solid #F1CDB3;
+  border-radius: 100%;
+  /* Анимация */
+  /* Разное */
+}
+
+.arrow__backward {
+  /* Позиционирование */
+  /* Блочная модель */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 52px;
+  height: 52px;
+  /* Типографика */
+  /* Оформление */
+  border: 2px solid #F1CDB3;
+  border-radius: 100%;
+  /* Анимация */
+  transform: rotate(-180deg);
+  /* Разное */
+}
+
+.cards {
+  /* Позиционирование */
+  /* Блочная модель */
+  display: flex;
+  justify-content: space-between;
+  width: 990px;
+  /* Типографика */
+  /* Оформление */
+  /* Анимация */
+  /* Разное */
+}
+
+.card {
+  /* Позиционирование */
+  /* Блочная модель */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  height: 435px;
+  width: 570px;
+  /* Типографика */
+  /* Оформление */
+  background-color: #FAFAFA;
+  /* Анимация */
+  /* Разное */
+}
+
+.card__img {
+  /* Позиционирование */
+  /* Блочная модель */
+  /* Типографика */
+  /* Оформление */
+  /* Анимация */
+  /* Разное */
+}
+
+.card__title {
+  /* Позиционирование */
+  /* Блочная модель */
+  display: flex;
+  justify-content: space-between;
+  /* Типографика */
+  font-family: Georgia;
+  font-size: 20px;
+  line-height: 23px;
+  /* Оформление */
+  /* Анимация */
+  /* Разное */
+}
+
+.card__button {
+  /* Позиционирование */
+  /* Блочная модель */
+  max-width: 187px;
+  /* Типографика */
+  padding: 15px 45px;
+  color: #4C4C4C;
+  font-size: 17px;
+  font-family: Georgia;
+  line-height: 130%;
+  letter-spacing: 0.06em;
+  /* Оформление */
+  border: 2px solid #F1CDB3;
+  border-radius: 100px;
+  background-color: transparent;
+  /* Анимация */
+  /* Разное */
+}
+
+.pets__btn {
+  /* Позиционирование */
+  /* Блочная модель */
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  /* Типографика */
+  /* Оформление */
+  /* Анимация */
+  /* Разное */
+}
+
+.pets__button {
+  /* Позиционирование */
+  /* Блочная модель */
+  /* Типографика */
+  padding: 15px 45px;
+  color: #4C4C4C;
+  font-size: 17px;
+  font-family: Georgia;
+  line-height: 130%;
+  letter-spacing: 0.06em;
+  /* Оформление */
+  border-radius: 100px;
+  border: none;
+  background-color: #F1CDB3;
   /* Анимация */
   /* Разное */
 }
