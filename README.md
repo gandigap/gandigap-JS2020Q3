@@ -1,6 +1,6 @@
 # gandigap-JS2020Q3
 Private repository for @gandigap
 
-### [Cсылка на проект WebDev](https://rolling-scopes-school.github.io/gandigap-JS2020Q3/webdev/)
-### [Cсылка на проект Calculator](https://rolling-scopes-school.github.io/gandigap-JS2020Q3/calculator/)
+### [Link to task](https://github.com/rolling-scopes-school/tasks/blob/master/tasks/markups/level-2/shelter/shelter-main-page-ru.md)
+
 
