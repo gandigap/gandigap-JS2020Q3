@@ -1,9 +1,86 @@
-@mixin main-font-style-h3 {
-  color:$color-dark-l;
-  font-size: 35px;
-  font-family: Georgia;
+@mixin h2{
+  font:{
+    size:44px;
+    family:Georgia;
+    style:normal;
+    weight:normal;
+  }
+  line-height: 130%;
+}
+
+@mixin h3{
+  font:{
+    size:35px;
+    family:Georgia;
+    style:normal;
+    weight:normal;
+  }
   line-height: 130%;
   letter-spacing: 0.06em;
+}
+
+@mixin h4{
+  font:{
+    size:20px;
+    family:Georgia;
+    style:normal;
+    weight:normal;
+  }
+  line-height: 115%;
+  letter-spacing: 0.06em;
+}
+
+@mixin h5{
+  font: {
+    size:15px;
+    family:Georgia;
+    style:normal;
+    weight:normal;
+  }
+  line-height: 110%;
+  letter-spacing: 0.06em;
+}
+
+@mixin paragraph-l{
+  font: {
+    size:15px;
+    family:Arial;
+    style:normal;
+    weight:normal;
+  }
+  line-height: 160%;
+}
+
+@mixin paragraph-s{
+  font: {
+    size:12px;
+    family:Arial;
+    style:italic;
+    weight:normal;
+  }
+  line-height: 150%;
+}
+
+@mixin font_logo_title{
+  font: {
+    size:32px;
+    family:Georgia;
+    style:normal;
+    weight:normal;
+  }
+  line-height: 110%;
+  letter-spacing: 0.06em;
+}
+
+@mixin font_logo_subtitle{
+  font: {
+    size:13px;
+    family:Arial;
+    style:normal;
+    weight:normal;
+  }
+  line-height: 15px;
+  letter-spacing: 0.1em;
 }
 
 @mixin btn-style{
