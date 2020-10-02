@@ -545,6 +545,15 @@ body {
   /* Анимация */
   /* Разное */
 }
+.pets__button:hover {
+  /* Позиционирование */
+  /* Блочная модель */
+  /* Типографика */
+  /* Оформление */
+  background-color: #FDDCC4;
+  /* Анимация */
+  /* Разное */
+}
 .pets__slider {
   /* Позиционирование */
   /* Блочная модель */
@@ -563,12 +572,20 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 52px;
-  height: 52px;
+  padding: 21px 17px;
   /* Типографика */
   /* Оформление */
   border: 2px solid #F1CDB3;
   border-radius: 100%;
+  /* Анимация */
+  /* Разное */
+}
+.pets__slider__arrow__forward:hover {
+  /* Позиционирование */
+  /* Блочная модель */
+  /* Типографика */
+  /* Оформление */
+  background-color: #FDDCC4;
   /* Анимация */
   /* Разное */
 }
@@ -657,14 +674,22 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 52px;
-  height: 52px;
+  padding: 21px 17px;
   /* Типографика */
   /* Оформление */
   border: 2px solid #F1CDB3;
   border-radius: 100%;
   /* Анимация */
   transform: rotate(-180deg);
+  /* Разное */
+}
+.pets__slider__arrow__backward:hover {
+  /* Позиционирование */
+  /* Блочная модель */
+  /* Типографика */
+  /* Оформление */
+  background-color: #FDDCC4;
+  /* Анимация */
   /* Разное */
 }
 
@@ -674,6 +699,17 @@ body {
   /* Типографика */
   /* Оформление */
   background-color: #FFFFFF;
+  /* Анимация */
+  /* Разное */
+}
+
+.inner__wrapper_help {
+  /* Позиционирование */
+  /* Блочная модель */
+  padding-top: 80px;
+  padding-bottom: 73px;
+  /* Типографика */
+  /* Оформление */
   /* Анимация */
   /* Разное */
 }
@@ -772,6 +808,280 @@ body {
   line-height: 115%;
   letter-spacing: 0.06em;
   color: #545454;
+  /* Оформление */
+  /* Анимация */
+  /* Разное */
+}
+
+.section__donation {
+  /* Позиционирование */
+  /* Блочная модель */
+  /* Типографика */
+  /* Оформление */
+  background-color: #F6F6F6;
+  /* Анимация */
+  /* Разное */
+}
+
+.donation {
+  /* Позиционирование */
+  /* Блочная модель */
+  display: flex;
+  justify-content: center;
+  /* Типографика */
+  /* Оформление */
+  /* Анимация */
+  /* Разное */
+}
+.donation__img {
+  /* Позиционирование */
+  /* Блочная модель */
+  padding: 12px 15px;
+  /* Типографика */
+  /* Оформление */
+  /* Анимация */
+  /* Разное */
+}
+.donation__content {
+  /* Позиционирование */
+  /* Блочная модель */
+  padding: 0 15px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  /* Типографика */
+  /* Оформление */
+  /* Анимация */
+  /* Разное */
+}
+.donation__title {
+  /* Позиционирование */
+  /* Блочная модель */
+  max-width: 300px;
+  /* Типографика */
+  color: #545454;
+  font-size: 35px;
+  font-family: Georgia;
+  font-style: normal;
+  font-weight: normal;
+  line-height: 130%;
+  letter-spacing: 0.06em;
+  line-height: 133%;
+  /* Оформление */
+  /* Анимация */
+  /* Разное */
+}
+.donation__subtitle {
+  /* Позиционирование */
+  /* Блочная модель */
+  /* Типографика */
+  color: #545454;
+  font-size: 15px;
+  font-family: Georgia;
+  font-style: normal;
+  font-weight: normal;
+  line-height: 110%;
+  letter-spacing: 0.06em;
+  /* Оформление */
+  /* Анимация */
+  /* Разное */
+}
+.donation__information {
+  /* Позиционирование */
+  /* Блочная модель */
+  max-width: 380px;
+  /* Типографика */
+  color: #B2B2B2;
+  font-size: 12px;
+  font-family: Arial;
+  font-style: italic;
+  font-weight: normal;
+  line-height: 150%;
+  /* Оформление */
+  /* Анимация */
+  /* Разное */
+}
+.donation__button {
+  /* Позиционирование */
+  /* Блочная модель */
+  /* Типографика */
+  color: #545454;
+  font-size: 20px;
+  font-family: Georgia;
+  font-style: normal;
+  font-weight: normal;
+  line-height: 115%;
+  letter-spacing: 0.06em;
+  /* Оформление */
+  border-radius: 9px;
+  background-color: #F1CDB3;
+  /* Анимация */
+  /* Разное */
+}
+.donation__button__content {
+  /* Позиционирование */
+  /* Блочная модель */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 5px 7.5px;
+  /* Типографика */
+  /* Оформление */
+  /* Анимация */
+  /* Разное */
+}
+.donation__button:hover {
+  /* Позиционирование */
+  /* Блочная модель */
+  /* Типографика */
+  /* Оформление */
+  background-color: #FDDCC4;
+  /* Анимация */
+  /* Разное */
+}
+
+.footer {
+  /* Позиционирование */
+  /* Блочная модель */
+  display: flex;
+  justify-content: center;
+  /* Типографика */
+  /* Оформление */
+  /* Анимация */
+  /* Разное */
+}
+.footer__content {
+  /* Позиционирование */
+  /* Блочная модель */
+  padding-top: 40px;
+  display: flex;
+  justify-content: space-between;
+  /* Типографика */
+  /* Оформление */
+  /* Анимация */
+  /* Разное */
+}
+.footer__content__item {
+  /* Позиционирование */
+  /* Блочная модель */
+  display: flex;
+  flex-direction: column;
+  /* Типографика */
+  /* Оформление */
+  /* Анимация */
+  /* Разное */
+}
+.footer__content__item__info_icon {
+  /* Позиционирование */
+  /* Блочная модель */
+  display: flex;
+  align-items: center;
+  /* Типографика */
+  /* Оформление */
+  /* Анимация */
+  /* Разное */
+}
+.footer__content__title {
+  /* Позиционирование */
+  /* Блочная модель */
+  padding-top: 16px;
+  padding-bottom: 20px;
+  max-width: 279px;
+  /* Типографика */
+  font-size: 35px;
+  font-family: Georgia;
+  font-style: normal;
+  font-weight: normal;
+  line-height: 130%;
+  letter-spacing: 0.06em;
+  color: #FFFFFF;
+  /* Оформление */
+  /* Анимация */
+  /* Разное */
+}
+.footer__content__info_contacts {
+  /* Позиционирование */
+  /* Блочная модель */
+  padding: 20px 0;
+  display: flex;
+  max-width: 300px;
+  /* Типографика */
+  font-size: 20px;
+  font-family: Georgia;
+  font-style: normal;
+  font-weight: normal;
+  line-height: 115%;
+  letter-spacing: 0.06em;
+  color: #F1CDB3;
+  /* Оформление */
+  /* Анимация */
+  /* Разное */
+}
+.footer__content__info_contacts__text {
+  /* Позиционирование */
+  /* Блочная модель */
+  padding-left: 20px;
+  display: flex;
+  align-items: center;
+  /* Типографика */
+  /* Оформление */
+  /* Анимация */
+  /* Разное */
+}
+.footer__content__info_locations_first {
+  /* Позиционирование */
+  /* Блочная модель */
+  padding: 13px 0;
+  display: flex;
+  max-width: 300px;
+  /* Типографика */
+  font-size: 20px;
+  font-family: Georgia;
+  font-style: normal;
+  font-weight: normal;
+  line-height: 115%;
+  letter-spacing: 0.06em;
+  color: #F1CDB3;
+  /* Оформление */
+  /* Анимация */
+  /* Разное */
+}
+.footer__content__info_locations_first__text {
+  /* Позиционирование */
+  /* Блочная модель */
+  padding-left: 20px;
+  display: flex;
+  align-items: center;
+  /* Типографика */
+  /* Оформление */
+  /* Анимация */
+  /* Разное */
+}
+.footer__content__info_locations_second {
+  /* Позиционирование */
+  /* Блочная модель */
+  padding: 19px 0;
+  display: flex;
+  max-width: 300px;
+  /* Типографика */
+  font-size: 20px;
+  font-family: Georgia;
+  font-style: normal;
+  font-weight: normal;
+  line-height: 115%;
+  letter-spacing: 0.06em;
+  color: #F1CDB3;
+  /* Оформление */
+  /* Анимация */
+  /* Разное */
+}
+.footer__content__info_locations_second__text {
+  /* Позиционирование */
+  /* Блочная модель */
+  padding-left: 20px;
+  display: flex;
+  align-items: center;
+  /* Типографика */
   /* Оформление */
   /* Анимация */
   /* Разное */
