@@ -128,7 +128,7 @@ will-change: auto;
 .wrapper{
     /* Позиционирование */
     /* Блочная модель */
-    width: 1200px;
+    max-width: 1200px;
     margin: 0 auto;
     /* Типографика */
     /* Оформление */
@@ -379,7 +379,7 @@ will-change: auto;
         display: flex;
         justify-content: space-between;
         align-items: center;
-        padding-top: 60px;
+        margin:45px 0;
         /* Типографика */
         /* Оформление */
         /* Анимация */
@@ -403,7 +403,7 @@ will-change: auto;
                 flex-direction: column;
                 justify-content: space-around;
                 align-items: center;
-                margin-bottom: 30px;
+                margin: 14.5px 0;
                 /* Типографика */
                 /* Оформление */
                 background-color: $color-light-s;
@@ -481,6 +481,7 @@ will-change: auto;
                 /* Типографика */
                 /* Оформление */
                 background-color: $color-light-xl;
+                box-shadow: 0px 2px 35px 14px rgba(13, 13, 13, 0.04);
                 /* Анимация */
                 /* Разное */
             }
@@ -503,43 +504,63 @@ will-change: auto;
                 display: flex;
                 justify-content: center;
                 align-items: center;
-                margin: 0 5px;
+                width: 52px;
+                height: 52px;
+                margin: 0 10px;
                 /* Типографика */
                 @include h4;
                 /* Оформление */
-                background-color:$color-primary-light;
+                background-color:$color-light-xl;
                 border-radius: 100%;
+                border: 2px solid $color-primary-color;
                 /* Анимация */
                 /* Разное */
             }
 
-        }
+            &__item:hover{
+                /* Позиционирование */
+                /* Блочная модель */
+                /* Типографика */
+                /* Оформление */
+                background-color:$color-primary-light;
+                border: none;
+                /* Анимация */
+                /* Разное */
+            }
 
+            &__item:disabled{
+                /* Позиционирование */
+                /* Блочная модель */
+                /* Типографика */
+                /* Оформление */
+                border: 2px solid $color-dark-s;
+                cursor: default;
+                /* Анимация */
+                /* Разное */
+            }
 
+            &__item:disabled:hover{
+                /* Позиционирование */
+                /* Блочная модель */
+                /* Типографика */
+                /* Оформление */
+                border: 2px solid $color-dark-s;
+                background-color:$color-light-xl;
+                cursor: default;
+                /* Анимация */
+                /* Разное */
+            }
 
-        &__arrow__forward{
-            /* Позиционирование */
-            /* Блочная модель */
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            padding: 21px 17px;
-            /* Типографика */
-            /* Оформление */
-            border: 2px solid $color-primary-color;
-            border-radius: 100%;
-            /* Анимация */
-            /* Разное */
-        }
+            &__item-active{
+                /* Позиционирование */
+                /* Блочная модель */
+                /* Типографика */
+                /* Оформление */
+                background-color:$color-primary-color;
+                /* Анимация */
+                /* Разное */
+            }
 
-        &__arrow__forward:hover{
-            /* Позиционирование */
-            /* Блочная модель */
-            /* Типографика */
-            /* Оформление */
-            background-color:$color-primary-light;
-            /* Анимация */
-            /* Разное */
         }
     }
 }
@@ -552,8 +573,6 @@ will-change: auto;
 .footer{
     /* Позиционирование */
     /* Блочная модель */
-    display: flex;
-    justify-content: center;
     /* Типографика */
     /* Оформление */
     background: url(../../assets/images/noise_transparent.png), radial-gradient(100% 215.42% at 0% 0%, #5B483A 0%, #262425 100%), #211F20;

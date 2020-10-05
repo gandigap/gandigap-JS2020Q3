@@ -135,7 +135,7 @@ body {
 .wrapper {
   /* Позиционирование */
   /* Блочная модель */
-  width: 1200px;
+  max-width: 1200px;
   margin: 0 auto;
   /* Типографика */
   /* Оформление */
@@ -306,6 +306,16 @@ body {
   flex-direction: column;
   justify-content: center;
   padding-bottom: 80px;
+  /* Типографика */
+  /* Оформление */
+  /* Анимация */
+  /* Разное */
+}
+.hero__content__img .test-resp {
+  /* Позиционирование */
+  /* Блочная модель */
+  max-width: 100%;
+  height: auto;
   /* Типографика */
   /* Оформление */
   /* Анимация */
@@ -572,20 +582,51 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 21px 17px;
+  width: 52px;
+  height: 52px;
   /* Типографика */
+  font-size: 2rem;
+  font-family: Georgia;
+  font-style: normal;
+  font-weight: normal;
+  line-height: 115%;
+  letter-spacing: 0.06em;
+  font-size: 2.4rem;
   /* Оформление */
   border: 2px solid #F1CDB3;
   border-radius: 100%;
   /* Анимация */
   /* Разное */
 }
-.pets__slider__arrow__backward:hover {
+.pets__slider button:hover {
   /* Позиционирование */
   /* Блочная модель */
   /* Типографика */
   /* Оформление */
   background-color: #FDDCC4;
+  border: none;
+  /* Анимация */
+  /* Разное */
+}
+.pets__slider button:disabled {
+  /* Позиционирование */
+  /* Блочная модель */
+  /* Типографика */
+  /* Оформление */
+  border: 2px solid #CDCDCD;
+  background-color: #FFFFFF;
+  cursor: default;
+  /* Анимация */
+  /* Разное */
+}
+.pets__slider button:disabled:hover {
+  /* Позиционирование */
+  /* Блочная модель */
+  /* Типографика */
+  /* Оформление */
+  border: 2px solid #CDCDCD;
+  background-color: #FFFFFF;
+  cursor: default;
   /* Анимация */
   /* Разное */
 }
@@ -683,6 +724,7 @@ body {
   /* Типографика */
   /* Оформление */
   background-color: #FFFFFF;
+  box-shadow: 0px 2px 35px 14px rgba(13, 13, 13, 0.04);
   /* Анимация */
   /* Разное */
 }
@@ -692,22 +734,21 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 21px 17px;
+  width: 52px;
+  height: 52px;
   /* Типографика */
+  font-size: 2rem;
+  font-family: Georgia;
+  font-style: normal;
+  font-weight: normal;
+  line-height: 115%;
+  letter-spacing: 0.06em;
+  font-size: 2.4rem;
   /* Оформление */
   border: 2px solid #F1CDB3;
   border-radius: 100%;
   /* Анимация */
   transform: rotate(-180deg);
-  /* Разное */
-}
-.pets__slider__arrow__forward:hover {
-  /* Позиционирование */
-  /* Блочная модель */
-  /* Типографика */
-  /* Оформление */
-  background-color: #FDDCC4;
-  /* Анимация */
   /* Разное */
 }
 
@@ -961,8 +1002,6 @@ body {
 .footer {
   /* Позиционирование */
   /* Блочная модель */
-  display: flex;
-  justify-content: center;
   /* Типографика */
   /* Оформление */
   background: url(../../assets/images/noise_transparent.png), radial-gradient(100% 215.42% at 0% 0%, #5B483A 0%, #262425 100%), #211F20;

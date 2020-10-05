@@ -140,7 +140,7 @@ body {
 .wrapper {
   /* Позиционирование */
   /* Блочная модель */
-  width: 1200px;
+  max-width: 1200px;
   margin: 0 auto;
   /* Типографика */
   /* Оформление */
@@ -392,7 +392,7 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding-top: 60px;
+  margin: 45px 0;
   /* Типографика */
   /* Оформление */
   /* Анимация */
@@ -416,7 +416,7 @@ body {
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
-  margin-bottom: 30px;
+  margin: 14.5px 0;
   /* Типографика */
   /* Оформление */
   background-color: #FAFAFA;
@@ -493,6 +493,7 @@ body {
   /* Типографика */
   /* Оформление */
   background-color: #FFFFFF;
+  box-shadow: 0px 2px 35px 14px rgba(13, 13, 13, 0.04);
   /* Анимация */
   /* Разное */
 }
@@ -513,7 +514,9 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: 0 5px;
+  width: 52px;
+  height: 52px;
+  margin: 0 10px;
   /* Типографика */
   font-size: 2rem;
   font-family: Georgia;
@@ -522,31 +525,49 @@ body {
   line-height: 115%;
   letter-spacing: 0.06em;
   /* Оформление */
-  background-color: #FDDCC4;
+  background-color: #FFFFFF;
   border-radius: 100%;
-  /* Анимация */
-  /* Разное */
-}
-.pets__slider__arrow__forward {
-  /* Позиционирование */
-  /* Блочная модель */
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 21px 17px;
-  /* Типографика */
-  /* Оформление */
   border: 2px solid #F1CDB3;
-  border-radius: 100%;
   /* Анимация */
   /* Разное */
 }
-.pets__slider__arrow__forward:hover {
+.pets__slider__nav__item:hover {
   /* Позиционирование */
   /* Блочная модель */
   /* Типографика */
   /* Оформление */
   background-color: #FDDCC4;
+  border: none;
+  /* Анимация */
+  /* Разное */
+}
+.pets__slider__nav__item:disabled {
+  /* Позиционирование */
+  /* Блочная модель */
+  /* Типографика */
+  /* Оформление */
+  border: 2px solid #CDCDCD;
+  cursor: default;
+  /* Анимация */
+  /* Разное */
+}
+.pets__slider__nav__item:disabled:hover {
+  /* Позиционирование */
+  /* Блочная модель */
+  /* Типографика */
+  /* Оформление */
+  border: 2px solid #CDCDCD;
+  background-color: #FFFFFF;
+  cursor: default;
+  /* Анимация */
+  /* Разное */
+}
+.pets__slider__nav__item-active {
+  /* Позиционирование */
+  /* Блочная модель */
+  /* Типографика */
+  /* Оформление */
+  background-color: #F1CDB3;
   /* Анимация */
   /* Разное */
 }
@@ -554,8 +575,6 @@ body {
 .footer {
   /* Позиционирование */
   /* Блочная модель */
-  display: flex;
-  justify-content: center;
   /* Типографика */
   /* Оформление */
   background: url(../../assets/images/noise_transparent.png), radial-gradient(100% 215.42% at 0% 0%, #5B483A 0%, #262425 100%), #211F20;
