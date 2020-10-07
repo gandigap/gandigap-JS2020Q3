@@ -590,7 +590,6 @@ will-change: auto;
             /* Типографика */
             /* Оформление */
             background-color:$color-primary-light;
-            border: none;
             /* Анимация */
             /* Разное */
         }
@@ -639,7 +638,6 @@ will-change: auto;
                 margin: 0 45px;
                 /* Типографика */
                 /* Оформление */
-                background-color: $color-light-s;
                 /* Анимация */
                 /* Разное */
 
@@ -709,7 +707,17 @@ will-change: auto;
 
             }
 
-            &__card:hover{
+            &__item {
+                /* Позиционирование */
+                /* Блочная модель */
+                /* Типографика */
+                /* Оформление */
+                background-color: $color-light-s;
+                /* Анимация */
+                /* Разное */
+            }
+
+            &__item:hover {
                 /* Позиционирование */
                 /* Блочная модель */
                 /* Типографика */
@@ -887,7 +895,7 @@ will-change: auto;
     &__img{
         /* Позиционирование */
         /* Блочная модель */
-        padding: 12px 15px;
+        padding: 12px 15px 11px;
         /* Типографика */
         /* Оформление */
         /* Анимация */
@@ -998,7 +1006,7 @@ will-change: auto;
     &__content{
         /* Позиционирование */
         /* Блочная модель */
-        padding-top: 40px;
+        padding: 40px 0px 0px;
         display: flex;
         justify-content: space-between;
         /* Типографика */

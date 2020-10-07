@@ -604,7 +604,6 @@ body {
   /* Типографика */
   /* Оформление */
   background-color: #FDDCC4;
-  border: none;
   /* Анимация */
   /* Разное */
 }
@@ -650,7 +649,6 @@ body {
   margin: 0 45px;
   /* Типографика */
   /* Оформление */
-  background-color: #FAFAFA;
   /* Анимация */
   /* Разное */
 }
@@ -718,7 +716,16 @@ body {
   /* Анимация */
   /* Разное */
 }
-.pets__slider__cards__card:hover {
+.pets__slider__cards__item {
+  /* Позиционирование */
+  /* Блочная модель */
+  /* Типографика */
+  /* Оформление */
+  background-color: #FAFAFA;
+  /* Анимация */
+  /* Разное */
+}
+.pets__slider__cards__item:hover {
   /* Позиционирование */
   /* Блочная модель */
   /* Типографика */
@@ -895,7 +902,7 @@ body {
 .donation__img {
   /* Позиционирование */
   /* Блочная модель */
-  padding: 12px 15px;
+  padding: 12px 15px 11px;
   /* Типографика */
   /* Оформление */
   /* Анимация */
@@ -1011,7 +1018,7 @@ body {
 .footer__content {
   /* Позиционирование */
   /* Блочная модель */
-  padding-top: 40px;
+  padding: 40px 0px 0px;
   display: flex;
   justify-content: space-between;
   /* Типографика */
