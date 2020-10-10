@@ -19,6 +19,17 @@
   letter-spacing: 0.21rem;
 }
 
+@mixin h3-mobile{
+  font:{
+    size:2.5rem;
+    family:Georgia;
+    style:normal;
+    weight:normal;
+  }
+  line-height: 130%;
+  letter-spacing: 0.15rem;
+}
+
 @mixin h4{
   font:{
     size:2rem;
