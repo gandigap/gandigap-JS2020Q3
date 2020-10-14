@@ -131,8 +131,9 @@ class Calculator {
     }
 
     updateDisplay() {
-        if (this.currentOperand !== this.currentOperand) {
+        if (this.currentOperand !== this.currentOperand || this.currentOperand === Infinity) {
             this.currentOperandTextElement.innerText = 'Недопустимый аргумент';
+			this.previousOperandTextElement.innerText = '';
         }
 
         else {
