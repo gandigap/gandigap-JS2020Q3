@@ -62,6 +62,16 @@
   line-height: 160%;
 }
 
+@mixin paragraph-mobile-menu{
+  font: {
+    size:3.2rem;
+    family:Arial;
+    style:normal;
+    weight:normal;
+  }
+  line-height: 160%;
+}
+
 @mixin paragraph-s{
   font: {
     size:1.2rem;

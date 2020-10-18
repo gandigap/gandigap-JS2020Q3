@@ -1428,6 +1428,7 @@ will-change: auto;
 
 @media (max-width:767px){
 
+
     .wrapper{
         /* Позиционирование */
         /* Блочная модель */
@@ -1444,46 +1445,46 @@ will-change: auto;
         width: 100%;
         /* Типографика */
         /* Оформление */
-
-        /* Анимация */
-        /* Разное */
-    }
-
-    .header__content{
-        /* Позиционирование */
-        /* Блочная модель */
-        padding-top: 30px;
-        /* Типографика */
-        /* Оформление */
         /* Анимация */
         /* Разное */
     }
 
     .header__nav{
         /* Позиционирование */
-        /* Блочная модель */
-        display: block;
-        min-width: 0;
+        min-width:0;
         /* Типографика */
         /* Оформление */
         /* Анимация */
         /* Разное */
     }
 
-    .header__nav a{
+    .header__nav__list{
         /* Позиционирование */
+        position: fixed;
+        top: 0;
+        right: -320px;
         /* Блочная модель */
+        width: 320px;
+        height: 100%;
+        justify-content: center;
+        flex-direction: column;
+        padding: 0;
+        align-items: center;
         /* Типографика */
-        font-size: 0;
-        overflow: hidden;
         /* Оформление */
+        background: rgba(41, 41, 41, 0.6);
         /* Анимация */
-        transition: .5s all;
+        transition: right .2s;
+        -webkit-transform: translateZ(0);
+        -webkit-backface-visibility: hidden;
         /* Разное */
     }
 
     label{
         /* Позиционирование */
+        position: absolute;
+        top:30px;
+        right: 12px;
         /* Блочная модель */
         padding: 16px 42px;
         display: flex;
@@ -1497,36 +1498,55 @@ will-change: auto;
         /* Разное */
     }
 
-    #check_menu:checked ~ .header__nav a{
+    #check_menu:checked ~ div.header__content{
         /* Позиционирование */
         /* Блочная модель */
-        font-size: 14px;
-        padding: 5px;
-        border:solid 2px $color-primary-color;
-        width: 100%;
+        justify-content: flex-end;
         /* Типографика */
         /* Оформление */
         /* Анимация */
         /* Разное */
     }
 
-    #check_menu:checked ~ .header__nav{
+    #check_menu:checked ~ * a.logo__link{
         /* Позиционирование */
         /* Блочная модель */
-        background-color: $color-dark-l;
+        z-index: 1;
+        margin-right: 114px;
+        /* Типографика */
+        /* Оформление */
+        /* Анимация */
+        transition: .2s;
+        /* Разное */
+    }
+
+    #check_menu:checked ~ label{
+        z-index: 1;
+    }
+
+    #check_menu:checked ~ * ul.header__nav__list{
+        right:0;
+    }
+
+    #check_menu:checked ~ * div.menu a{
+        /* Позиционирование */
+        /* Блочная модель */
+        @include paragraph-mobile-menu;
+        text-align: center;
         /* Типографика */
         /* Оформление */
         /* Анимация */
         /* Разное */
     }
 
-    #check_menu:checked ~ .burger_line{
+    #check_menu:checked ~ label{
         /* Позиционирование */
         /* Блочная модель */
         /* Типографика */
         /* Оформление */
         /* Анимация */
-        transform: rotate(45deg);
+        transform: rotate(90deg);
+        transition: .2s;
         /* Разное */
     }
 
@@ -1539,17 +1559,6 @@ will-change: auto;
         /* Типографика */
         /* Оформление */
         background-color: $color-primary-color;
-        /* Анимация */
-        /* Разное */
-    }
-
-    .header__nav__list{
-        /* Позиционирование */
-        /* Блочная модель */
-        flex-direction: column;
-        padding: 0;
-        /* Типографика */
-        /* Оформление */
         /* Анимация */
         /* Разное */
     }
