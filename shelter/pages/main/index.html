@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="main.css" type="text/css">
+
 </head>
 
 <body>
@@ -31,8 +32,8 @@
                 </a>
 
                 <div class="menu">
-
                     <nav class="header__nav">
+                        <label class="hidden-menu-overlay" for="check_menu"></label>
                         <ul class="header__nav__list">
                             <li class="header__nav__list__item">
                                 <a class="header__nav__list__item-link active" href="">
@@ -148,62 +149,119 @@
                             <button class="pets__slider__arrow__backward" type="button" disabled>
                                 🠔
                             </button>
-                            <div class="pets__slider__cards">
-                                <div class="pets__slider__cards__card">
-                                    <div class="pets__slider__cards__item">
-                                        <div class="pets__slider__cards__card__img">
-                                            <img src="../../assets/images/pets-cat-katrine.png" alt="Cat Katrine">
-                                        </div>
-                                        <div class="pets__slider__cards__card__text">
-                                            <div class="pets__slider__cards__card__title">
-                                                Katrine
+                            <div class="pets__slider__container">
+                                <div class="pets__slider__cards">
+                                    <div class="pets__slider__cards__card">
+                                        <div class="pets__slider__cards__item">
+                                            <div class="pets__slider__cards__card__img">
+                                                <img src="../../assets/images/pets-cat-katrine.png" alt="Cat Katrine">
                                             </div>
-                                            <div class=pets__slider__cards__card__btn>
-                                                <button class="pets__slider__cards__card__button" type="button">
-                                                    Learn more
-                                                </button>
+                                            <div class="pets__slider__cards__card__text">
+                                                <div class="pets__slider__cards__card__title">
+                                                    Katrine
+                                                </div>
+                                                <div class=pets__slider__cards__card__btn>
+                                                    <button class="pets__slider__cards__card__button" type="button">
+                                                        Learn more
+                                                    </button>
+                                                </div>
                                             </div>
                                         </div>
-                                    </div>
 
-                                </div>
-                                <div class="pets__slider__cards__card">
-                                    <div class="pets__slider__cards__item">
-                                        <div class="pets__slider__cards__card__img">
-                                            <img src="../../assets/images/pets-dog-jennifer.png" alt="Dog Jennifer">
-                                        </div>
-                                        <div class="pets__slider__cards__card__text">
-                                            <div class="pets__slider__cards__card__title">
-                                                Jennifer
-                                            </div>
-                                            <div class="pets__slider__cards__card__btn">
-                                                <button class="pets__slider__cards__card__button" type="button">
-                                                    Learn more
-                                                </button>
-                                            </div>
-                                        </div>
                                     </div>
+                                    <div class="pets__slider__cards__card">
+                                        <div class="pets__slider__cards__item">
+                                            <div class="pets__slider__cards__card__img">
+                                                <img src="../../assets/images/pets-dog-jennifer.png" alt="Dog Jennifer">
+                                            </div>
+                                            <div class="pets__slider__cards__card__text">
+                                                <div class="pets__slider__cards__card__title">
+                                                    Jennifer
+                                                </div>
+                                                <div class="pets__slider__cards__card__btn">
+                                                    <button class="pets__slider__cards__card__button" type="button">
+                                                        Learn more
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </div>
 
-                                </div>
-                                <div class="pets__slider__cards__card">
-                                    <div class="pets__slider__cards__item">
-                                        <div class="pets__slider__cards__card__img">
-                                            <img src="../../assets/images/pets-dog-woody.png" alt="Dog Woody">
-                                        </div>
-                                        <div class="pets__slider__cards__card__text">
-                                            <div class="pets__slider__cards__card__title">
-                                                Woody
-                                            </div>
-                                            <div class="pets__slider__cards__card__btn">
-                                                <button class="pets__slider__cards__card__button" type="button">
-                                                    Learn more
-                                                </button>
-                                            </div>
-                                        </div>
                                     </div>
+                                    <div class="pets__slider__cards__card">
+                                        <div class="pets__slider__cards__item">
+                                            <div class="pets__slider__cards__card__img">
+                                                <img src="../../assets/images/pets-dog-woody.png" alt="Dog Woody">
+                                            </div>
+                                            <div class="pets__slider__cards__card__text">
+                                                <div class="pets__slider__cards__card__title">
+                                                    Woody
+                                                </div>
+                                                <div class="pets__slider__cards__card__btn">
+                                                    <button class="pets__slider__cards__card__button" type="button">
+                                                        Learn more
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </div>
 
+                                    </div>
+                                    <div class="pets__slider__cards__card">
+                                        <div class="pets__slider__cards__item">
+                                            <div class="pets__slider__cards__card__img">
+                                                <img src="../../assets/images/pets-dog-charly.png" alt="Cat Katrine">
+                                            </div>
+                                            <div class="pets__slider__cards__card__text">
+                                                <div class="pets__slider__cards__card__title">
+                                                    Katrine
+                                                </div>
+                                                <div class=pets__slider__cards__card__btn>
+                                                    <button class="pets__slider__cards__card__button" type="button">
+                                                        Learn more
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                    <div class="pets__slider__cards__card">
+                                        <div class="pets__slider__cards__item">
+                                            <div class="pets__slider__cards__card__img">
+                                                <img src="../../assets/images/pets-dog-scarlet.png" alt="Dog Jennifer">
+                                            </div>
+                                            <div class="pets__slider__cards__card__text">
+                                                <div class="pets__slider__cards__card__title">
+                                                    Jennifer
+                                                </div>
+                                                <div class="pets__slider__cards__card__btn">
+                                                    <button class="pets__slider__cards__card__button" type="button">
+                                                        Learn more
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                    <div class="pets__slider__cards__card">
+                                        <div class="pets__slider__cards__item">
+                                            <div class="pets__slider__cards__card__img">
+                                                <img src="../../assets/images/pets-cat-katrine.png" alt="Dog Woody">
+                                            </div>
+                                            <div class="pets__slider__cards__card__text">
+                                                <div class="pets__slider__cards__card__title">
+                                                    Woody
+                                                </div>
+                                                <div class="pets__slider__cards__card__btn">
+                                                    <button class="pets__slider__cards__card__button" type="button">
+                                                        Learn more
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
                                 </div>
                             </div>
+
                             <button class="pets__slider__arrow__forward" type="button">
                                 🠔
                             </button>
@@ -410,6 +468,7 @@
             </div>
         </div>
     </footer>
+    <script src="main.js"></script>
 </body>
 
 </html>

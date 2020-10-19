@@ -934,7 +934,7 @@ will-change: auto;
         align-items: center;
         /* Типографика */
         /* Оформление */
-        background: rgba(41, 41, 41, 0.6);
+        background: $color-dark-3xl;
         /* Анимация */
         transition: right .2s;
         -webkit-transform: translateZ(0);
@@ -956,6 +956,21 @@ will-change: auto;
         font-size: 15px;
         cursor: pointer;
         /* Оформление */
+        /* Анимация */
+        /* Разное */
+    }
+
+    #check_menu:checked ~ * label.hidden-menu-overlay {
+        /* Позиционирование */
+        right: 0;
+        top: 0;
+        position: absolute;
+        /* Блочная модель */
+        width: 100%;
+        height: 100vh;
+        /* Типографика */
+        /* Оформление */
+        background: rgba(41, 41, 41, 0.6);
         /* Анимация */
         /* Разное */
     }
@@ -996,7 +1011,48 @@ will-change: auto;
         @include paragraph-mobile-menu;
         text-align: center;
         /* Типографика */
+        color: $color-dark-s;
         /* Оформление */
+        /* Анимация */
+        /* Разное */
+    }
+
+    #check_menu:checked ~ * div.menu a.active{
+        /* Позиционирование */
+        /* Блочная модель */
+        /* Типографика */
+        color: $color-light-s;
+        /* Оформление */
+        /* Анимация */
+        /* Разное */
+    }
+
+    #check_menu:checked ~ * div.logo__title{
+        /* Позиционирование */
+        /* Блочная модель */
+        /* Типографика */
+        color: $color-primary-color;
+        /* Оформление */
+        /* Анимация */
+        /* Разное */
+    }
+
+    #check_menu:checked ~ * div.logo__subtitle{
+        /* Позиционирование */
+        /* Блочная модель */
+        /* Типографика */
+        color: $color-light-xl;
+        /* Оформление */
+        /* Анимация */
+        /* Разное */
+    }
+
+    #check_menu:checked ~ * div.burger_line{
+        /* Позиционирование */
+        /* Блочная модель */
+        /* Типографика */
+        /* Оформление */
+        background-color: $color-primary-color;
         /* Анимация */
         /* Разное */
     }
@@ -1020,11 +1076,10 @@ will-change: auto;
         margin: 4px auto;
         /* Типографика */
         /* Оформление */
-        background-color: $color-primary-color;
+        background-color: #000000;
         /* Анимация */
         /* Разное */
     }
-
 
     .inner__wrapper{
         /* Позиционирование */
