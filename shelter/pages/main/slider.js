@@ -7,7 +7,14 @@ const btnPrev = document.querySelector('.pets__slider__arrow__backward');
 const btnNext = document.querySelector('.pets__slider__arrow__forward');
 const items = document.querySelectorAll('.pets__slider__cards__card');
 const itemsCount = items.length;
-const itemWidth = 270 + 90;
+let itemWidth = 1;
+
+if (container.clientWidth >= 1080) {
+    itemWidth = 270 + 90;
+} else if (container.clientWidth < 1080 && container.clientWidth >= 604) {
+    itemWidth = 270 + 24;
+}
+
 const movePosition = slidesToScroll * itemWidth;
 
 items.forEach((item) => {

@@ -654,7 +654,7 @@ body {
   /* Позиционирование */
   /* Блочная модель */
   display: flex;
-  width: 90%;
+  width: 1080px;
   overflow: hidden;
   /* Типографика */
   /* Оформление */
@@ -682,7 +682,6 @@ body {
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
-  padding: 0 45px;
   /* Типографика */
   /* Оформление */
   /* Анимация */
@@ -1200,7 +1199,7 @@ body {
 .footer__content__info_locations_first__text {
   /* Позиционирование */
   /* Блочная модель */
-  padding-left: 20px;
+  padding-left: 19px;
   display: flex;
   align-items: center;
   /* Типографика */
@@ -1229,7 +1228,7 @@ body {
 .footer__content__info_locations_second__text {
   /* Позиционирование */
   /* Блочная модель */
-  padding-left: 20px;
+  padding-left: 19px;
   display: flex;
   align-items: center;
   /* Типографика */
@@ -1238,7 +1237,45 @@ body {
   /* Разное */
 }
 
-@media (max-width: 1280px) {
+.modal {
+  /* Позиционирование */
+  /* Блочная модель */
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+  top: 50%;
+  left: 50%;
+  /* Типографика */
+  /* Оформление */
+  background-color: #FAFAFA;
+  /* Анимация */
+  transform: translate(-50%, -50%);
+  /* Разное */
+  border-radius: 9px 0px 0px 9px;
+}
+
+.modal__window {
+  /* Позиционирование */
+  /* Блочная модель */
+  display: flex;
+  max-width: 900px;
+  /* Типографика */
+  /* Оформление */
+  /* Анимация */
+  /* Разное */
+}
+
+.modal__window__img img {
+  /* Позиционирование */
+  /* Блочная модель */
+  min-width: 500px;
+  /* Типографика */
+  /* Оформление */
+  /* Анимация */
+  /* Разное */
+}
+
+@media (max-width: 1279px) {
   .header {
     /* Позиционирование */
     /* Блочная модель */
@@ -1365,20 +1402,20 @@ body {
     /* Разное */
   }
 
-  .pets__slider__cards {
+  .pets__slider {
     /* Позиционирование */
     /* Блочная модель */
-    flex-wrap: wrap;
-    margin: 0 12px;
+    justify-content: center;
     /* Типографика */
     /* Оформление */
     /* Анимация */
     /* Разное */
   }
-  .pets__slider__cards__card:last-child {
+
+  .pets__slider__container {
     /* Позиционирование */
     /* Блочная модель */
-    display: none;
+    width: 604px;
     /* Типографика */
     /* Оформление */
     /* Анимация */

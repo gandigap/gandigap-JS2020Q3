@@ -151,7 +151,7 @@
                             </button>
                             <div class="pets__slider__container">
                                 <div class="pets__slider__cards">
-                                    <div class="pets__slider__cards__card">
+                                    <!-- <div class="pets__slider__cards__card">
                                         <div class="pets__slider__cards__item">
                                             <div class="pets__slider__cards__card__img">
                                                 <img src="../../assets/images/pets-cat-katrine.png" alt="Cat Katrine">
@@ -204,61 +204,8 @@
                                             </div>
                                         </div>
 
-                                    </div>
-                                    <div class="pets__slider__cards__card">
-                                        <div class="pets__slider__cards__item">
-                                            <div class="pets__slider__cards__card__img">
-                                                <img src="../../assets/images/pets-dog-charly.png" alt="Cat Katrine">
-                                            </div>
-                                            <div class="pets__slider__cards__card__text">
-                                                <div class="pets__slider__cards__card__title">
-                                                    Katrine
-                                                </div>
-                                                <div class=pets__slider__cards__card__btn>
-                                                    <button class="pets__slider__cards__card__button" type="button">
-                                                        Learn more
-                                                    </button>
-                                                </div>
-                                            </div>
-                                        </div>
+                                    </div> -->
 
-                                    </div>
-                                    <div class="pets__slider__cards__card">
-                                        <div class="pets__slider__cards__item">
-                                            <div class="pets__slider__cards__card__img">
-                                                <img src="../../assets/images/pets-dog-scarlet.png" alt="Dog Jennifer">
-                                            </div>
-                                            <div class="pets__slider__cards__card__text">
-                                                <div class="pets__slider__cards__card__title">
-                                                    Jennifer
-                                                </div>
-                                                <div class="pets__slider__cards__card__btn">
-                                                    <button class="pets__slider__cards__card__button" type="button">
-                                                        Learn more
-                                                    </button>
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                    </div>
-                                    <div class="pets__slider__cards__card">
-                                        <div class="pets__slider__cards__item">
-                                            <div class="pets__slider__cards__card__img">
-                                                <img src="../../assets/images/pets-cat-katrine.png" alt="Dog Woody">
-                                            </div>
-                                            <div class="pets__slider__cards__card__text">
-                                                <div class="pets__slider__cards__card__title">
-                                                    Woody
-                                                </div>
-                                                <div class="pets__slider__cards__card__btn">
-                                                    <button class="pets__slider__cards__card__button" type="button">
-                                                        Learn more
-                                                    </button>
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                    </div>
                                 </div>
                             </div>
 
@@ -468,7 +415,42 @@
             </div>
         </div>
     </footer>
-    <script src="main.js"></script>
+    <script src="slider.js"></script>
+    <script src="pets.js"></script>
+
+    <div class="modal" id="modal">
+        <div class="modal__button">
+            <button>
+                <img src="../../assets/icons/close.svg" alt="close button">
+            </button>
+        </div>
+        <div class="modal__window">
+            <div class="modal__window__img">
+                <img src="../../assets/images/jennifer.png" alt="">
+            </div>
+            <div class="modal__window__content">
+                <div class="modal__window__content__pet_name">Jennifer</div>
+                <div class="modal__window__content__pet_type_breed">Dog-Labrador</div>
+                <div class="modal__window__content__pet_description">Jennifer is a sweet 2 months old Labrador that is
+                    patiently waiting to find a new forever home. This girl really enjoys being able to go outside to
+                    run and play, but won't hesitate to play up a storm in the house if she has all of her favorite
+                    toys.
+                </div>
+                <ul class="modal__window__content__pet_list">
+                    <li class="modal__window__content__pet_age"><span class="pet__list__title__age">Age: </span>2 months
+                    </li>
+                    <li class="modal__window__content__pet_inoculations"><span
+                            class="pet__list__title__inoculations">Inoculations: </span>none</li>
+                    <li class="modal__window__content__pet_diseases"><span class="pet__list__title__diseases">Diseases:
+                        </span>none</li>
+                    <li class="modal__window__content__pet_parasites"><span
+                            class="pet__list__title__parasites">Parasites: </span>none</li>
+                </ul>
+            </div>
+        </div>
+        <div id="overlay"></div>
+
+    </div>
 </body>
 
 </html>
