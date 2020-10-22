@@ -1,0 +1,169 @@
+/*Обнуление*/
+* {
+  padding: 0;
+  margin: 0;
+  border: 0;
+}
+
+*, *:before, *:after {
+  box-sizing: border-box;
+}
+
+:focus, :active {
+  outline: none;
+}
+
+a:focus, a:active {
+  outline: none;
+}
+
+nav, footer, header, aside {
+  display: block;
+}
+
+html, body {
+  height: 100%;
+  width: 100%;
+  font-size: 100%;
+  line-height: 1;
+  font-size: 10px;
+  -ms-text-size-adjust: 100%;
+  -moz-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+}
+
+input, button, textarea {
+  font-family: inherit;
+}
+
+input::-ms-clear {
+  display: none;
+}
+
+button {
+  cursor: pointer;
+}
+
+button::-moz-focus-inner {
+  padding: 0;
+  border: 0;
+}
+
+a, a:visited {
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+ul li {
+  list-style: none;
+}
+
+img {
+  vertical-align: top;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-size: inherit;
+  font-weight: 400;
+}
+
+/* ______________________________________________________ */
+
+
+.wrapper{
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.content__greeting{
+  display: flex;
+  justify-content: center;
+  font-size:3.5rem;
+  /* background: rgba(255, 255, 255, 0.3); */
+}
+
+.content__greeting div{
+  margin:0 5px;
+  font-family: 'Lobster', cursive;
+  font-weight: 500;
+}
+
+.content__date {
+  text-align: center;
+
+}
+
+.date {
+  margin:10px;
+  font-size: 5rem;
+  color: #333399;
+  text-shadow: white 1px 1px 0, white -1px -1px 0, white -1px 1px 0, white 1px -1px 0;
+}
+
+.time {
+  margin:10px;
+  font-size: 15rem;
+  color:#333399;
+  text-shadow: white 1px 1px 0, white -1px -1px 0, white -1px 1px 0, white 1px -1px 0;
+
+}
+
+.content{
+  display:flex;
+  justify-content: space-around;
+}
+
+.content__item{
+  width: 30%;
+  min-width: 300px;
+}
+
+.target {
+  font-family:'Roboto', sans-serif;
+  font-size:3.5rem;
+}
+
+h2 {
+  margin-bottom: 0.5rem;
+    font-size:3.5rem;
+  opacity: 0.8;
+}
+
+.city {
+  width: 300px;
+  padding: 10px 0;
+  margin: 20px auto;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+.temperature {
+  font-size: 40px;
+  margin-bottom: 20px;
+}
+.weather-description {
+  width: 300px;
+  margin: 20px auto;
+  font-size: 20px;
+  padding: 12px 0;
+  color: #ffffff;
+  background-color:#44aadd;
+  border-radius: 5px;
+}
+.weather-icon {
+  font-size: 160px;
+  color: #44aadd;
+}
+.weather-icon:hover {
+  animation: shake 1.5s;
+}
+@keyframes shake {
+  0% { transform: translate(1px, 1px) rotate(0deg); }
+  10% { transform: translate(-1px, -2px) rotate(-1deg); }
+  30% { transform: translate(3px, 2px) rotate(0deg); }
+  50% { transform: translate(-1px, 2px) rotate(-1deg); }
+  70% { transform: translate(3px, 1px) rotate(-1deg); }
+  90% { transform: translate(1px, 2px) rotate(0deg); }
+}

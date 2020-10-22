@@ -1,20 +1,67 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="css/owfont-regular.css">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Lobster&family=Lora:ital,wght@0,700;1,400&family=Roboto:wght@400;500;700&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="/css/style.css">
+
   <title>momentum</title>
 </head>
+
 <body>
-  <time class="time"></time>
-  <h1>
-    <span class="greeting"></span>
-    <span class="name" contenteditable="true"></span>
-  </h1>
-  <h2>What Is Your Focus For Today?</h2>
-  <h2 class="focus" contenteditable="true"></h2>
+
+  <div class="wrapper">
+    <div class="content__greeting">
+      <div class="greeting"></div>
+      <div class="name" contenteditable="true"></div>
+    </div>
+    <div class="content__date">
+      <div class="date"></div>
+      <div class="time"></div>
+    </div>
+
+    <div class="content">
+
+      <div class="content__item">
+        <div class="target">
+          <p class="target__title">What Is Your Focus For Today?</p>
+          <p class="focus" contenteditable="true"></p>
+        </div>
+      </div>
+      <div class="content__item">
+        <div class="city" contenteditable="true">Жлобин</div>
+        <i class="weather-icon owf"></i>
+        <div class="temperature"></div>
+        <div class="weather-description"></div>
+      </div>
+      <div class="content__item">
+        <button class="btn"></button>
+        <figure class="quote">
+          <blockquote>
+
+          </blockquote>
+          <figcaption>
+
+          </figcaption>
+        </figure>
+      </div>
+    </div>
+
+
+
+
+    <div class="quote">
+      <button></button>
+    </div>
+  </div>
+
   <script src="script.js"></script>
 </body>
+
 </html>
