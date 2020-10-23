@@ -72,17 +72,55 @@ h1, h2, h3, h4, h5, h6 {
 
 /* ______________________________________________________ */
 
+body{
+
+  transition: background-image 1s ease-in;
+  letter-spacing: 0.1rem;
+}
 
 .wrapper{
   max-width: 1200px;
   margin: 0 auto;
+  cursor: default;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 100vh;
+  font-family: 'Roboto', sans-serif;
+}
+
+.wrapper__content{
+  display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 100%;
+}
+
+
+.button__next__background, .button__prev__background{
+  /* border: solid 3px #044c62; */
+  border-radius: 50%;
+  background-color: #ffffff;
+}
+
+.img__prev{
+  width: 40px;
 }
 
 .content__greeting{
   display: flex;
   justify-content: center;
   font-size:3.5rem;
+  color: #ffffff;
+  text-shadow: #044c62 1px 1px 0,  #044c62 -1px -1px 0, #044c62 -1px 1px 0, #044c62 1px -1px 0;
   /* background: rgba(255, 255, 255, 0.3); */
+}
+.name{
+  cursor: text;
+}
+
+.name:hover{
+  text-shadow: #044c62 2px 2px 0,  #044c62 -2px -2px 0, #044c62 -2px 2px 0, #044c62 2px -2px 0;
 }
 
 .content__greeting div{
@@ -93,20 +131,21 @@ h1, h2, h3, h4, h5, h6 {
 
 .content__date {
   text-align: center;
-
 }
 
 .date {
   margin:10px;
   font-size: 5rem;
-  color: #333399;
+  font-family:'Roboto', sans-serif;
+  color: #044c62;
   text-shadow: white 1px 1px 0, white -1px -1px 0, white -1px 1px 0, white 1px -1px 0;
 }
 
 .time {
   margin:10px;
   font-size: 15rem;
-  color:#333399;
+  font-family:'Roboto', sans-serif;
+  color:#044c62;
   text-shadow: white 1px 1px 0, white -1px -1px 0, white -1px 1px 0, white 1px -1px 0;
 
 }
@@ -117,48 +156,111 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .content__item{
-  width: 30%;
-  min-width: 300px;
+  max-width: 300px;
+
 }
 
 .target {
   font-family:'Roboto', sans-serif;
-  font-size:3.5rem;
+  font-size:2.4rem;
+  color: #ffffff;
+  text-align: center;
 }
 
-h2 {
-  margin-bottom: 0.5rem;
-    font-size:3.5rem;
-  opacity: 0.8;
+.target__title{
+  text-shadow: #044c62 1px 1px 0,  #044c62 -1px -1px 0, #044c62 -1px 1px 0, #044c62 1px -1px 0;
+}
+
+.focus{
+  background-color: rgb(251 251 251 / 60%);
+  color: #044c62;
+  cursor: text;
+}
+
+.weather{
+  background-color: rgb(51 51 153 / 40%);
+  width: 180px;
+  color: #ffffff;
+  text-align: center;
 }
 
 .city {
-  width: 300px;
-  padding: 10px 0;
-  margin: 20px auto;
+  padding: 5px 0;
+  margin: 5px auto;
+  font-size: 1.8rem;
   border: 1px solid #ccc;
   border-radius: 5px;
 }
-.temperature {
-  font-size: 40px;
-  margin-bottom: 20px;
+.temperature, .humidity, .speed__wind {
+  font-size: 1.8rem;
+  margin: 5px 0;
 }
 .weather-description {
-  width: 300px;
-  margin: 20px auto;
+  margin: 5px auto;
   font-size: 20px;
-  padding: 12px 0;
+  padding: 5px 0;
   color: #ffffff;
-  background-color:#44aadd;
+  background-color:#044c62;
   border-radius: 5px;
 }
 .weather-icon {
-  font-size: 160px;
-  color: #44aadd;
+  font-size: 5rem;
+  color:#ffffff;
 }
 .weather-icon:hover {
   animation: shake 1.5s;
 }
+
+.quote{
+  color:#044c62;
+  display: flex;
+  flex-direction: column;
+  border-radius: 10px;
+}
+
+.quote__title{
+  display: flex;
+  background-color: #044c62;
+  border-radius: 20px;
+  align-items: center;
+}
+
+.quote__title p{
+  color: #ffffff;
+  margin: 0 5px;
+  font-size: 1.8rem;
+  width: 100%;
+  text-align: center;
+}
+
+blockquote{
+  margin: 5px;
+  font-family: 'Lora', serif;
+  font-size: 1.8rem;
+  font-style: italic;
+  font-weight: bold;
+  text-shadow: #ffffff 1px 1px 0,  #ffffff -1px -1px 0, #ffffff -1px 1px 0, #ffffff 1px -1px 0;
+}
+
+figcaption{
+  margin: 5px;
+  font-family: 'Lora', serif;
+  font-size: 2rem;
+  align-self: flex-end;
+  text-shadow: #ffffff 1px 1px 0,  #ffffff -1px -1px 0, #ffffff -1px 1px 0, #ffffff 1px -1px 0;
+}
+
+.refresh__button__quote{
+  padding: 5px;
+  /* border: solid 3px #044c62; */
+  border-radius: 50%;
+  background-color: #ffffff;
+}
+
+.img__quote{
+  width: 30px;
+}
+
 @keyframes shake {
   0% { transform: translate(1px, 1px) rotate(0deg); }
   10% { transform: translate(-1px, -2px) rotate(-1deg); }

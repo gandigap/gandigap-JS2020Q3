@@ -1,3 +1,51 @@
+//_____________________________________________________________________Change background
+let arrayBackground = [];
+let arrayRandomValue = [];
+
+for (let index = 0; index < 24; index++) {
+  arrayRandomValue[index] = Math.floor(1 + Math.random() * 12 + 1 - 1);
+}
+
+for (let index = 0; index < 24; index++) {
+  if (index >= 3 && index < 9) {
+    // Morning
+    arrayBackground[index] = "url('assets/images/morning/" + arrayRandomValue[index] + ".jpg')";
+  } else if (index >= 9 && index < 15) {
+    // Day
+    arrayBackground[index] = "url('assets/images/day/" + arrayRandomValue[index] + ".jpg')";
+  } else if (index >= 15 && index < 21) {
+    // Evening
+    arrayBackground[index] = "url('assets/images/evening/" + arrayRandomValue[index] + ".jpg')";
+  } else if (index >= 21 || index < 3) {
+    // Night
+    arrayBackground[index] = "url('assets/images/night/" + arrayRandomValue[index] + ".jpg')";
+  }
+}
+
+const btnPrev = document.querySelector('.button__prev__background');
+const btnNext = document.querySelector('.button__next__background');
+
+let today = new Date(),
+  hour = today.getHours(),
+  numberBackgroundImage = hour;
+
+btnNext.addEventListener('click', () => {
+  numberBackgroundImage--;
+  console.log(numberBackgroundImage);
+  document.body.style.backgroundImage = arrayBackground[numberBackgroundImage];
+  btnNext.disabled = true;
+  setTimeout(function () { btnNext.disabled = false }, 1000);
+});
+
+btnPrev.addEventListener('click', () => {
+  numberBackgroundImage++;
+  console.log(numberBackgroundImage);
+  document.body.style.backgroundImage = arrayBackground[numberBackgroundImage];
+  btnNext.disabled = true;
+  setTimeout(function () { btnNext.disabled = false }, 1000);
+});
+
+
 
 //_____________________________________________________________________DATE
 // DOM Elements
@@ -45,29 +93,29 @@ function addZero(n) {
 
 // Set Background and Greeting
 function setBgGreet() {
-  let randomValue = Math.floor(0 + Math.random() * 5 + 1 - 0);
+
   let today = new Date(),
     hour = today.getHours();
 
   if (hour >= 3 && hour < 9) {
     // Morning
     document.body.style.backgroundImage =
-      "url('assets/images/morning/" + randomValue + ".jpg')";
+      arrayBackground[hour];
     greeting.textContent = 'Good Morning , ';
   } else if (hour >= 9 && hour < 15) {
     // Day
     document.body.style.backgroundImage =
-      "url('assets/images/day/" + randomValue + ".jpg')";
+      arrayBackground[hour];
     greeting.textContent = 'Have a nice day , ';
   } else if (hour >= 15 && hour < 21) {
     // Evening
     document.body.style.backgroundImage =
-      "url('assets/images/evening/" + randomValue + ".jpg')";
+      arrayBackground[hour];
     greeting.textContent = 'Good Evening , ';
   } else if (hour >= 21 || hour < 3) {
     // Night
     document.body.style.backgroundImage =
-      "url('assets/images/night/" + randomValue + ".jpg')";
+      arrayBackground[hour];
     greeting.textContent = 'Good Night , ';
     document.body.style.color = 'white';
   }
@@ -81,8 +129,10 @@ function getName() {
     name.textContent = localStorage.getItem('name');
   }
 }
-let nameValue = name.textContent;
+
 // Set Name
+let nameValue = name.textContent;
+let focusValue = focus.textContent;
 function setName(e) {
   if (e.type === 'keypress') {
     // Make sure enter is pressed
@@ -116,24 +166,35 @@ function setFocus(e) {
   if (e.type === 'keypress') {
     // Make sure enter is pressed
     if (e.which == 13 || e.keyCode == 13) {
-      localStorage.setItem('focus', e.target.innerText);
+      if (e.target.innerText === '') {
+        if (localStorage.getItem('focus') !== null) focus.textContent = localStorage.getItem('focus');
+        else focus.textContent = focusValue;
+      } else localStorage.setItem('focus', e.target.innerText);
       focus.blur();
     }
   } else {
-    localStorage.setItem('focus', e.target.innerText);
+    if (e.target.innerText === '') {
+      if (localStorage.getItem('focus') !== null) focus.textContent = localStorage.getItem('focus');
+      else focus.textContent = focusValue;
+    } else localStorage.setItem('focus', e.target.innerText);
+    focus.blur();
   }
 }
-
-
 
 function clickName() {
   nameValue = name.textContent;
   name.textContent = '';
 }
 
+function clickFocus() {
+  focusValue = focus.textContent;
+  focus.textContent = '';
+}
+
 name.addEventListener('click', clickName);
 name.addEventListener('keypress', setName);
 name.addEventListener('blur', setName);
+focus.addEventListener('click', clickFocus);
 focus.addEventListener('keypress', setFocus);
 focus.addEventListener('blur', setFocus);
 
@@ -143,44 +204,90 @@ setBgGreet();
 getName();
 getFocus();
 
-
-
-
 //_____________________________________________________________________WEATHER
 const weatherIcon = document.querySelector('.weather-icon');
 const temperature = document.querySelector('.temperature');
+const humidity = document.querySelector('.humidity');
+const speedWind = document.querySelector('.speed__wind');
 const weatherDescription = document.querySelector('.weather-description');
 const city = document.querySelector('.city');
 
+
+
 async function getWeather() {
-  const url = `https://api.openweathermap.org/data/2.5/weather?q=${city.textContent}&lang=ru&appid=b9263267a94c30aaafc8ee41fb19e494&units=metric`;
+  const url = `https://api.openweathermap.org/data/2.5/weather?q=${city.textContent}&lang=en&appid=b9263267a94c30aaafc8ee41fb19e494&units=metric`;
 
   // ${city.textContent}
   const res = await fetch(url);
   const data = await res.json();
+  console.log(data);
+  if (data.message === 'city not found') {
+    city.textContent = 'Not found:Retry';
 
-  weatherIcon.className = 'weather-icon owf';
-  weatherIcon.classList.add(`owf-${data.weather[0].id}`);
-  temperature.textContent = `${data.main.temp.toFixed(0)}°C`;
-  weatherDescription.textContent = data.weather[0].description;
+
+    temperature.textContent = `undefined`;
+    humidity.textContent = `undefined`;
+    speedWind.textContent = `undefined`;
+    weatherDescription.textContent = `undefined`;
+  } else {
+    console.log(data.message);
+    weatherIcon.className = 'weather-icon owf';
+    weatherIcon.classList.add(`owf-${data.weather[0].id}`);
+    temperature.textContent = `${data.main.temp.toFixed(0)}°C`;
+    humidity.textContent = `Humidity ${data.main.humidity}%`;
+    speedWind.textContent = `Wind speed ${data.wind.speed} m/s`;
+    weatherDescription.textContent = data.weather[0].description;
+  }
+
 }
 
-function setCity(event) {
-  if (event.code === 'Enter') {
+
+let cityValue = city.textContent;
+function setCity(e) {
+  if (e.type === 'keypress') {
+    // Make sure enter is pressed
+    if (e.keyCode === 13) {
+      if (e.target.innerText === '') {
+        if (localStorage.getItem('city') !== null) city.textContent = localStorage.getItem('city');
+        else city.textContent = cityValue;
+      } else localStorage.setItem('city', e.target.innerText);
+      getWeather();
+      city.blur();
+    }
+  } else {
+    if (e.target.innerText === '') {
+      if (localStorage.getItem('city') !== null) city.textContent = localStorage.getItem('city');
+      else city.textContent = cityValue;
+    } else localStorage.setItem('city', e.target.innerText);
     getWeather();
     city.blur();
   }
 }
 
+function getCity() {
+  if (localStorage.getItem('city') === null) {
+    city.textContent = '[Enter city]';
+  } else {
+    city.textContent = localStorage.getItem('city');
+  }
+}
+
+
+function clickCity() {
+  cityValue = city.textContent;
+  city.textContent = '';
+}
+
+
 document.addEventListener('DOMContentLoaded', getWeather);
+city.addEventListener('click', clickCity);
 city.addEventListener('keypress', setCity);
-
-
+city.addEventListener('blur', setCity);
 
 //_____________________________________________________________________QUOTE
 const blockquote = document.querySelector('blockquote');
 const figcaption = document.querySelector('figcaption');
-const btn = document.querySelector('.btn');
+const btn = document.querySelector('.refresh__button__quote');
 
 async function getQuote() {
   const url = `https://quote-garden.herokuapp.com/api/v2/quotes/random`;
@@ -193,3 +300,5 @@ async function getQuote() {
 }
 document.addEventListener('DOMContentLoaded', getQuote);
 btn.addEventListener('click', getQuote);
+
+

@@ -17,48 +17,57 @@
 <body>
 
   <div class="wrapper">
-    <div class="content__greeting">
-      <div class="greeting"></div>
-      <div class="name" contenteditable="true"></div>
-    </div>
-    <div class="content__date">
-      <div class="date"></div>
-      <div class="time"></div>
-    </div>
+    <button class="button__prev__background">
+      <img class="img__prev" src="/assets/images/icons/arrow-left.png" alt="Prev background">
+    </button>
+    <div class="wrapper__content">
+      <div class="content__greeting">
+        <div class="greeting"></div>
+        <div class="name" contenteditable="true"></div>
+      </div>
+      <div class="content__date">
+        <div class="date"></div>
+        <div class="time"></div>
+      </div>
+      <div class="content">
+        <div class="content__item">
+          <div class="target">
+            <p class="target__title">What Is Your Focus For Today?</p>
+            <p class="focus" contenteditable="true"></p>
+          </div>
+        </div>
+        <div class="content__item">
+          <div class="weather">
+            <div class="city" contenteditable="true">Gomel</div>
+            <i class="weather-icon owf"></i>
+            <div class="temperature"></div>
+            <div class="humidity"></div>
+            <div class="speed__wind"></div>
+            <div class="weather-description"></div>
+          </div>
+        </div>
+        <div class="content__item">
+          <div class="famous__phrases">
+            <div class="quote__title">
+              <button class="refresh__button__quote">
+                <img class="img__quote" src="/assets/images/icons/refresh.png" alt="Refresh quote">
+              </button>
+              <p>Quote of the Day</p>
+            </div>
 
-    <div class="content">
-
-      <div class="content__item">
-        <div class="target">
-          <p class="target__title">What Is Your Focus For Today?</p>
-          <p class="focus" contenteditable="true"></p>
+            <figure class="quote">
+              <blockquote>
+              </blockquote>
+              <figcaption>
+              </figcaption>
+            </figure>
+          </div>
         </div>
       </div>
-      <div class="content__item">
-        <div class="city" contenteditable="true">Жлобин</div>
-        <i class="weather-icon owf"></i>
-        <div class="temperature"></div>
-        <div class="weather-description"></div>
-      </div>
-      <div class="content__item">
-        <button class="btn"></button>
-        <figure class="quote">
-          <blockquote>
-
-          </blockquote>
-          <figcaption>
-
-          </figcaption>
-        </figure>
-      </div>
     </div>
-
-
-
-
-    <div class="quote">
-      <button></button>
-    </div>
+    <button class="button__next__background">
+      <img class="img__prev" src="/assets/images/icons/arrow-right.png" alt="Prev background">
+    </button>
   </div>
 
   <script src="script.js"></script>
