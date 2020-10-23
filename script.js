@@ -20,30 +20,47 @@ for (let index = 0; index < 24; index++) {
     // Night
     arrayBackground[index] = "url('assets/images/night/" + arrayRandomValue[index] + ".jpg')";
   }
+
 }
+console.log(arrayRandomValue);
 
 const btnPrev = document.querySelector('.button__prev__background');
 const btnNext = document.querySelector('.button__next__background');
+
+function changeBackground() {
+  let today = new Date(),
+    hour = today.getHours(),
+    seconds = today.getSeconds();
+  minutes = today.getMinutes();
+  numberBackgroundImage = hour;
+  console.log(minutes + " : " + seconds);
+  if (minutes === 0 && seconds === 01) {
+    document.body.style.backgroundImage = arrayBackground[numberBackgroundImage];
+  }
+  // setTimeout(changeBackground, 1000);
+}
 
 let today = new Date(),
   hour = today.getHours(),
   numberBackgroundImage = hour;
 
 btnNext.addEventListener('click', () => {
-  numberBackgroundImage--;
-  console.log(numberBackgroundImage);
+  numberBackgroundImage++;
   document.body.style.backgroundImage = arrayBackground[numberBackgroundImage];
   btnNext.disabled = true;
   setTimeout(function () { btnNext.disabled = false }, 1000);
+  checkBtns();
 });
 
 btnPrev.addEventListener('click', () => {
-  numberBackgroundImage++;
-  console.log(numberBackgroundImage);
+  numberBackgroundImage--;
   document.body.style.backgroundImage = arrayBackground[numberBackgroundImage];
   btnNext.disabled = true;
   setTimeout(function () { btnNext.disabled = false }, 1000);
+  checkBtns();
 });
+
+changeBackground();
 
 
 
@@ -91,31 +108,36 @@ function addZero(n) {
   return (parseInt(n, 10) < 10 ? '0' : '') + n;
 }
 
+const checkBtns = () => {
+  btnPrev.disabled = numberBackgroundImage <= 0;
+  btnNext.disabled = numberBackgroundImage >= 23;
+  console.log(numberBackgroundImage);
+}
+
+checkBtns();
+
 // Set Background and Greeting
 function setBgGreet() {
 
   let today = new Date(),
     hour = today.getHours();
+  document.body.style.backgroundImage = arrayBackground[hour];
 
   if (hour >= 3 && hour < 9) {
     // Morning
-    document.body.style.backgroundImage =
-      arrayBackground[hour];
+
     greeting.textContent = 'Good Morning , ';
   } else if (hour >= 9 && hour < 15) {
     // Day
-    document.body.style.backgroundImage =
-      arrayBackground[hour];
+
     greeting.textContent = 'Have a nice day , ';
   } else if (hour >= 15 && hour < 21) {
     // Evening
-    document.body.style.backgroundImage =
-      arrayBackground[hour];
+
     greeting.textContent = 'Good Evening , ';
   } else if (hour >= 21 || hour < 3) {
     // Night
-    document.body.style.backgroundImage =
-      arrayBackground[hour];
+
     greeting.textContent = 'Good Night , ';
     document.body.style.color = 'white';
   }
@@ -220,17 +242,14 @@ async function getWeather() {
   // ${city.textContent}
   const res = await fetch(url);
   const data = await res.json();
-  console.log(data);
+
   if (data.message === 'city not found') {
     city.textContent = 'Not found:Retry';
-
-
     temperature.textContent = `undefined`;
     humidity.textContent = `undefined`;
     speedWind.textContent = `undefined`;
     weatherDescription.textContent = `undefined`;
   } else {
-    console.log(data.message);
     weatherIcon.className = 'weather-icon owf';
     weatherIcon.classList.add(`owf-${data.weather[0].id}`);
     temperature.textContent = `${data.main.temp.toFixed(0)}°C`;
@@ -293,7 +312,6 @@ async function getQuote() {
   const url = `https://quote-garden.herokuapp.com/api/v2/quotes/random`;
   const res = await fetch(url);
   const data = await res.json();
-  console.log(data.quote.quoteAuthor);
 
   blockquote.textContent = data.quote.quoteText;
   figcaption.textContent = data.quote.quoteAuthor;

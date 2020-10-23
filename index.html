@@ -10,6 +10,7 @@
     href="https://fonts.googleapis.com/css2?family=Lobster&family=Lora:ital,wght@0,700;1,400&family=Roboto:wght@400;500;700&display=swap"
     rel="stylesheet">
   <link rel="stylesheet" href="/css/style.css">
+  <link rel="shortcut icon" type="image/png" href="/assets/images/icons/momentum.ico" />
 
   <title>momentum</title>
 </head>
@@ -25,44 +26,41 @@
         <div class="greeting"></div>
         <div class="name" contenteditable="true"></div>
       </div>
-      <div class="content__date">
-        <div class="date"></div>
-        <div class="time"></div>
+      <div class="date__weather">
+        <div class="content__date">
+          <div class="date"></div>
+          <div class="time"></div>
+        </div>
+        <div class="weather">
+          <div class="city" contenteditable="true">Gomel</div>
+          <i class="weather-icon owf"></i>
+          <div class="temperature"></div>
+          <div class="humidity"></div>
+          <div class="speed__wind"></div>
+          <div class="weather-description"></div>
+        </div>
       </div>
       <div class="content">
-        <div class="content__item">
-          <div class="target">
-            <p class="target__title">What Is Your Focus For Today?</p>
-            <p class="focus" contenteditable="true"></p>
-          </div>
+        <div class="target">
+          <p class="target__title">What Is Your Focus For Today?</p>
+          <p class="focus" contenteditable="true"></p>
         </div>
-        <div class="content__item">
-          <div class="weather">
-            <div class="city" contenteditable="true">Gomel</div>
-            <i class="weather-icon owf"></i>
-            <div class="temperature"></div>
-            <div class="humidity"></div>
-            <div class="speed__wind"></div>
-            <div class="weather-description"></div>
-          </div>
-        </div>
-        <div class="content__item">
-          <div class="famous__phrases">
-            <div class="quote__title">
-              <button class="refresh__button__quote">
-                <img class="img__quote" src="/assets/images/icons/refresh.png" alt="Refresh quote">
-              </button>
-              <p>Quote of the Day</p>
-            </div>
 
-            <figure class="quote">
-              <blockquote>
-              </blockquote>
-              <figcaption>
-              </figcaption>
-            </figure>
+        <div class="famous__phrases">
+          <div class="quote__title">
+            <p>Quote of the Day</p>
+            <button class="refresh__button__quote">
+              <img class="img__quote" src="/assets/images/icons/refresh.png" alt="Refresh quote">
+            </button>
           </div>
+          <figure class="quote">
+            <blockquote>
+            </blockquote>
+            <figcaption>
+            </figcaption>
+          </figure>
         </div>
+
       </div>
     </div>
     <button class="button__next__background">
