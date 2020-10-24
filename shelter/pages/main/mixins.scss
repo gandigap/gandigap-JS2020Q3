@@ -1,0 +1,16 @@
+@mixin main-font-style-h3 {
+  color:$color-dark-l;
+  font-size: 35px;
+  font-family: Georgia;
+  line-height: 130%;
+  letter-spacing: 0.06em;
+}
+
+@mixin btn-style{
+  padding: 15px 45px;
+  color:$color-dark-xl;
+  font-size: 17px;
+  font-family: Georgia;
+  line-height: 130%;
+  letter-spacing: 0.06em;
+}
