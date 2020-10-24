@@ -22,7 +22,8 @@ for (let index = 0; index < 24; index++) {
   }
 
 }
-console.log(arrayRandomValue);
+
+
 
 const btnPrev = document.querySelector('.button__prev__background');
 const btnNext = document.querySelector('.button__next__background');
@@ -30,14 +31,13 @@ const btnNext = document.querySelector('.button__next__background');
 function changeBackground() {
   let today = new Date(),
     hour = today.getHours(),
-    seconds = today.getSeconds();
-  minutes = today.getMinutes();
-  numberBackgroundImage = hour;
-  console.log(minutes + " : " + seconds);
-  if (minutes === 0 && seconds === 01) {
-    document.body.style.backgroundImage = arrayBackground[numberBackgroundImage];
+    seconds = today.getSeconds(),
+    minutes = today.getMinutes();
+
+  if (minutes === 0 && seconds === 0) {
+    document.body.style.backgroundImage = arrayBackground[hour];
   }
-  // setTimeout(changeBackground, 1000);
+  setTimeout(changeBackground, 1000);
 }
 
 let today = new Date(),
@@ -45,24 +45,28 @@ let today = new Date(),
   numberBackgroundImage = hour;
 
 btnNext.addEventListener('click', () => {
-  numberBackgroundImage++;
+  numberBackgroundImage += 1;
   document.body.style.backgroundImage = arrayBackground[numberBackgroundImage];
-  btnNext.disabled = true;
-  setTimeout(function () { btnNext.disabled = false }, 1000);
+
   checkBtns();
 });
 
 btnPrev.addEventListener('click', () => {
-  numberBackgroundImage--;
+  numberBackgroundImage -= 1;
   document.body.style.backgroundImage = arrayBackground[numberBackgroundImage];
-  btnNext.disabled = true;
-  setTimeout(function () { btnNext.disabled = false }, 1000);
+
   checkBtns();
 });
 
 changeBackground();
 
+const checkBtns = () => {
+  btnPrev.disabled = numberBackgroundImage <= 0;
+  btnNext.disabled = numberBackgroundImage >= 23;
+  console.log(numberBackgroundImage);
+}
 
+checkBtns();
 
 //_____________________________________________________________________DATE
 // DOM Elements
@@ -85,9 +89,6 @@ function showTime() {
     min = today.getMinutes(),
     sec = today.getSeconds();
 
-  //Random
-
-
   //Arrays
   const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
   const weekDays = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
@@ -107,14 +108,6 @@ function showTime() {
 function addZero(n) {
   return (parseInt(n, 10) < 10 ? '0' : '') + n;
 }
-
-const checkBtns = () => {
-  btnPrev.disabled = numberBackgroundImage <= 0;
-  btnNext.disabled = numberBackgroundImage >= 23;
-  console.log(numberBackgroundImage);
-}
-
-checkBtns();
 
 // Set Background and Greeting
 function setBgGreet() {
