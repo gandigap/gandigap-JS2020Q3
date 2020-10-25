@@ -1252,6 +1252,7 @@ body {
   transform: translate(-50%, -50%);
   /* Разное */
   border-radius: 9px 0px 0px 9px;
+  display: none;
 }
 
 .modal__window {

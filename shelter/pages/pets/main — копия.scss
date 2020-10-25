@@ -415,7 +415,6 @@ will-change: auto;
             display: flex;
             flex-wrap: wrap;
             justify-content: space-between;
-
             /* Типографика */
             /* Оформление */
             /* Анимация */
@@ -774,7 +773,7 @@ will-change: auto;
 
 
 
-@media (max-width:1279px){
+@media (max-width:1280px){
     .header{
         /* Позиционирование */
         /* Блочная модель */
@@ -830,7 +829,15 @@ will-change: auto;
         /* Разное */
     }
 
-
+    .pets__slider__cards__card:nth-child(7) , .pets__slider__cards__card:nth-child(8){
+        /* Позиционирование */
+        /* Блочная модель */
+        display: none;
+        /* Типографика */
+        /* Оформление */
+        /* Анимация */
+        /* Разное */
+    }
 
     .pets__slider__cards__card{
         /* Позиционирование */
@@ -887,7 +894,6 @@ will-change: auto;
         /* Позиционирование */
         /* Блочная модель */
         width: 100%;
-        height: 120px;
         /* Типографика */
         /* Оформление */
         /* Анимация */
@@ -1133,7 +1139,7 @@ will-change: auto;
     .pets__slider__cards__card:nth-child(4), .pets__slider__cards__card:nth-child(5), .pets__slider__cards__card:nth-child(6){
         /* Позиционирование */
         /* Блочная модель */
-
+        display: none;
         /* Типографика */
         /* Оформление */
         /* Анимация */

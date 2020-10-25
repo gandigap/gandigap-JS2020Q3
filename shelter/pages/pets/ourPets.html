@@ -72,11 +72,11 @@
                             </div>
                         </div>
                         <div class="pets__slider">
-                            <div class="pets__slider__cards">
-                                <div class="pets__slider__cards__card">
+                            <div class="pets__slider__cards" id="pets">
+                                <!-- <div class="pets__slider__cards__card">
                                     <div class="pets__slider__cards__item">
                                         <div class="pets__slider__cards__card__img">
-                                            <img src="../../assets/images/pets-cat-katrine.png" alt="Cat Katrine">
+                                            <img src="../../assets/images/katrine.png" alt="Cat Katrine">
                                         </div>
                                         <div class="pets__slider__cards__card__text">
                                             <div class="pets__slider__cards__card__title">
@@ -90,11 +90,11 @@
                                         </div>
                                     </div>
 
-                                </div>
-                                <div class="pets__slider__cards__card">
+                                </div> -->
+                                <!-- <div class="pets__slider__cards__card">
                                     <div class="pets__slider__cards__item">
                                         <div class="pets__slider__cards__card__img">
-                                            <img src="../../assets/images/pets-dog-jennifer.png" alt="Dog Jennifer">
+                                            <img src="../../assets/images/jennifer.png" alt="Dog Jennifer">
                                         </div>
                                         <div class="pets__slider__cards__card__text">
                                             <div class="pets__slider__cards__card__title">
@@ -112,7 +112,7 @@
                                 <div class="pets__slider__cards__card">
                                     <div class="pets__slider__cards__item">
                                         <div class="pets__slider__cards__card__img">
-                                            <img src="../../assets/images/pets-dog-woody.png" alt="Dog Woody">
+                                            <img src="../../assets/images/woody.png" alt="Dog Woody">
                                         </div>
                                         <div class="pets__slider__cards__card__text">
                                             <div class="pets__slider__cards__card__title">
@@ -130,7 +130,7 @@
                                 <div class="pets__slider__cards__card">
                                     <div class="pets__slider__cards__item">
                                         <div class="pets__slider__cards__card__img">
-                                            <img src="../../assets/images/pets-dog-sophia.png" alt="Dog Sophia">
+                                            <img src="../../assets/images/sophia.png" alt="Dog Sophia">
                                         </div>
                                         <div class="pets__slider__cards__card__text">
                                             <div class="pets__slider__cards__card__title">
@@ -148,7 +148,7 @@
                                 <div class="pets__slider__cards__card">
                                     <div class="pets__slider__cards__item">
                                         <div class="pets__slider__cards__card__img">
-                                            <img src="../../assets/images/pets-cat-timmy.png" alt="Cat Timmy">
+                                            <img src="../../assets/images/timmy.png" alt="Cat Timmy">
                                         </div>
                                         <div class="pets__slider__cards__card__text">
                                             <div class="pets__slider__cards__card__title">
@@ -166,7 +166,7 @@
                                 <div class="pets__slider__cards__card">
                                     <div class="pets__slider__cards__item">
                                         <div class="pets__slider__cards__card__img">
-                                            <img src="../../assets/images/pets-dog-charly.png" alt="Dog Charly">
+                                            <img src="../../assets/images/charly.png" alt="Dog Charly">
                                         </div>
                                         <div class="pets__slider__cards__card__text">
                                             <div class="pets__slider__cards__card__title">
@@ -184,7 +184,7 @@
                                 <div class="pets__slider__cards__card">
                                     <div class="pets__slider__cards__item">
                                         <div class="pets__slider__cards__card__img">
-                                            <img src="../../assets/images/pets-dog-scarlet.png" alt="Dog Scarlett">
+                                            <img src="../../assets/images/scarlett.png" alt="Dog Scarlett">
                                         </div>
                                         <div class="pets__slider__cards__card__text">
                                             <div class="pets__slider__cards__card__title">
@@ -202,7 +202,7 @@
                                 <div class="pets__slider__cards__card">
                                     <div class="pets__slider__cards__item">
                                         <div class="pets__slider__cards__card__img">
-                                            <img src="../../assets/images/pets-cat-freddie.png" alt="Cat Freddie">
+                                            <img src="../../assets/images/freddie.png" alt="Cat Freddie">
                                         </div>
                                         <div class="pets__slider__cards__card__text">
                                             <div class="pets__slider__cards__card__title">
@@ -216,28 +216,29 @@
                                         </div>
                                     </div>
 
-                                </div>
-
+                                </div> -->
                             </div>
                         </div>
                         <div class="pets__slider__nav">
-                            <button class="pets__slider__nav__item pets__slider__double_arrow-backward" type="button"
-                                disabled>
+                            <button class="pets__slider__nav__item pets__slider__double_arrow-backward" id="firstPage"
+                                type="button">
                                 &#60;&#60;
                             </button>
-                            <button class="pets__slider__nav__item pets__slider__single_arrow-backward" type="button"
-                                disabled>
+                            <button class="pets__slider__nav__item pets__slider__single_arrow-backward" id="prevPage"
+                                type="button">
                                 &#60;
                             </button>
                             <button
                                 class="pets__slider__nav__item pets__slider__number_pages pets__slider__nav__item-active"
-                                type="button">
+                                id="currentPage" type="button">
                                 1
                             </button>
-                            <button class="pets__slider__nav__item pets__slider__single_arrow-forward" type="button">
+                            <button class="pets__slider__nav__item pets__slider__single_arrow-forward" id="nextPage"
+                                type="button">
                                 &#62;
                             </button>
-                            <button class="pets__slider__nav__item pets__slider__double_arrow-forward" type="button">
+                            <button class="pets__slider__nav__item pets__slider__double_arrow-forward" id="lastPage"
+                                type="button">
                                 &#62;&#62;
                             </button>
                             <a href="" disa></a>
@@ -311,6 +312,7 @@
             </div>
         </div>
     </footer>
+    <script src="./index.js"></script>
 </body>
 
 </html>
