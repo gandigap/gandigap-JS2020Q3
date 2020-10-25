@@ -9,21 +9,19 @@ for (let index = 0; index < 24; index++) {
 for (let index = 0; index < 24; index++) {
   if (index >= 3 && index < 9) {
     // Morning
-    arrayBackground[index] = "url('assets/images/morning/" + arrayRandomValue[index] + ".jpg')";
+    arrayBackground[index] = "assets/images/morning/" + arrayRandomValue[index] + ".jpg";
   } else if (index >= 9 && index < 15) {
     // Day
-    arrayBackground[index] = "url('assets/images/day/" + arrayRandomValue[index] + ".jpg')";
+    arrayBackground[index] = "assets/images/day/" + arrayRandomValue[index] + ".jpg";
   } else if (index >= 15 && index < 21) {
     // Evening
-    arrayBackground[index] = "url('assets/images/evening/" + arrayRandomValue[index] + ".jpg')";
+    arrayBackground[index] = "assets/images/evening/" + arrayRandomValue[index] + ".jpg";
   } else if (index >= 21 || index < 3) {
     // Night
-    arrayBackground[index] = "url('assets/images/night/" + arrayRandomValue[index] + ".jpg')";
+    arrayBackground[index] = "assets/images/night/" + arrayRandomValue[index] + ".jpg";
   }
 
 }
-
-
 
 const btnPrev = document.querySelector('.button__prev__background');
 const btnNext = document.querySelector('.button__next__background');
@@ -46,24 +44,32 @@ let today = new Date(),
 
 btnNext.addEventListener('click', () => {
   numberBackgroundImage += 1;
-  document.body.style.backgroundImage = arrayBackground[numberBackgroundImage];
-
+  viewBgImage(arrayBackground[numberBackgroundImage]);    
   checkBtns();
 });
 
 btnPrev.addEventListener('click', () => {
   numberBackgroundImage -= 1;
-  document.body.style.backgroundImage = arrayBackground[numberBackgroundImage];
-
+  viewBgImage(arrayBackground[numberBackgroundImage]);   
   checkBtns();
 });
 
 changeBackground();
 
+
+function viewBgImage(data) {
+  const body = document.querySelector('body');
+  const src = data;
+  const img = document.createElement('img');
+  img.src = src;
+  img.onload = () => {      
+    body.style.backgroundImage = `url(${src})`;
+  }; 
+}
+
 const checkBtns = () => {
   btnPrev.disabled = numberBackgroundImage <= 0;
-  btnNext.disabled = numberBackgroundImage >= 23;
-  console.log(numberBackgroundImage);
+  btnNext.disabled = numberBackgroundImage >= 23;  
 }
 
 checkBtns();
@@ -114,7 +120,8 @@ function setBgGreet() {
 
   let today = new Date(),
     hour = today.getHours();
-  document.body.style.backgroundImage = arrayBackground[hour];
+  document.body.style.backgroundImage = `url(${arrayBackground[hour]})`;
+    
 
   if (hour >= 3 && hour < 9) {
     // Morning
@@ -311,5 +318,7 @@ async function getQuote() {
 }
 document.addEventListener('DOMContentLoaded', getQuote);
 btn.addEventListener('click', getQuote);
+
+
 
 
