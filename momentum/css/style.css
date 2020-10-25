@@ -74,9 +74,19 @@ h1, h2, h3, h4, h5, h6 {
 
 body{
 
-  transition: background-image 1s ease-in;
-    background-size: 100% 100%;
+  
+    background-position: center center; 
+    background-repeat: no-repeat; 
+    background-attachment: fixed; 
+    background-size: cover;
+  
+  
+    -webkit-transition:background-image 1s ease-in;
+     -moz-transition: background-image 1s ease-in;
+     -o-transition: background-image 1s ease-in;
+     transition: background-image 1s ease-in;
   letter-spacing: 0.1rem;
+    
 }
 
 .wrapper{
