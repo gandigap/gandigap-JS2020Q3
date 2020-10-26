@@ -41,27 +41,20 @@ fetch('./pets.json').then(res => res.json()).then(list => {
     }
   }
 })
-// request.onload = () => {
-//   pets = JSON.parse(request.response);
 
-
-
-
-
-// }
 
 const createPets = (petsList) => {
   const elem = document.querySelector("#pets");
   elem.innerHTML += createElements(petsList);
 }
 
-let petPosition = 0
+let petPosition = 0;
 
 createElements = (petsList) => {
   let startPetPosition = petPosition;
   let str = '';
   for (let i = 0; i < itemsPerPage; i++) {
-    str += `<div class="pets__slider__cards__card">
+    str += `<div class="pets__slider__cards__card" onclick="openPopup(${startPetPosition})">
               <div class="pets__slider__cards__item">
                 <div class="pets__slider__cards__card__img">
                   <img src="../../${petsList[startPetPosition].img}" alt="${petsList[startPetPosition].name}">
@@ -190,12 +183,6 @@ const checkBtns = () => {
   console.log(itemsPerPage);
 }
 
-checkBtns();
-
-
-// (fullPetsList / itemsPerPage)
-
-
 
 const checkItemsPerPage = () => {
   if (document.querySelector("body").offsetWidth >= 768 && document.querySelector("body").offsetWidth < 1280) {
@@ -204,8 +191,6 @@ const checkItemsPerPage = () => {
     itemsPerPage = 3;
   }
 
-
-  // setTimeout(checkItemsPerPage, 3000);
 }
 
 
@@ -216,7 +201,58 @@ const removePets = () => {
   }
 }
 
+const openPopup = (petsIndex) => {
+  const elem = document.body;
+  elem.innerHTML += `<div class="modal" id="modal">
+                      <button class="modal__button" onclick="removeModal()">
+                        <div class="modal__button__close" >
+                          ×
+                        </div>
+                      </button>
+                      <div class="modal__window">
+                        <div class="modal__window__img">
+                          <img src="../.${fullPetsList[petsIndex].img}" alt="">
+                        </div>
+                        <div class="modal__window__content">
+                          <div class="modal__window__content__pet_name">${fullPetsList[petsIndex].name}</div>
+                          <div class="modal__window__content__pet_type_breed">${fullPetsList[petsIndex].type} - ${fullPetsList[petsIndex].breed}</div>
+                          <div class="modal__window__content__pet_description">${fullPetsList[petsIndex].description}</div>
+                            <ul class="modal__window__content__pet_list">
+                              <li class="modal__window__content__pet_age">
+                                <img src="../../assets/icons/dot.svg" alt="dot"><span class="pet__list__title__age">Age: </span> ${fullPetsList[petsIndex].age}
+                              </li>
+                              <li class="modal__window__content__pet_inoculations">
+                                <img src="../../assets/icons/dot.svg" alt="dot"><span class="pet__list__title__inoculations">Inoculations: </span> ${fullPetsList[petsIndex].inoculations}
+                              </li>
+                              <li class="modal__window__content__pet_diseases">
+                                <img src="../../assets/icons/dot.svg" alt="dot"><span class="pet__list__title__diseases">Diseases: </span>${fullPetsList[petsIndex].diseases}
+                              </li>
+                              <li class="modal__window__content__pet_parasites">
+                               <img src="../../assets/icons/dot.svg" alt="dot"><span class="pet__list__title__parasites">Parasites: </span> ${fullPetsList[petsIndex].parasites}
+                              </li>
+                            </ul>
+                          </div>
+                        </div>
+                      </div>
+                      <div id="overlay" onclick="removeModal()"></div>`;
+}
+
+
+const removeModal = () => {
+  let overlay = document.getElementById("overlay");
+  let modal = document.getElementById("modal");
+  overlay.parentNode.removeChild(overlay);
+  modal.parentNode.removeChild(modal);
+}
+
+const checkSizeWindow = () => {
+  setTimeout(checkSizeWindow, 1000);
+  // console.log(document.querySelector("body").offsetWidth);
+}
+
 checkItemsPerPage();
+checkSizeWindow();
+checkBtns();
 
 
 
