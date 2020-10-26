@@ -2,7 +2,7 @@ let pets = []; // 8
 let fullPetsList = []; // 48
 const request = new XMLHttpRequest();
 request.open('GET', './pets.json');
-request.onload = () => { }; /* в фигурные скобки добавить  console.log(request.response) */
+request.onload = () => {console.log(request.response)};
 fetch('./pets.json').then(res => res.json()).then(list => {
   pets = list;
 
@@ -24,59 +24,39 @@ fetch('./pets.json').then(res => res.json()).then(list => {
   })();
 
   fullPetsList = sort863(fullPetsList);
-  console.log(fullPetsList);
+
   createPets(fullPetsList);
 
-
+  document.querySelector("#currentPage").innerText = (currentPage+1).toString();
 
   for (let i = 0; i < (fullPetsList.length / 6); i++) {
     const stepList = fullPetsList.slice(i * 6, (i * 6) + 6);
 
     for (let j = 0; j < 6; j++) {
       stepList.forEach((item, ind) => {
-        if (item.name === stepList[j].name && (ind !== j)) {
+        if ( item.name === stepList[j].name && (ind !== j) ) {
           document.querySelector("#pets").children[(i * 6) + j].style.border = '5px solid red';
         }
       })
     }
   }
 })
+// request.onload = () => {
+//   pets = JSON.parse(request.response);
 
+
+// }
 
 const createPets = (petsList) => {
   const elem = document.querySelector("#pets");
   elem.innerHTML += createElements(petsList);
 }
 
-let petPosition = 0
-
 createElements = (petsList) => {
-  let startPetPosition = petPosition;
   let str = '';
-  for (let i = 0; i < itemsPerPage; i++) {
-    str += `<div class="pets__slider__cards__card" onclick="openPopup(${startPetPosition})">
-              <div class="pets__slider__cards__item">
-                <div class="pets__slider__cards__card__img">
-                  <img src="../../${petsList[startPetPosition].img}" alt="${petsList[startPetPosition].name}">
-                </div>
-                <div class="pets__slider__cards__card__text">
-                  <div class="pets__slider__cards__card__title">
-                    ${petsList[startPetPosition].name}
-                  </div>
-                  <div class=pets__slider__cards__card__btn>
-                    <button class="pets__slider__cards__card__button" type="button">
-                      Learn more
-                    </button>
-                  </div>
-                </div>
-              </div>
-            </div>`;
-
-    startPetPosition += 1;
-
-
+  for (let i = 0; i < petsList.length; i++) {
+    str += `<img src=" ${ petsList[i].img } ">`;
   }
-  console.log(startPetPosition);
   return str;
 }
 
@@ -137,126 +117,33 @@ const sort6recursively = (list) => {
 }
 
 let currentPage = 0;
-
 document.querySelector("#prevPage").addEventListener('click', (e) => {
-  currentPage--;
-  removePets();
-  petPosition -= itemsPerPage;
-  createPets(fullPetsList);
-  checkBtns();
+  if (currentPage > 0) {
+    currentPage--;
+    console.log(currentPage+1);
+  }
+  document.querySelector("#pets").style.top = `calc(35px - ${190 * currentPage}px)`;
+  document.querySelector("#currentPage").innerText = (currentPage+1).toString();
+
 });
 
 document.querySelector("#nextPage").addEventListener('click', (e) => {
-  console.log("нажал вперед");
-  currentPage++;
-  removePets();
-  petPosition += itemsPerPage;
-  createPets(fullPetsList);
-  checkBtns();
+  if (currentPage < (document.querySelector("#pets").offsetHeight / 190) - 1) {
+    currentPage++;
+    console.log(currentPage+1);
+  }
+
+  document.querySelector("#pets").style.top = `calc(35px - ${190 * currentPage}px)`;
+  document.querySelector("#currentPage").innerText = (currentPage+1).toString();
 });
 
+(fullPetsList / itemsPerPage)
 
+// let itemsPerPage = 8;
 
-let itemsPerPage = 3;
+// const checkItemsPerPage = () => {
+//   if (document.querySelector("body").offsetWidth > 768 && document.querySelector("body").offsetWidth < 1280) {
+//     itemsPerPage = 6;
 
-const checkBtns = () => {
-  document.querySelector("#prevPage").disabled = currentPage === 0;
-  document.querySelector("#nextPage").disabled = currentPage + 1 === (fullPetsList.length / itemsPerPage);
-
-  console.log(itemsPerPage);
-}
-
-const checkItemsPerPage = () => {
-
-  if (document.querySelector("body").offsetWidth >= 1280) {
-
-    if (itemsPerPage !== 3) {
-      itemsPerPage = 3;
-      removePets();
-      createPets(fullPetsList);
-    }
-    itemsPerPage = 3;
-  } else if (document.querySelector("body").offsetWidth >= 768 && document.querySelector("body").offsetWidth < 1280) {
-    if (itemsPerPage !== 2) {
-      itemsPerPage = 2;
-      removePets();
-      createPets(fullPetsList);
-    }
-
-  } else {
-    if (itemsPerPage !== 1) {
-      itemsPerPage = 1;
-      removePets();
-      createPets(fullPetsList);
-    }
-  }
-
-
-  setTimeout(checkItemsPerPage, 3000);
-}
-
-
-const removePets = () => {
-  const myNode = document.getElementById("pets");
-  while (myNode.firstChild) {
-    myNode.removeChild(myNode.lastChild);
-  }
-}
-
-const openPopup = (petsIndex) => {
-  const elem = document.body;
-  elem.innerHTML += `<div class="modal" id="modal">
-                      <button class="modal__button" onclick="removeModal()">
-                        <div class="modal__button__close" >
-                          ×
-                        </div>
-                      </button>
-                      <div class="modal__window">
-                        <div class="modal__window__img">
-                          <img src="../.${fullPetsList[petsIndex].img}" alt="">
-                        </div>
-                        <div class="modal__window__content">
-                          <div class="modal__window__content__pet_name">${fullPetsList[petsIndex].name}</div>
-                          <div class="modal__window__content__pet_type_breed">${fullPetsList[petsIndex].type} - ${fullPetsList[petsIndex].breed}</div>
-                          <div class="modal__window__content__pet_description">${fullPetsList[petsIndex].description}</div>
-                            <ul class="modal__window__content__pet_list">
-                              <li class="modal__window__content__pet_age">
-                                <img src="../../assets/icons/dot.svg" alt="dot"><span class="pet__list__title__age">Age: </span> ${fullPetsList[petsIndex].age}
-                              </li>
-                              <li class="modal__window__content__pet_inoculations">
-                                <img src="../../assets/icons/dot.svg" alt="dot"><span class="pet__list__title__inoculations">Inoculations: </span> ${fullPetsList[petsIndex].inoculations}
-                              </li>
-                              <li class="modal__window__content__pet_diseases">
-                                <img src="../../assets/icons/dot.svg" alt="dot"><span class="pet__list__title__diseases">Diseases: </span>${fullPetsList[petsIndex].diseases}
-                              </li>
-                              <li class="modal__window__content__pet_parasites">
-                               <img src="../../assets/icons/dot.svg" alt="dot"><span class="pet__list__title__parasites">Parasites: </span> ${fullPetsList[petsIndex].parasites}
-                              </li>
-                            </ul>
-                          </div>
-                        </div>
-                      </div>
-                      <div id="overlay" onclick="removeModal()"></div>`;
-}
-
-
-const removeModal = () => {
-  let overlay = document.getElementById("overlay");
-  let modal = document.getElementById("modal");
-  overlay.parentNode.removeChild(overlay);
-  modal.parentNode.removeChild(modal);
-}
-
-const checkSizeWindow = () => {
-  setTimeout(checkSizeWindow, 1000);
-  // console.log(document.querySelector("body").offsetWidth);
-}
-
-checkItemsPerPage();
-checkSizeWindow();
-checkBtns();
-
-
-
-
-
+//   }
+// }

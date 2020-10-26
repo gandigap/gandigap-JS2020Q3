@@ -27,7 +27,7 @@ fetch('./pets.json').then(res => res.json()).then(list => {
   console.log(fullPetsList);
   createPets(fullPetsList);
 
-  document.querySelector("#currentPage").innerText = (currentPage + 1).toString();
+
 
   for (let i = 0; i < (fullPetsList.length / 6); i++) {
     const stepList = fullPetsList.slice(i * 6, (i * 6) + 6);
@@ -41,14 +41,7 @@ fetch('./pets.json').then(res => res.json()).then(list => {
     }
   }
 })
-// request.onload = () => {
-//   pets = JSON.parse(request.response);
 
-
-
-
-
-// }
 
 const createPets = (petsList) => {
   const elem = document.querySelector("#pets");
@@ -61,7 +54,7 @@ createElements = (petsList) => {
   let startPetPosition = petPosition;
   let str = '';
   for (let i = 0; i < itemsPerPage; i++) {
-    str += `<div class="pets__slider__cards__card">
+    str += `<div class="pets__slider__cards__card" onclick="openPopup(${startPetPosition})">
               <div class="pets__slider__cards__item">
                 <div class="pets__slider__cards__card__img">
                   <img src="../../${petsList[startPetPosition].img}" alt="${petsList[startPetPosition].name}">
@@ -78,6 +71,7 @@ createElements = (petsList) => {
                 </div>
               </div>
             </div>`;
+
     startPetPosition += 1;
 
 
@@ -144,68 +138,61 @@ const sort6recursively = (list) => {
 
 let currentPage = 0;
 
-document.querySelector("#firstPage").addEventListener('click', (e) => {
-  currentPage = 0;
-  removePets();
-  petPosition = 0;
-  createPets(fullPetsList);
-  document.querySelector("#currentPage").innerText = (currentPage + 1).toString();
-  checkBtns();
-});
-
 document.querySelector("#prevPage").addEventListener('click', (e) => {
   currentPage--;
   removePets();
   petPosition -= itemsPerPage;
   createPets(fullPetsList);
-  document.querySelector("#currentPage").innerText = (currentPage + 1).toString();
   checkBtns();
 });
 
 document.querySelector("#nextPage").addEventListener('click', (e) => {
+  console.log("нажал вперед");
   currentPage++;
   removePets();
   petPosition += itemsPerPage;
   createPets(fullPetsList);
-  document.querySelector("#currentPage").innerText = (currentPage + 1).toString();
   checkBtns();
 });
 
-document.querySelector("#lastPage").addEventListener('click', (e) => {
-  currentPage = (fullPetsList.length / itemsPerPage) - 1;
-  removePets();
-  petPosition = (fullPetsList.length - itemsPerPage) - 1;
-  createPets(fullPetsList);
-  document.querySelector("#currentPage").innerText = (currentPage + 1).toString();
-  checkBtns();
-});
 
-let itemsPerPage = 8;
+
+let itemsPerPage = 3;
 
 const checkBtns = () => {
   document.querySelector("#prevPage").disabled = currentPage === 0;
   document.querySelector("#nextPage").disabled = currentPage + 1 === (fullPetsList.length / itemsPerPage);
-  document.querySelector("#firstPage").disabled = currentPage === 0;
-  document.querySelector("#lastPage").disabled = currentPage + 1 === (fullPetsList.length / itemsPerPage);
+
   console.log(itemsPerPage);
 }
 
-checkBtns();
-
-
-// (fullPetsList / itemsPerPage)
-
-
-
 const checkItemsPerPage = () => {
-  if (document.querySelector("body").offsetWidth >= 768 && document.querySelector("body").offsetWidth < 1280) {
-    itemsPerPage = 6;
-  } else {
+
+  if (document.querySelector("body").offsetWidth >= 1280) {
+
+    if (itemsPerPage !== 3) {
+      itemsPerPage = 3;
+      removePets();
+      createPets(fullPetsList);
+    }
     itemsPerPage = 3;
+  } else if (document.querySelector("body").offsetWidth >= 768 && document.querySelector("body").offsetWidth < 1280) {
+    if (itemsPerPage !== 2) {
+      itemsPerPage = 2;
+      removePets();
+      createPets(fullPetsList);
+    }
+
+  } else {
+    if (itemsPerPage !== 1) {
+      itemsPerPage = 1;
+      removePets();
+      createPets(fullPetsList);
+    }
   }
 
 
-  // setTimeout(checkItemsPerPage, 3000);
+  setTimeout(checkItemsPerPage, 3000);
 }
 
 
@@ -216,7 +203,60 @@ const removePets = () => {
   }
 }
 
+const openPopup = (petsIndex) => {
+  const elem = document.body;
+  elem.innerHTML += `<div class="modal" id="modal">
+                      <button class="modal__button" onclick="removeModal()">
+                        <div class="modal__button__close" >
+                          ×
+                        </div>
+                      </button>
+                      <div class="modal__window">
+                        <div class="modal__window__img">
+                          <img src="../.${fullPetsList[petsIndex].img}" alt="">
+                        </div>
+                        <div class="modal__window__content">
+                          <div class="modal__window__content__pet_name">${fullPetsList[petsIndex].name}</div>
+                          <div class="modal__window__content__pet_type_breed">${fullPetsList[petsIndex].type} - ${fullPetsList[petsIndex].breed}</div>
+                          <div class="modal__window__content__pet_description">${fullPetsList[petsIndex].description}</div>
+                            <ul class="modal__window__content__pet_list">
+                              <li class="modal__window__content__pet_age">
+                                <img src="../../assets/icons/dot.svg" alt="dot"><span class="pet__list__title__age">Age: </span> ${fullPetsList[petsIndex].age}
+                              </li>
+                              <li class="modal__window__content__pet_inoculations">
+                                <img src="../../assets/icons/dot.svg" alt="dot"><span class="pet__list__title__inoculations">Inoculations: </span> ${fullPetsList[petsIndex].inoculations}
+                              </li>
+                              <li class="modal__window__content__pet_diseases">
+                                <img src="../../assets/icons/dot.svg" alt="dot"><span class="pet__list__title__diseases">Diseases: </span>${fullPetsList[petsIndex].diseases}
+                              </li>
+                              <li class="modal__window__content__pet_parasites">
+                               <img src="../../assets/icons/dot.svg" alt="dot"><span class="pet__list__title__parasites">Parasites: </span> ${fullPetsList[petsIndex].parasites}
+                              </li>
+                            </ul>
+                          </div>
+                        </div>
+                      </div>
+                      <div id="overlay" onclick="removeModal()"></div>`;
+}
+
+
+const removeModal = () => {
+  let overlay = document.getElementById("overlay");
+  let modal = document.getElementById("modal");
+  overlay.parentNode.removeChild(overlay);
+  modal.parentNode.removeChild(modal);
+}
+
+const checkSizeWindow = () => {
+  setTimeout(checkSizeWindow, 1000);
+  // console.log(document.querySelector("body").offsetWidth);
+}
+
 checkItemsPerPage();
+checkSizeWindow();
+checkBtns();
+
+
 
 
 

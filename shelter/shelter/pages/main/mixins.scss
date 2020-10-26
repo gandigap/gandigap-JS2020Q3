@@ -48,7 +48,18 @@
     style:normal;
     weight:normal;
   }
-  line-height: 110%;
+  line-height: 115%;
+  letter-spacing: 0.06em;
+}
+
+@mixin h5-modal-window{
+  font: {
+    size:1.5rem;
+    family:Georgia;
+    style:normal;
+    weight:normal;
+  }
+  line-height: 115%;
   letter-spacing: 0.06em;
 }
 
