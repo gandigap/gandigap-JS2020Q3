@@ -492,6 +492,14 @@ body {
   /* Разное */
 }
 
+@keyframes eye {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
 .section__pets {
   /* Позиционирование */
   /* Блочная модель */
@@ -695,6 +703,7 @@ body {
   /* Типографика */
   /* Оформление */
   /* Анимация */
+  animation: eye 1s ease-in;
   /* Разное */
 }
 .pets__slider__cards__card__text {
