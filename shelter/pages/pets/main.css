@@ -315,14 +315,12 @@ body {
   /* Разное */
 }
 
-@keyframes slide {
+@keyframes eye {
   from {
-    width: 0px;
-    overflow: hidden;
+    opacity: 0;
   }
   to {
-    width: 1200px;
-    overflow: visible;
+    opacity: 1;
   }
 }
 .section__pets {
@@ -453,6 +451,7 @@ body {
   /* Типографика */
   /* Оформление */
   /* Анимация */
+  animation: eye 1s ease-in;
   /* Разное */
 }
 .pets__slider__cards__card__text {
