@@ -605,8 +605,6 @@ will-change: auto;
             /* Разное */
         }
 
-
-
         button:hover{
             /* Позиционирование */
             /* Блочная модель */
@@ -626,6 +624,17 @@ will-change: auto;
             background-color:$color-light-xl;
             cursor: default;
             /* Анимация */
+            /* Разное */
+        }
+
+        button:active{
+            /* Позиционирование */
+            /* Блочная модель */
+            /* Типографика */
+            /* Оформление */
+            background-color: $color-primary-color;
+            /* Анимация */
+            transition: 0.2s;
             /* Разное */
         }
 
@@ -665,7 +674,6 @@ will-change: auto;
             /* Типографика */
             /* Оформление */
             /* Анимация */
-            transition: 2s;
             /* Разное */
 
             &__card{

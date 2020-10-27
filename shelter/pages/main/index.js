@@ -139,32 +139,31 @@ const sort6recursively = (list) => {
 let currentPage = 0;
 
 document.querySelector("#prevPage").addEventListener('click', (e) => {
+  if (petPosition === 0) {
+    petPosition = fullPetsList.length;
+  }
   currentPage--;
   removePets();
   petPosition -= itemsPerPage;
   createPets(fullPetsList);
-  checkBtns();
+
 });
 
 document.querySelector("#nextPage").addEventListener('click', (e) => {
+  if (petPosition === fullPetsList.length) {
+    petPosition = 0;
+  }
   console.log("нажал вперед");
   currentPage++;
   removePets();
   petPosition += itemsPerPage;
   createPets(fullPetsList);
-  checkBtns();
+
 });
 
 
 
 let itemsPerPage = 3;
-
-const checkBtns = () => {
-  document.querySelector("#prevPage").disabled = currentPage === 0;
-  document.querySelector("#nextPage").disabled = currentPage + 1 === (fullPetsList.length / itemsPerPage);
-
-  console.log(itemsPerPage);
-}
 
 const checkItemsPerPage = () => {
 
@@ -192,7 +191,7 @@ const checkItemsPerPage = () => {
   }
 
 
-  setTimeout(checkItemsPerPage, 3000);
+  setTimeout(checkItemsPerPage, 1000);
 }
 
 
@@ -254,7 +253,6 @@ const checkSizeWindow = () => {
 
 checkItemsPerPage();
 checkSizeWindow();
-checkBtns();
 
 
 

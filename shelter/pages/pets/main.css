@@ -321,7 +321,7 @@ body {
     overflow: hidden;
   }
   to {
-    width: 270px;
+    width: 1200px;
     overflow: visible;
   }
 }
@@ -453,7 +453,6 @@ body {
   /* Типографика */
   /* Оформление */
   /* Анимация */
-  animation: slide 3s;
   /* Разное */
 }
 .pets__slider__cards__card__text {
