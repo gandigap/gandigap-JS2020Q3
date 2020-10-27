@@ -156,6 +156,7 @@ document.querySelector("#prevPage").addEventListener('click', (e) => {
 });
 
 document.querySelector("#nextPage").addEventListener('click', (e) => {
+  console.log('aaaa')
   currentPage++;
   removePets();
   petPosition += itemsPerPage;
@@ -185,11 +186,31 @@ const checkBtns = () => {
 
 
 const checkItemsPerPage = () => {
-  if (document.querySelector("body").offsetWidth >= 768 && document.querySelector("body").offsetWidth < 1280) {
-    itemsPerPage = 6;
+  if (document.querySelector("body").offsetWidth >= 1280) {
+
+    if (itemsPerPage !== 8) {
+      itemsPerPage = 8;
+      removePets();
+      createPets(fullPetsList);
+    }
+    itemsPerPage = 8;
+  } else if (document.querySelector("body").offsetWidth >= 768 && document.querySelector("body").offsetWidth < 1280) {
+    if (itemsPerPage !== 6) {
+      itemsPerPage = 6;
+      removePets();
+      createPets(fullPetsList);
+    }
+
   } else {
-    itemsPerPage = 3;
+    if (itemsPerPage !== 3) {
+      itemsPerPage = 3;
+      removePets();
+      createPets(fullPetsList);
+    }
   }
+
+
+  setTimeout(checkItemsPerPage, 3000);
 
 }
 
@@ -241,8 +262,8 @@ const openPopup = (petsIndex) => {
 const removeModal = () => {
   let overlay = document.getElementById("overlay");
   let modal = document.getElementById("modal");
-  overlay.parentNode.removeChild(overlay);
   modal.parentNode.removeChild(modal);
+  overlay.parentNode.removeChild(overlay);
 }
 
 const checkSizeWindow = () => {
