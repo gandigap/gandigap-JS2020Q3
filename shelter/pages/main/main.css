@@ -1248,6 +1248,27 @@ body {
 }
 
 .modal {
+  display: none;
+  /* Hidden by default */
+  position: fixed;
+  /* Stay in place */
+  z-index: 1;
+  /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%;
+  /* Full width */
+  height: 100%;
+  /* Full height */
+  overflow: auto;
+  /* Enable scroll if needed */
+  background-color: black;
+  /* Fallback color */
+  background-color: rgba(0, 0, 0, 0.4);
+  /* Black w/ opacity */
+}
+
+.modal__content {
   /* Позиционирование */
   /* Блочная модель */
   position: fixed;
@@ -1258,10 +1279,10 @@ body {
   /* Типографика */
   /* Оформление */
   background-color: #FAFAFA;
+  border-radius: 15px;
   /* Анимация */
   transform: translate(-50%, -50%);
   /* Разное */
-  border-radius: 9px 0px 0px 9px;
   z-index: 10;
 }
 
@@ -1366,6 +1387,8 @@ body {
 .modal__window__content__pet_list li {
   /* Позиционирование */
   /* Блочная модель */
+  display: flex;
+  flex-wrap: wrap;
   margin-bottom: 10px;
   /* Типографика */
   /* Оформление */
@@ -1452,6 +1475,7 @@ body {
   /* Позиционирование */
   /* Блочная модель */
   min-width: 500px;
+  border-radius: 15px;
   /* Типографика */
   /* Оформление */
   /* Анимация */
@@ -1674,6 +1698,7 @@ body {
     /* Блочная модель */
     width: 630px;
     height: 350px;
+    max-height: 400px;
     /* Типографика */
     /* Оформление */
     /* Анимация */
@@ -2405,7 +2430,7 @@ body {
   .modal__window__content {
     /* Позиционирование */
     /* Блочная модель */
-    max-width: 261px;
+    max-width: 220px;
     margin: 10px;
     /* Типографика */
     /* Оформление */

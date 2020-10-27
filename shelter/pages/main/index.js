@@ -203,47 +203,40 @@ const removePets = () => {
 }
 
 const openPopup = (petsIndex) => {
-  const elem = document.body;
-  elem.innerHTML += `<div class="modal" id="modal">
-                      <button class="modal__button" onclick="removeModal()">
-                        <div class="modal__button__close" >
-                          ×
-                        </div>
-                      </button>
-                      <div class="modal__window">
-                        <div class="modal__window__img">
-                          <img src="../.${fullPetsList[petsIndex].img}" alt="">
-                        </div>
-                        <div class="modal__window__content">
-                          <div class="modal__window__content__pet_name">${fullPetsList[petsIndex].name}</div>
-                          <div class="modal__window__content__pet_type_breed">${fullPetsList[petsIndex].type} - ${fullPetsList[petsIndex].breed}</div>
-                          <div class="modal__window__content__pet_description">${fullPetsList[petsIndex].description}</div>
-                            <ul class="modal__window__content__pet_list">
-                              <li class="modal__window__content__pet_age">
-                                <img src="../../assets/icons/dot.svg" alt="dot"><span class="pet__list__title__age">Age: </span> ${fullPetsList[petsIndex].age}
-                              </li>
-                              <li class="modal__window__content__pet_inoculations">
-                                <img src="../../assets/icons/dot.svg" alt="dot"><span class="pet__list__title__inoculations">Inoculations: </span> ${fullPetsList[petsIndex].inoculations}
-                              </li>
-                              <li class="modal__window__content__pet_diseases">
-                                <img src="../../assets/icons/dot.svg" alt="dot"><span class="pet__list__title__diseases">Diseases: </span>${fullPetsList[petsIndex].diseases}
-                              </li>
-                              <li class="modal__window__content__pet_parasites">
-                               <img src="../../assets/icons/dot.svg" alt="dot"><span class="pet__list__title__parasites">Parasites: </span> ${fullPetsList[petsIndex].parasites}
-                              </li>
-                            </ul>
-                          </div>
-                        </div>
-                      </div>
-                      <div id="overlay" onclick="removeModal()"></div>`;
+  const modal = document.querySelector(".modal");
+  modal.style.display = "block";
+  const modalImg = document.querySelector(".modal__window__img");
+  modalImg.innerHTML = `<img src="../.${fullPetsList[petsIndex].img}" alt="">`;
+  const name = document.querySelector(".modal__window__content__pet_name");
+  name.textContent = `${fullPetsList[petsIndex].name}`;
+  const breed = document.querySelector(".modal__window__content__pet_type_breed");
+  breed.textContent = `${fullPetsList[petsIndex].type} - ${fullPetsList[petsIndex].breed}`;
+  const description = document.querySelector(".modal__window__content__pet_description");
+  description.textContent = `${fullPetsList[petsIndex].description}`;
+  const age = document.querySelector(".modal__window__content__pet_age");
+  age.innerHTML = `<img src="../../assets/icons/dot.svg" alt="dot"><span class="pet__list__title__age">Age:</span><p>${fullPetsList[petsIndex].age}</p>`;
+  const inoculations = document.querySelector(".modal__window__content__pet_inoculations");
+  inoculations.innerHTML = `<img src="../../assets/icons/dot.svg" alt="dot"><span class="pet__list__title__inoculations">Inoculations:</span><p>${fullPetsList[petsIndex].inoculations}</p>`;
+  const diseases = document.querySelector(".modal__window__content__pet_diseases");
+  diseases.innerHTML = `<img src="../../assets/icons/dot.svg" alt="dot"><span class="pet__list__title__diseases">Diseases: </span><p>${fullPetsList[petsIndex].diseases}</p>`;
+  const parasites = document.querySelector(".modal__window__content__pet_parasites");
+  parasites.innerHTML = `<img src="../../assets/icons/dot.svg" alt="dot"><span class="pet__list__title__parasites">Parasites: </span><p>${fullPetsList[petsIndex].parasites}</p>`;
 }
 
+// Get the modal
+let modal = document.querySelector('#myModal');
 
-const removeModal = () => {
-  let overlay = document.getElementById("overlay");
-  let modal = document.getElementById("modal");
-  overlay.parentNode.removeChild(overlay);
-  modal.parentNode.removeChild(modal);
+// Get the <span> element that closes the modal
+let close = document.querySelector('.modal__button__close');
+
+// When the user clicks on button, close the modal
+close.onclick = function () {
+  modal.style.display = "none";
+}
+
+// When the user clicks anywhere outside of the modal, close it
+modal.onclick = function () {
+  modal.style.display = "none";
 }
 
 const checkSizeWindow = () => {
