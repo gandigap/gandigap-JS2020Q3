@@ -265,6 +265,19 @@ const checkSizeWindow = () => {
   // console.log(document.querySelector("body").offsetWidth);
 }
 
+let burger = document.querySelector("#check_menu");
+const checkBurger = function () {
+  if (burger.checked == true) {
+    document.body.classList.add('onClickBurger');
+  } else {
+    document.body.classList.remove("onClickBurger");
+  }
+}
+
+burger.onclick = function () {
+  checkBurger();
+}
+
 checkItemsPerPage();
 checkSizeWindow();
 checkBtns();

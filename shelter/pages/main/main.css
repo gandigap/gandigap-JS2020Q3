@@ -114,6 +114,10 @@ body {
   background-color: black;
 }
 
+.onClickBurger {
+  position: fixed;
+}
+
 .visuallyhidden {
   position: absolute;
   clip: rect(1px, 1px, 1px, 1px);
@@ -280,13 +284,21 @@ body {
 .header__nav__list__item-link:hover {
   /* Позиционирование */
   /* Блочная модель */
-  padding-top: 3px;
   /* Типографика */
-  color: #FFFFFF;
-  border-bottom: solid 3px #F1CDB3;
+  color: #FAFAFA;
   /* Оформление */
   /* Анимация */
   /* Разное */
+}
+
+.notActive {
+  color: #CDCDCD;
+  cursor: default;
+}
+
+.notActive:hover {
+  color: #CDCDCD;
+  cursor: default;
 }
 
 #check_menu {
@@ -1925,6 +1937,16 @@ body {
   }
 
   #check_menu:checked ~ * div.menu a.active {
+    /* Позиционирование */
+    /* Блочная модель */
+    /* Типографика */
+    color: #FAFAFA;
+    /* Оформление */
+    /* Анимация */
+    /* Разное */
+  }
+
+  #check_menu:checked ~ * div.menu a:hover {
     /* Позиционирование */
     /* Блочная модель */
     /* Типографика */

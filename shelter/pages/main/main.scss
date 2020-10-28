@@ -101,6 +101,10 @@ will-change: auto;
 
  }
 
+ .onClickBurger{
+    position: fixed;
+ }
+
  .visuallyhidden{
     position: absolute;
     clip: rect(1px, 1px, 1px, 1px);
@@ -112,6 +116,8 @@ will-change: auto;
     padding: 0;
     border: 0;
  }
+
+
 
 .header{
     width: 100%;
@@ -264,16 +270,23 @@ will-change: auto;
         &__item-link:hover{
             /* Позиционирование */
             /* Блочная модель */
-            padding-top: 3px;
             /* Типографика */
-            color: $color-light-xl;
-            border-bottom: solid 3px $color-primary-color;
+            color: $color-light-s;
             /* Оформление */
             /* Анимация */
             /* Разное */
         }
     }
 }
+.notActive{
+    color:$color-dark-s;
+    cursor: default;
+ }
+
+ .notActive:hover{
+    color:$color-dark-s;
+    cursor: default;
+ }
 
 #check_menu{
     /* Позиционирование */
@@ -1892,6 +1905,16 @@ will-change: auto;
     }
 
     #check_menu:checked ~ * div.menu a.active{
+        /* Позиционирование */
+        /* Блочная модель */
+        /* Типографика */
+        color: $color-light-s;
+        /* Оформление */
+        /* Анимация */
+        /* Разное */
+    }
+
+    #check_menu:checked ~ * div.menu a:hover{
         /* Позиционирование */
         /* Блочная модель */
         /* Типографика */
