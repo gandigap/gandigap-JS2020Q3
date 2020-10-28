@@ -949,7 +949,7 @@ will-change: auto;
     /* Оформление */
     border: 2px solid $color-primary-color;
     border-radius: 100%;
-    background: transparent;
+    background-color: $color-primary-color;
     /* Анимация */
     /* Разное */
 }
@@ -1005,6 +1005,10 @@ will-change: auto;
     left:0;
     bottom: 0;
     background-color: rgb(41, 41, 41, 60%);
+}
+
+.modal__window:hover ~ button.modal__button{
+    background-color: transparent;
 }
 
 
