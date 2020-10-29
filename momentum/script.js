@@ -1,6 +1,7 @@
 //_____________________________________________________________________Change background
 let arrayBackground = [];
 let arrayRandomValue = [];
+console.log(arrayBackground);
 
 for (let index = 0; index < 24; index++) {
   arrayRandomValue[index] = Math.floor(1 + Math.random() * 12 + 1 - 1);
@@ -43,15 +44,26 @@ let today = new Date(),
   numberBackgroundImage = hour;
 
 btnNext.addEventListener('click', () => {
+  console.log(numberBackgroundImage);
+  if (numberBackgroundImage === 23) {
+    numberBackgroundImage = -1;
+  }
   numberBackgroundImage += 1;
-  viewBgImage(arrayBackground[numberBackgroundImage]);    
-  checkBtns();
+  console.log(numberBackgroundImage + " now");
+  viewBgImage(arrayBackground[numberBackgroundImage]);
+
+
 });
 
 btnPrev.addEventListener('click', () => {
+  console.log(numberBackgroundImage);
+  if (numberBackgroundImage === 0) {
+    numberBackgroundImage = 24;
+  }
   numberBackgroundImage -= 1;
-  viewBgImage(arrayBackground[numberBackgroundImage]);   
-  checkBtns();
+  console.log(numberBackgroundImage + " now");
+  viewBgImage(arrayBackground[numberBackgroundImage]);
+
 });
 
 changeBackground();
@@ -62,14 +74,14 @@ function viewBgImage(data) {
   const src = data;
   const img = document.createElement('img');
   img.src = src;
-  img.onload = () => {      
+  img.onload = () => {
     body.style.backgroundImage = `url(${src})`;
-  }; 
+  };
 }
 
 const checkBtns = () => {
   btnPrev.disabled = numberBackgroundImage <= 0;
-  btnNext.disabled = numberBackgroundImage >= 23;  
+  btnNext.disabled = numberBackgroundImage >= 23;
 }
 
 checkBtns();
@@ -121,7 +133,7 @@ function setBgGreet() {
   let today = new Date(),
     hour = today.getHours();
   document.body.style.backgroundImage = `url(${arrayBackground[hour]})`;
-    
+
 
   if (hour >= 3 && hour < 9) {
     // Morning
