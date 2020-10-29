@@ -118,6 +118,7 @@ will-change: auto;
 
 .header{
     /* Позиционирование */
+    position:fixed;
     /* Блочная модель */
     width: 100%;
     /* Типографика */
@@ -308,6 +309,7 @@ will-change: auto;
 .main{
     /* Позиционирование */
     /* Блочная модель */
+    padding-top: 120px;
     /* Типографика */
     /* Оформление */
     background: url(../../assets/images/noise_transparent.png), radial-gradient(100% 215.42% at 0% 0%, #5B483A 0%, #262425 100%), #211F20;
@@ -1030,7 +1032,6 @@ will-change: auto;
 @media (max-width:1279px){
     .header{
         /* Позиционирование */
-        position:fixed;
         /* Блочная модель */
         width: 100%;
         /* Типографика */
@@ -1039,9 +1040,7 @@ will-change: auto;
         /* Анимация */
         /* Разное */
     }
-    .main{
-        padding-top: 120px;
-    }
+
 
 
     .wrapper{
@@ -1357,7 +1356,17 @@ will-change: auto;
         /* Позиционирование */
         /* Блочная модель */
         /* Типографика */
-        color: $color-dark-3xl;
+        color: $color-light-xl;
+        /* Оформление */
+        /* Анимация */
+        /* Разное */
+    }
+
+    #check_menu:checked ~ * div.menu a.notActive:hover{
+        /* Позиционирование */
+        /* Блочная модель */
+        /* Типографика */
+        color: $color-dark-s;
         /* Оформление */
         /* Анимация */
         /* Разное */

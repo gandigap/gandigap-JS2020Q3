@@ -253,6 +253,13 @@ const checkBurger = function () {
   }
 }
 
+let linkTop = document.querySelector(".closeBurger");
+
+linkTop.onclick = function () {
+  burger.checked = false;
+  checkBurger();
+}
+
 burger.onclick = function () {
   checkBurger();
 }
