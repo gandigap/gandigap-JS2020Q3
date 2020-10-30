@@ -28,13 +28,15 @@ const btnPrev = document.querySelector('.button__prev__background');
 const btnNext = document.querySelector('.button__next__background');
 
 function changeBackground() {
+  const body = document.querySelector('body');
   let today = new Date(),
     hour = today.getHours(),
     seconds = today.getSeconds(),
     minutes = today.getMinutes();
+  // console.log(minutes + " - " + seconds);
 
-  if (minutes === 0 && seconds === 0) {
-    document.body.style.backgroundImage = arrayBackground[hour];
+  if (minutes === 0) {
+    body.style.backgroundImage = `url(${arrayBackground[hour]})`;
   }
   setTimeout(changeBackground, 1000);
 }
@@ -295,13 +297,19 @@ function setCity(e) {
   }
 }
 
+city.textContent = '[Enter city]';
+
 function getCity() {
+
   if (localStorage.getItem('city') === null) {
     city.textContent = '[Enter city]';
   } else {
     city.textContent = localStorage.getItem('city');
   }
 }
+
+getCity();
+
 
 
 function clickCity() {
