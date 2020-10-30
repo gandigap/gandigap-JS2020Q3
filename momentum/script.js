@@ -35,8 +35,8 @@ function changeBackground() {
     minutes = today.getMinutes();
   // console.log(minutes + " - " + seconds);
 
-  if (minutes === 0) {
-    body.style.backgroundImage = `url(${arrayBackground[hour]})`;
+  if (minutes === 0 && seconds === 0) {
+    viewBgImage(arrayBackground[hour]);
   }
   setTimeout(changeBackground, 1000);
 }
