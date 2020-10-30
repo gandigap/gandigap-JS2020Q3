@@ -202,7 +202,12 @@ const removePets = () => {
   }
 }
 
+const body = document.querySelector("body");
+
 const openPopup = (petsIndex) => {
+
+  body.style.overflow = "hidden";
+
   const modal = document.querySelector(".modal");
   modal.style.display = "block";
   const modalImg = document.querySelector(".modal__window__img");
@@ -224,19 +229,21 @@ const openPopup = (petsIndex) => {
 }
 
 // Get the modal
-let modal = document.querySelector('#myModal');
-
+const modal = document.querySelector('#myModal');
+const overlayModal = document.querySelector('#overlay-modal');
 // Get the <span> element that closes the modal
-let close = document.querySelector('.modal__button__close');
+const close = document.querySelector('.modal__button__close');
 
 // When the user clicks on button, close the modal
 close.onclick = function () {
   modal.style.display = "none";
+  body.style.overflow = "auto";
 }
 
 // When the user clicks anywhere outside of the modal, close it
-modal.onclick = function () {
+overlayModal.onclick = function () {
   modal.style.display = "none";
+  body.style.overflow = "auto";
 }
 
 const checkSizeWindow = () => {
