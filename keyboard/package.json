@@ -1,0 +1,25 @@
+{
+  "name": "gandigap-JS2020Q3",
+  "version": "1.0.0",
+  "description": "Private repository for @gandigap",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rolling-scopes-school/gandigap-JS2020Q3.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rolling-scopes-school/gandigap-JS2020Q3/issues"
+  },
+  "homepage": "https://github.com/rolling-scopes-school/gandigap-JS2020Q3#readme",
+  "devDependencies": {
+    "eslint": "^7.11.0",
+    "eslint-config-airbnb-base": "^14.2.0",
+    "eslint-plugin-import": "^2.22.1"
+  }
+}
