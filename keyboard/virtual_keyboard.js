@@ -9,12 +9,12 @@ const cssClasses = {
   key: 'key',
   info: 'info',
   buttonConatiner: 'buttons__container',
-  buttonOpen: 'button__open',
-  buttonClose: 'button__close',
+  buttonOpen: 'button__kb__view',
   buttonSound: 'button__sound',
   keySpecial: 'key-special',
   commonKey: 'common_key',
   keyPressed: 'key_pressed',
+  keyActive: 'key_active',
   capsIndicator: 'caps_indicator',
   lightOn: 'on',
 };
@@ -45,13 +45,13 @@ const createKeyTextElement = (values) => {
 };
 
 const createKeyTextElementCase = (values) => {
-  const [val, altVal] = values;
-  const textContent = val.toUpperCase();   //toUpperCase()
+  const [val, altVal, newval] = values;
+  const textContent = newval;   //toUpperCase()
   const textElement = document.createElement('span');
   const isAltValExists = altVal !== undefined;
   const isAltValDifferentChar = val.toUpperCase() !== altVal;
   const alternateContent = (isAltValExists && isAltValDifferentChar) ? `<div class="altValue">${altVal}</div>` : '';
-  textElement.innerHTML = textContent + alternateContent;
+  textElement.innerHTML = textContent; //+ alternateContent
   return textElement;
 };
 
@@ -77,14 +77,11 @@ const createPageElements = (lang) => {
   buttonsContainer.classList.add(cssClasses.buttonConatiner);
   const buttonOpen = document.createElement('button');
   buttonOpen.classList.add(cssClasses.buttonOpen);
-  buttonOpen.append(document.createTextNode('Open KB'));
-  const buttonClose = document.createElement('button');
-  buttonClose.classList.add(cssClasses.buttonClose);
-  buttonClose.append(document.createTextNode('Close KB'));
+  buttonOpen.append(document.createTextNode('Show KB'));
   const buttonSound = document.createElement('button');
   buttonSound.classList.add(cssClasses.buttonSound);
   buttonSound.append(document.createTextNode('Sound On'));
-  buttonsContainer.append(buttonOpen, buttonClose, buttonSound);
+  buttonsContainer.append(buttonOpen, buttonSound);
 
   const wrapperContainer = document.createElement('div');
   wrapperContainer.classList.add(cssClasses.wrapper);
@@ -102,7 +99,7 @@ const createPageElements = (lang) => {
   kbKeys.append(...kbElements);
   kbContainer.append(kbKeys);
   const info = document.createElement('div');
-  info.append(document.createTextNode('Hello. Please click on text area. \n Alt + Shift - change language'));
+  info.append(document.createTextNode('Добрый день уважаемые проверяющие. Не сочтите за наглость. Можете проверить 4 числа? А то немного не успеваю. Возможно сделаю голосовй набор.Заранее благодарю.'));
   info.classList.add('info');
 
 
@@ -119,7 +116,20 @@ const printCharacter = (textArea, char) => {
   if ((cursorPos - prevLine) > maxCols && textArea.selectionEnd - textArea.selectionStart === 0) {
     textArea.setRangeText('\n', textArea.selectionStart, textArea.selectionEnd, 'end');
   }
-  textArea.setRangeText(char, textArea.selectionStart, textArea.selectionEnd, 'end');
+  if (isShiftActive) {
+    const keyShiftLeft = document.querySelector('#ShiftLeft');
+    const keyShiftRight = document.querySelector('#ShiftRight');
+    textArea.setRangeText(char.toUpperCase(), textArea.selectionStart, textArea.selectionEnd, 'end');
+    isShiftActive = false;
+    isShiftActive = false;
+    keyShiftLeft.classList.remove('key_active');
+    keyShiftRight.classList.remove('key_active');
+    switchLayoutLowerCase();
+
+  } else {
+    textArea.setRangeText(char, textArea.selectionStart, textArea.selectionEnd, 'end');
+  }
+
   textArea.focus();
 };
 
@@ -180,7 +190,7 @@ const switchLayout = () => {
   });
 };
 
-const switchLayoutCase = () => {
+const switchLayoutUpperCase = () => {
   let lang = getLang();
   saveLang(lang);
   const curLayout = getCurrentLayout();
@@ -193,9 +203,23 @@ const switchLayoutCase = () => {
   });
 };
 
+const switchLayoutLowerCase = () => {
+  let lang = getLang();
+  saveLang(lang);
+  const curLayout = getCurrentLayout();
+  const kbKeysContainer = document.querySelector(`.${cssClasses.kbKeys}`);
+  const keys = [...kbKeysContainer.children];
+  keys.forEach((key) => {
+    const values = curLayout[key.id];
+    key.firstChild.remove();
+    key.append(createKeyTextElement(values));
+  });
+};
+
 const isShiftDown = () => keyDownSet.has('ShiftLeft') || keyDownSet.has('ShiftRight');
 const isAltDown = () => keyDownSet.has('AltLeft') || keyDownSet.has('AltRight');
 const isLangDown = () => keyDownSet.has('Lang');
+const isCapsDown = () => keyDownSet.has('CapsLock');
 
 const processKeyPressed = (code) => {
   const textArea = document.querySelector(`.${cssClasses.textArea}`);
@@ -246,7 +270,8 @@ const processKeyPressed = (code) => {
     case 'MetaRight':
       break;
     default: {
-      const char = currentLayout[code][isShiftDown() ? 1 : 0];
+      const char = currentLayout[code][isShiftActive || isCapsOn() ? 1 : 0];
+      console.log(char);
       let charToPrint = char;
       if ((isCapsOn() && isShiftDown())) { // caps lock + shift = lower case
         charToPrint = char.toLowerCase();
@@ -259,18 +284,51 @@ const processKeyPressed = (code) => {
   }
 };
 
+let isCapsActive = false;
+let isShiftActive = false;
+
 const addKeyDown = (event, code) => {
   const keyElement = document.querySelector(`#${code}`);
 
   if (keyElement) {
-    console.log(code);
     event.preventDefault();
     keyDownSet.add(code);
+
     keyElement.classList.add(cssClasses.keyPressed);
     processKeyPressed(code);
     if (isShiftDown() && isAltDown() || isLangDown()) switchLayout();
 
-    // if (isShiftDown()) switchLayoutCase();
+    if (isCapsDown()) {
+      const keyCaps = document.querySelector('#CapsLock');
+      if (isCapsActive === false) {
+        isCapsActive = true;
+        keyCaps.classList.add('key_active');
+        switchLayoutUpperCase();
+      } else {
+        isCapsActive = false;
+        keyCaps.classList.remove('key_active');
+        switchLayoutLowerCase();
+      }
+
+    }
+
+    if (isShiftDown()) {
+      const keyShiftLeft = document.querySelector('#ShiftLeft');
+      const keyShiftRight = document.querySelector('#ShiftRight');
+      if (isShiftActive === false) {
+        isShiftActive = true;
+        keyShiftLeft.classList.add('key_active');
+        keyShiftRight.classList.add('key_active');
+        switchLayoutUpperCase();
+      }
+      else {
+        isShiftActive = false;
+        keyShiftLeft.classList.remove('key_active');
+        keyShiftRight.classList.remove('key_active');
+        switchLayoutLowerCase();
+      }
+
+    }
   }
 };
 
@@ -319,23 +377,29 @@ window.addEventListener('load', () => {
 });
 
 let isSoundOn = 'true';
+let isKBShow = false;
 
 window.onload = function () {
   // Ваш скрипт
 
-  const open = document.querySelector('.button__open');
-  const close = document.querySelector('.button__close');
+  const open = document.querySelector('.button__kb__view');
   const sound = document.querySelector('.button__sound');
   const keyboardWindow = document.querySelector('.keyboard_container');
 
   // When the user clicks on button, close the modal
   open.onclick = function () {
-    keyboardWindow.style.bottom = "0";
+    if (isKBShow) {
+      isKBShow = false;
+      open.textContent = 'Show KB';
+      keyboardWindow.style.bottom = "-100%";
+    } else {
+      isKBShow = true;
+      open.textContent = 'Hide KB';
+      keyboardWindow.style.bottom = "0";
+    }
   }
 
-  close.onclick = function () {
-    keyboardWindow.style.bottom = "-100%";
-  }
+
 
   sound.onclick = function () {
     if (isSoundOn) {
@@ -364,11 +428,11 @@ const playSound = (event) => {
 
 
 // SPEECH________________
-window.SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+// window.SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
 
-var words = document.querySelector(".words");
-var start = document.getElementById("start");
-var clear = document.getElementById("clear");
+// var words = document.querySelector(".words");
+// var start = document.getElementById("start");
+// var clear = document.getElementById("clear");
 
 // var rec = new SpeechRecognition();
 // rec.interimResults = true;
@@ -376,31 +440,31 @@ var clear = document.getElementById("clear");
 // var p = document.createElement("p");
 // words.appendChild(p);
 
-// start.addEventListener("click", function() {
-//     rec.start();
-//     this.disabled = true;
-//     this.innerHTML = "LISTENING...";
+// start.addEventListener("click", function () {
+//   rec.start();
+//   this.disabled = true;
+//   this.innerHTML = "LISTENING...";
 // });
 
-// clear.addEventListener("click", function() {
-//     words.innerHTML = "";
-//     p = document.createElement("p");
-//     words.appendChild(p);
+// clear.addEventListener("click", function () {
+//   words.innerHTML = "";
+//   p = document.createElement("p");
+//   words.appendChild(p);
 // });
 
-// rec.addEventListener("result", function(e) {
-//     var text = Array.from(e.results)
+// rec.addEventListener("result", function (e) {
+//   var text = Array.from(e.results)
 //     .map(result => result[0])
 //     .map(result => result.transcript)
 //     .join('');
 
-//     p.innerHTML = text;
+//   p.innerHTML = text;
 // });
 
-// rec.addEventListener("end", function(e) {
-//     if (p.innerHTML) {
-//         p = document.createElement("p");
-//         words.appendChild(p);
-//     }
-//     rec.start();
+// rec.addEventListener("end", function (e) {
+//   if (p.innerHTML) {
+//     p = document.createElement("p");
+//     words.appendChild(p);
+//   }
+//   rec.start();
 // });

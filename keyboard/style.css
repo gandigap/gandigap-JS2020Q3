@@ -188,7 +188,7 @@ sup {
   flex-direction: column;
   position: fixed;
   padding: 15px;
-  bottom: 0;
+  bottom: -100%;
   width: 800px;
   background-color: #184668;
   transition: 1s;
@@ -233,8 +233,11 @@ sup {
   padding-top: 3px;
 }
 
-.key-special {
-  background-color: #dbd8d8;
+.key_active{
+  background-color:#4889B2;
+  box-shadow: 0 1px black;
+  transition: 0.1s ease-in-out;
+  transform: translateY(2px);
 }
 
 .key_pressed {
