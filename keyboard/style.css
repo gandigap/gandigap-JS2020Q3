@@ -150,7 +150,18 @@ sup {
   border:1px solid #ffffff;
   border-radius: 5px;
   color: #ffffff;
+}
 
+.buttons__container button:hover{
+  transition: 0.5s;
+  -webkit-box-shadow: 0px 0px 5px 1px #FFFFFF;
+  box-shadow: 0px 0px 5px 1px #FFFFFF;
+}
+
+.buttons__container button:active{
+
+  transform: scale(0.9);
+  transition: 0.1s;
 }
 
 .info{
@@ -179,7 +190,8 @@ sup {
   padding: 15px;
   bottom: 0;
   width: 800px;
-  background-color: #184668 ;
+  background-color: #184668;
+  transition: 1s;
 
 }
 
@@ -248,7 +260,6 @@ sup {
 #Tab{
   width: 5rem;
   font-weight: bold;
-  font-size: 2.4rem;
 }
 
 #CapsLock{
@@ -266,13 +277,11 @@ sup {
 #ShiftLeft{
   width: 10rem;
   font-weight: bold;
-  font-size: 2.4rem;
 }
 
 #ShiftRight{
   width: 9.5rem;
   font-weight: bold;
-  font-size: 2.4rem;
 }
 
 #ControlLeft, #ControlRight{
@@ -293,7 +302,6 @@ sup {
 #Lang{
   width: 5rem;
   font-weight: bold;
-  font-size: 2.4rem;
 }
 
 #Microphone{

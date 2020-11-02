@@ -11,6 +11,7 @@ const cssClasses = {
   buttonConatiner: 'buttons__container',
   buttonOpen: 'button__open',
   buttonClose: 'button__close',
+  buttonSound: 'button__sound',
   keySpecial: 'key-special',
   commonKey: 'common_key',
   keyPressed: 'key_pressed',
@@ -80,7 +81,10 @@ const createPageElements = (lang) => {
   const buttonClose = document.createElement('button');
   buttonClose.classList.add(cssClasses.buttonClose);
   buttonClose.append(document.createTextNode('Close KB'));
-  buttonsContainer.append(buttonOpen, buttonClose);
+  const buttonSound = document.createElement('button');
+  buttonSound.classList.add(cssClasses.buttonSound);
+  buttonSound.append(document.createTextNode('Sound On'));
+  buttonsContainer.append(buttonOpen, buttonClose, buttonSound);
 
   const wrapperContainer = document.createElement('div');
   wrapperContainer.classList.add(cssClasses.wrapper);
@@ -227,7 +231,8 @@ const processKeyPressed = (code) => {
       moveCursorDown();
       break;
     case 'Lang':
-      moveCursorDown();
+      break;
+    case 'Microphone':
       break;
     case 'ShiftLeft':
     case 'ShiftRight':
@@ -313,59 +318,89 @@ window.addEventListener('load', () => {
   document.addEventListener('keydown', playSound);
 });
 
+let isSoundOn = 'true';
 
 window.onload = function () {
   // Ваш скрипт
+
   const open = document.querySelector('.button__open');
   const close = document.querySelector('.button__close');
+  const sound = document.querySelector('.button__sound');
   const keyboardWindow = document.querySelector('.keyboard_container');
 
   // When the user clicks on button, close the modal
   open.onclick = function () {
-    keyboardWindow.style.display = "flex";
+    keyboardWindow.style.bottom = "0";
   }
 
   close.onclick = function () {
-    keyboardWindow.style.display = "none";
+    keyboardWindow.style.bottom = "-100%";
+  }
+
+  sound.onclick = function () {
+    if (isSoundOn) {
+      isSoundOn = false;
+      sound.textContent = 'Sound on';
+    } else {
+      isSoundOn = true;
+      sound.textContent = 'Sound off';
+    }
+    console.log(isSoundOn);
   }
 };
 
 // AUDIO____________________________
 const playSound = (event) => {
-  const audio = document.querySelector(`#audio`);
-  if (!audio) return;
-  audio.currentTime = 0;
-  audio.play();
+  if (isSoundOn) {
+    let langAudio = getLang();
+    const audio = langAudio === 'en' ? document.querySelector(`#audio_en`) : document.querySelector(`#audio`);
+    if (!audio) return;
+    audio.currentTime = 0;
+    audio.play();
+  }
+
 };
 
 
 
 // SPEECH________________
-// window.SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+window.SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
 
-// const recognition = new SpeechRecognition();
-// recognition.interimResults = true;
-// recognition.lang = 'en-US';
+var words = document.querySelector(".words");
+var start = document.getElementById("start");
+var clear = document.getElementById("clear");
 
-// let p = document.createElement('p');
-// const words = document.querySelector('.words');
+// var rec = new SpeechRecognition();
+// rec.interimResults = true;
+
+// var p = document.createElement("p");
 // words.appendChild(p);
 
-// recognition.addEventListener('result', e => {
-//   const transcript = Array.from(e.results)
+// start.addEventListener("click", function() {
+//     rec.start();
+//     this.disabled = true;
+//     this.innerHTML = "LISTENING...";
+// });
+
+// clear.addEventListener("click", function() {
+//     words.innerHTML = "";
+//     p = document.createElement("p");
+//     words.appendChild(p);
+// });
+
+// rec.addEventListener("result", function(e) {
+//     var text = Array.from(e.results)
 //     .map(result => result[0])
 //     .map(result => result.transcript)
 //     .join('');
 
-//   const poopScript = transcript.replace(/poop|poo|shit|dump/gi, '💩');
-//   p.textContent = poopScript;
-
-//   if (e.results[0].isFinal) {
-//     p = document.createElement('p');
-//     words.appendChild(p);
-//   }
+//     p.innerHTML = text;
 // });
 
-// recognition.addEventListener('end', recognition.start);
-
-// recognition.start();
+// rec.addEventListener("end", function(e) {
+//     if (p.innerHTML) {
+//         p = document.createElement("p");
+//         words.appendChild(p);
+//     }
+//     rec.start();
+// });
