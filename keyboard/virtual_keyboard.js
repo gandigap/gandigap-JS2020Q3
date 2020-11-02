@@ -271,7 +271,6 @@ const processKeyPressed = (code) => {
       break;
     default: {
       const char = currentLayout[code][isShiftActive || isCapsOn() ? 1 : 0];
-      console.log(char);
       let charToPrint = char;
       if ((isCapsOn() && isShiftDown())) { // caps lock + shift = lower case
         charToPrint = char.toLowerCase();
