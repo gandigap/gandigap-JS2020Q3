@@ -99,7 +99,7 @@ const createPageElements = (lang) => {
   kbKeys.append(...kbElements);
   kbContainer.append(kbKeys);
   const info = document.createElement('div');
-  info.innerHTML = `<p>Переключение языка Shift + Alt</p><p>Звуковой  набор - ${'&#9835'} на клавиатуре.</p>`;
+  info.innerHTML = `<p>Переключение языка Shift + Alt</p><p>Звуковой  набор - ${'&#9835'} на клавиатуре (выключается с небольшой задержкой).</p>`;
   info.classList.add('info');
 
 
