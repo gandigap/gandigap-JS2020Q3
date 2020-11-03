@@ -99,7 +99,7 @@ const createPageElements = (lang) => {
   kbKeys.append(...kbElements);
   kbContainer.append(kbKeys);
   const info = document.createElement('div');
-  info.append(document.createTextNode('Добрый день уважаемые проверяющие. Не сочтите за наглость. Можете проверить 4 числа? А то немного не успеваю. Возможно сделаю голосовй набор.Заранее благодарю.'));
+  info.innerHTML = `<p>Переключение языка Shift + Alt</p><p>Звуковой  набор - ${'&#9835'} на клавиатуре.</p>`;
   info.classList.add('info');
 
 
@@ -121,7 +121,6 @@ const printCharacter = (textArea, char) => {
     const keyShiftRight = document.querySelector('#ShiftRight');
     textArea.setRangeText(char.toUpperCase(), textArea.selectionStart, textArea.selectionEnd, 'end');
     isShiftActive = false;
-    isShiftActive = false;
     keyShiftLeft.classList.remove('key_active');
     keyShiftRight.classList.remove('key_active');
     switchLayoutLowerCase();
@@ -129,6 +128,18 @@ const printCharacter = (textArea, char) => {
   } else {
     textArea.setRangeText(char, textArea.selectionStart, textArea.selectionEnd, 'end');
   }
+
+  textArea.focus();
+};
+
+const printText = (textArea, char) => {
+  const cursorPos = textArea.selectionEnd;
+  const prevLine = textArea.value.lastIndexOf('\n', cursorPos);
+  const maxCols = textArea.getAttribute('cols');
+
+
+  textArea.setRangeText(char + ' ', textArea.selectionStart, textArea.selectionEnd, 'end');
+
 
   textArea.focus();
 };
@@ -410,6 +421,51 @@ window.onload = function () {
     }
     console.log(isSoundOn);
   }
+
+
+  window.SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+  let rec = new SpeechRecognition();
+  let isRecordActive = false;
+
+  let start = document.getElementById("Microphone");
+  rec.interimResults = false;
+
+  start.addEventListener("click", function () {
+    if (isRecordActive) {
+      reset();
+      console.log("stop");
+      this.classList.remove('key_active');
+      isRecordActive = false;
+    } else {
+      rec = new SpeechRecognition();
+      record();
+      console.log("start");
+      this.classList.add('key_active');
+      isRecordActive = true;
+    }
+  });
+
+  const record = () => {
+    rec.lang = (getLang() === 'en') ? 'en-US' : 'ru-RU';
+    rec.start();
+    rec.addEventListener("result", function (e) {
+      const textArea = document.querySelector(`.${cssClasses.textArea}`);
+      var text = Array.from(e.results)
+        .map(result => result[0])
+        .map(result => result.transcript)
+        .join('');
+      console.log(text);
+      printText(textArea, text);
+    });
+
+    rec.addEventListener("end", function (e) {
+      rec.start();
+    });
+  };
+
+  const reset = () => {
+    rec = undefined;
+  };
 };
 
 // AUDIO____________________________
@@ -423,47 +479,3 @@ const playSound = (event) => {
   }
 
 };
-
-
-
-// SPEECH________________
-// window.SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
-
-// var words = document.querySelector(".words");
-// var start = document.getElementById("start");
-// var clear = document.getElementById("clear");
-
-// var rec = new SpeechRecognition();
-// rec.interimResults = true;
-
-// var p = document.createElement("p");
-// words.appendChild(p);
-
-// start.addEventListener("click", function () {
-//   rec.start();
-//   this.disabled = true;
-//   this.innerHTML = "LISTENING...";
-// });
-
-// clear.addEventListener("click", function () {
-//   words.innerHTML = "";
-//   p = document.createElement("p");
-//   words.appendChild(p);
-// });
-
-// rec.addEventListener("result", function (e) {
-//   var text = Array.from(e.results)
-//     .map(result => result[0])
-//     .map(result => result.transcript)
-//     .join('');
-
-//   p.innerHTML = text;
-// });
-
-// rec.addEventListener("end", function (e) {
-//   if (p.innerHTML) {
-//     p = document.createElement("p");
-//     words.appendChild(p);
-//   }
-//   rec.start();
-// });
