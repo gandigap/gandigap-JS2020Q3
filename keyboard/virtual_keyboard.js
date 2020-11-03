@@ -45,8 +45,17 @@ const createKeyTextElement = (values) => {
 };
 
 const createKeyTextElementCase = (values) => {
-  const [val, altVal, newval] = values;
-  const textContent = newval;   //toUpperCase()
+  const [val, altVal, val2, val3] = values;
+  let textContent = '';
+  if (isShiftActive && isCapsActive) {
+    textContent = val;
+  } else if (isShiftActive) {
+    textContent = val2;
+  } else if (isCapsActive) {
+    textContent = val3;
+  } else {
+    textContent = val;
+  }
   const textElement = document.createElement('span');
   const isAltValExists = altVal !== undefined;
   const isAltValDifferentChar = val.toUpperCase() !== altVal;
@@ -337,7 +346,13 @@ const addKeyDown = (event, code) => {
         keyShiftRight.classList.remove('key_active');
         switchLayoutLowerCase();
       }
+    }
 
+    if (isShiftActive && isCapsActive) {
+      switchLayoutLowerCase();
+      console.log('ha')
+    } else if (isShiftActive || isCapsActive) {
+      switchLayoutUpperCase();
     }
   }
 };
@@ -390,13 +405,13 @@ let isSoundOn = 'true';
 let isKBShow = false;
 
 window.onload = function () {
-  // Ваш скрипт
+
 
   const open = document.querySelector('.button__kb__view');
   const sound = document.querySelector('.button__sound');
   const keyboardWindow = document.querySelector('.keyboard_container');
 
-  // When the user clicks on button, close the modal
+
   open.onclick = function () {
     if (isKBShow) {
       isKBShow = false;
