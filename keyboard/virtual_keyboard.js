@@ -89,7 +89,7 @@ const createPageElements = (lang) => {
   buttonOpen.append(document.createTextNode('Show KB'));
   const buttonSound = document.createElement('button');
   buttonSound.classList.add(cssClasses.buttonSound);
-  buttonSound.append(document.createTextNode('Sound On'));
+  buttonSound.append(document.createTextNode('Sound off'));
   buttonsContainer.append(buttonOpen, buttonSound);
 
   const wrapperContainer = document.createElement('div');
@@ -240,6 +240,8 @@ const isShiftDown = () => keyDownSet.has('ShiftLeft') || keyDownSet.has('ShiftRi
 const isAltDown = () => keyDownSet.has('AltLeft') || keyDownSet.has('AltRight');
 const isLangDown = () => keyDownSet.has('Lang');
 const isCapsDown = () => keyDownSet.has('CapsLock');
+const isEnterDown = () => keyDownSet.has('Enter');
+const isBackSpaceDown = () => keyDownSet.has('Backspace');
 
 const processKeyPressed = (code) => {
   const textArea = document.querySelector(`.${cssClasses.textArea}`);
@@ -290,7 +292,7 @@ const processKeyPressed = (code) => {
     case 'MetaRight':
       break;
     default: {
-      const char = currentLayout[code][isShiftActive || isCapsOn() ? 1 : 0];
+      const char = currentLayout[code][isShiftActive ? 1 : 0];
       let charToPrint = char;
       if ((isCapsOn() && isShiftDown())) { // caps lock + shift = lower case
         charToPrint = char.toLowerCase();
@@ -396,7 +398,7 @@ window.addEventListener('load', () => {
     keyElement.addEventListener('mouseup', onMouseUp);
     keyElement.addEventListener('mouseout', onMouseUp);
   });
-  document.addEventListener('keydown', onKeyDown, playSound);
+  document.addEventListener('keydown', onKeyDown);
   document.addEventListener('keyup', onKeyUp);
   document.addEventListener('keydown', playSound);
 });
@@ -487,10 +489,33 @@ window.onload = function () {
 const playSound = (event) => {
   if (isSoundOn) {
     let langAudio = getLang();
-    const audio = langAudio === 'en' ? document.querySelector(`#audio_en`) : document.querySelector(`#audio`);
+    let audio = langAudio === 'en' ? document.querySelector(`#audio_en`) : document.querySelector(`#audio`);
     if (!audio) return;
-    audio.currentTime = 0;
-    audio.play();
+    if (isCapsDown()) {
+      audio = document.querySelector(`#capsAudio`);
+      console.log('capsMelody');
+      audio.currentTime = 0;
+      audio.play();
+    } else if (isShiftDown()) {
+      audio = document.querySelector(`#shiftAudio`);
+      console.log('shiftMelody');
+      audio.currentTime = 0;
+      audio.play();
+    } else if (isEnterDown()) {
+      audio = document.querySelector(`#enterAudio`);
+      console.log('enterMelody');
+      audio.currentTime = 0;
+      audio.play();
+    } else if (isBackSpaceDown()) {
+      audio = document.querySelector(`#backspaceAudio`);
+      console.log('backspaceMelody');
+      audio.currentTime = 0;
+      audio.play();
+    } else {
+      audio.currentTime = 0;
+      audio.play();
+    }
+
   }
 
 };
