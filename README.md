@@ -6,5 +6,5 @@ Private repository for @gandigap
 ### [Cсылка на проект Shelter](https://rolling-scopes-school.github.io/gandigap-JS2020Q3/shelter/pages/main/)
 ### [Cсылка на проект Momentum](https://rolling-scopes-school.github.io/gandigap-JS2020Q3/momentum/)
 ### [Cсылка на проект Virtual keyboard](https://rolling-scopes-school.github.io/gandigap-JS2020Q3/keyboard/)
-### [Cсылка на проект Gem-puzzle](https://rolling-scopes-school.github.io/gandigap-JS2020Q3/gem_puzzle/)
+### [Cсылка на проект Gem-puzzle](https://rolling-scopes-school.github.io/gandigap-JS2020Q3/gem-puzzle/)
 
