@@ -1,11 +1,46 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Template</title>
   <link rel="shortcut icon" href="assets/icons/favicon.ico">
-<link href="assets/app.853d168c952ebe2cc86b.css" rel="stylesheet"></head>
+<link href="assets/app.a63823602b8fcff409b7.css" rel="stylesheet"></head>
+
 <body>
-<script type="text/javascript" src="./js/vendors.853d168c952ebe2cc86b.js"></script><script type="text/javascript" src="./js/app.853d168c952ebe2cc86b.js"></script></body>
+  <!-- Modal -->
+
+  <div class="menu">
+    <button class="game">Reset</button>
+    <div class="time">Time: 0 s</div>
+    <div class="step">Steps: 0</div>
+    <div class="template">
+      <button class="minus">-</button>
+      <div class="template_text">2×2</div>
+      <button class="plus">+</button>
+    </div>
+    <button class="sound">
+      <img src="assets/icons/volume.png" alt="">
+    </button>
+    <audio id='audio' src="assets/sounds/shift.mp3"></audio>
+  </div>
+  <div id="success-modal" class="modal-wrapper" style="display: none">
+    <div class="modal">
+      <div class="head">
+        <a class="btn-close trigger" href="#">
+          <i class="fa fa-times" aria-hidden="true"></i>
+        </a>
+      </div>
+      <div class="content">
+        <div class="good-job">
+          <i class="fa fa-thumbs-o-up" aria-hidden="true"></i>
+          <h1>Good Job!</h1>
+        </div>
+      </div>
+
+    </div>
+  </div>
+<script type="text/javascript" src="./js/vendors.a63823602b8fcff409b7.js"></script><script type="text/javascript" src="./js/app.a63823602b8fcff409b7.js"></script></body>
+
 </html>
