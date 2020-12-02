@@ -1,0 +1,425 @@
+__webpack_require__.r(__webpack_exports__);
+var cardsArr = [[{
+  word: 'Fairitales',
+  image: 'assets/img/main/fairytales.png',
+  number: 0
+}, {
+  word: 'Animals 1',
+  image: 'assets/img/main/animals1.png',
+  number: 1
+}, {
+  word: 'Animals 2',
+  image: 'assets/img/main/animals2.png',
+  number: 2
+}, {
+  word: 'Animals 3',
+  image: 'assets/img/main/animals3.png',
+  number: 3
+}, {
+  word: 'Food 1',
+  image: 'assets/img/main/food1.png',
+  number: 4
+}, {
+  word: 'Food 2',
+  image: 'assets/img/main/food2.png',
+  number: 5
+}, {
+  word: 'Conditions',
+  image: 'assets/img/main/conditions.png',
+  number: 6
+}, {
+  word: 'Places',
+  image: 'assets/img/main/places.png',
+  number: 7
+}], [[{
+  word: 'Dragon',
+  translation: 'Дракон',
+  image: 'assets/img/fairytales/49.jpg',
+  audioSrc: 'assets/audio/fairytales/49.mp3',
+  id: 49
+}, {
+  word: 'Knight',
+  translation: 'Рыцарь',
+  image: 'assets/img/fairytales/50.jpg',
+  audioSrc: 'assets/audio/fairytales/50.mp3',
+  id: 50
+}, {
+  word: 'Witch',
+  translation: 'Ведьма',
+  image: 'assets/img/fairytales/51.jpg',
+  audioSrc: 'assets/audio/fairytales/51.mp3',
+  id: 51
+}, {
+  word: 'King',
+  translation: 'Король',
+  image: 'assets/img/fairytales/52.jpg',
+  audioSrc: 'assets/audio/fairytales/52.mp3',
+  id: 52
+}, {
+  word: 'Mermaid',
+  translation: 'Русалка',
+  image: 'assets/img/fairytales/53.jpg',
+  audioSrc: 'assets/audio/fairytales/53.mp3',
+  id: 53
+}, {
+  word: 'Princess',
+  translation: 'Принцесса',
+  image: 'assets/img/fairytales/54.jpg',
+  audioSrc: 'assets/audio/fairytales/54.mp3',
+  id: 54
+}, {
+  word: 'Wizard',
+  translation: 'Волшебник',
+  image: 'assets/img/fairytales/55.jpg',
+  audioSrc: 'assets/audio/fairytales/55.mp3',
+  id: 55
+}, {
+  word: 'Fairy',
+  translation: 'Фея',
+  image: 'assets/img/fairytales/56.jpg',
+  audioSrc: 'assets/audio/fairytales/56.mp3',
+  id: 56
+}], [{
+  word: 'Cat',
+  translation: 'Кот',
+  image: 'assets/img/animals1/1.jpg',
+  audioSrc: 'assets/audio/animals1/1.mp3',
+  id: 1
+}, {
+  word: 'Owl',
+  translation: 'Сова',
+  image: 'assets/img/animals1/2.jpg',
+  audioSrc: 'assets/audio/animals1/2.mp3',
+  id: 2
+}, {
+  word: 'Goat',
+  translation: 'Коза',
+  image: 'assets/img/animals1/3.jpg',
+  audioSrc: 'assets/audio/animals1/3.mp3',
+  id: 3
+}, {
+  word: 'Deer',
+  translation: 'Олень',
+  image: 'assets/img/animals1/4.jpg',
+  audioSrc: 'assets/audio/animals1/4.mp3',
+  id: 4
+}, {
+  word: 'Lynx',
+  translation: 'Рысь',
+  image: 'assets/img/animals1/5.jpg',
+  audioSrc: 'assets/audio/animals1/5.mp3',
+  id: 5
+}, {
+  word: 'Koala',
+  translation: 'Коала',
+  image: 'assets/img/animals1/6.jpg',
+  audioSrc: 'assets/audio/animals1/6.mp3',
+  id: 6
+}, {
+  word: 'Hippopotamus',
+  translation: 'Бегемот',
+  image: 'assets/img/animals1/7.jpg',
+  audioSrc: 'assets/audio/animals1/7.mp3',
+  id: 7
+}, {
+  word: 'Raccoon',
+  translation: 'Енот',
+  image: 'assets/img/animals1/8.jpg',
+  audioSrc: 'assets/audio/animals1/8.mp3',
+  id: 8
+}], [{
+  word: 'Zebra',
+  translation: 'Зебра',
+  image: 'assets/img/animals2/9.jpg',
+  audioSrc: 'assets/audio/animals2/9.mp3',
+  id: 9
+}, {
+  word: 'Turtle',
+  translation: 'Черапаха',
+  image: 'assets/img/animals2/10.jpg',
+  audioSrc: 'assets/audio/animals2/10.mp3',
+  id: 10
+}, {
+  word: 'Sparrow',
+  translation: 'Воробей',
+  image: 'assets/img/animals2/11.jpg',
+  audioSrc: 'assets/audio/animals2/11.mp3',
+  id: 11
+}, {
+  word: 'Unicorn',
+  translation: 'Единорог',
+  image: 'assets/img/animals2/12.jpg',
+  audioSrc: 'assets/audio/animals2/12.mp3',
+  id: 12
+}, {
+  word: 'Tiger',
+  translation: 'Тигр',
+  image: 'assets/img/animals2/13.jpg',
+  audioSrc: 'assets/audio/animals2/13.mp3',
+  id: 13
+}, {
+  word: 'Hedgehog',
+  translation: 'Еж',
+  image: 'assets/img/animals2/14.jpg',
+  audioSrc: 'assets/audio/animals2/14.mp3',
+  id: 14
+}, {
+  word: 'Dolphin',
+  translation: 'Дельфин',
+  image: 'assets/img/animals2/15.jpg',
+  audioSrc: 'assets/audio/animals2/15.mp3',
+  id: 15
+}, {
+  word: 'Hamster',
+  translation: 'Хомяк',
+  image: 'assets/img/animals2/16.jpg',
+  audioSrc: 'assets/audio/animals2/16.mp3',
+  id: 16
+}], [{
+  word: 'Snail',
+  translation: 'Улитка',
+  image: 'assets/img/animals3/17.jpg',
+  audioSrc: 'assets/audio/animals3/17.mp3',
+  id: 17
+}, {
+  word: 'Elephant',
+  translation: 'Слон',
+  image: 'assets/img/animals3/18.jpg',
+  audioSrc: 'assets/audio/animals3/18.mp3',
+  id: 18
+}, {
+  word: 'Duck',
+  translation: 'Утка',
+  image: 'assets/img/animals3/19.jpg',
+  audioSrc: 'assets/audio/animals3/19.mp3',
+  id: 19
+}, {
+  word: 'Leopard',
+  translation: 'Леопард',
+  image: 'assets/img/animals3/20.jpg',
+  audioSrc: 'assets/audio/animals3/20.mp3',
+  id: 20
+}, {
+  word: 'Sheep',
+  translation: 'Овца',
+  image: 'assets/img/animals3/21.jpg',
+  audioSrc: 'assets/audio/animals3/21.mp3',
+  id: 21
+}, {
+  word: 'Cat',
+  translation: 'Кот',
+  image: 'assets/img/animals3/22.jpg',
+  audioSrc: 'assets/audio/animals3/22.mp3',
+  id: 22
+}, {
+  word: 'Rhinoceros',
+  translation: 'Носорог',
+  image: 'assets/img/animals3/23.jpg',
+  audioSrc: 'assets/audio/animals3/23.mp3',
+  id: 23
+}, {
+  word: 'Crocodile',
+  translation: 'Крокодил',
+  image: 'assets/img/animals3/24.jpg',
+  audioSrc: 'assets/audio/animals3/24.mp3',
+  id: 24
+}], [{
+  word: 'Salad',
+  translation: 'Салат',
+  image: 'assets/img/food1/25.jpg',
+  audioSrc: 'assets/audio/food1/25.mp3',
+  id: 25
+}, {
+  word: 'Сake',
+  translation: 'Торт',
+  image: 'assets/img/food1/26.jpg',
+  audioSrc: 'assets/audio/food1/26.mp3',
+  id: 26
+}, {
+  word: 'Tako',
+  translation: 'Тако',
+  image: 'assets/img/food1/27.jpg',
+  audioSrc: 'assets/audio/food1/27.mp3',
+  id: 27
+}, {
+  word: 'Bread',
+  translation: 'Хлеб',
+  image: 'assets/img/food1/28.jpg',
+  audioSrc: 'assets/audio/food1/28.mp3',
+  id: 28
+}, {
+  word: 'Hot-dog',
+  translation: 'Хот-дог',
+  image: 'assets/img/food1/29.jpg',
+  audioSrc: 'assets/audio/food1/29.mp3',
+  id: 29
+}, {
+  word: 'Ham',
+  translation: 'Ветчина',
+  image: 'assets/img/food1/30.jpg',
+  audioSrc: 'assets/audio/food1/30.mp3',
+  id: 30
+}, {
+  word: 'Sushi',
+  translation: 'Суши',
+  image: 'assets/img/food1/31.jpg',
+  audioSrc: 'assets/audio/food1/31.mp3',
+  id: 31
+}, {
+  word: 'Sausage',
+  translation: 'Колбаса',
+  image: 'assets/img/food1/32.jpg',
+  audioSrc: 'assets/audio/food1/32.mp3',
+  id: 32
+}], [{
+  word: 'Egg',
+  translation: 'Яйцо',
+  image: 'assets/img/food2/33.jpg',
+  audioSrc: 'assets/audio/food2/33.mp3',
+  id: 33
+}, {
+  word: 'Fries',
+  translation: 'Фри',
+  image: 'assets/img/food2/34.jpg',
+  audioSrc: 'assets/audio/food2/34.mp3',
+  id: 34
+}, {
+  word: 'Burger',
+  translation: 'Бургер',
+  image: 'assets/img/food2/35.jpg',
+  audioSrc: 'assets/audio/food2/35.mp3',
+  id: 35
+}, {
+  word: 'Noodles',
+  translation: 'Лапша',
+  image: 'assets/img/food2/36.jpg',
+  audioSrc: 'assets/audio/food2/36.mp3',
+  id: 36
+}, {
+  word: 'Muffin',
+  translation: 'Кекс',
+  image: 'assets/img/food2/37.jpg',
+  audioSrc: 'assets/audio/food2/37.mp3',
+  id: 37
+}, {
+  word: 'Cheese',
+  translation: 'Сыр',
+  image: 'assets/img/food2/38.jpg',
+  audioSrc: 'assets/audio/food2/38.mp3',
+  id: 38
+}, {
+  word: 'Donut',
+  translation: 'Пончик',
+  image: 'assets/img/food2/39.jpg',
+  audioSrc: 'assets/audio/food2/39.mp3',
+  id: 39
+}, {
+  word: 'Sandwich',
+  translation: 'Бутерброд',
+  image: 'assets/img/food2/40.jpg',
+  audioSrc: 'assets/audio/food2/40.mp3',
+  id: 40
+}], [{
+  word: 'Tire',
+  translation: 'Уставать',
+  image: 'assets/img/conditions/57.jpg',
+  audioSrc: 'assets/audio/conditions/57.mp3',
+  id: 57
+}, {
+  word: 'Wonder',
+  translation: 'Удивляться',
+  image: 'assets/img/conditions/58.jpg',
+  audioSrc: 'assets/audio/conditions/58.mp3',
+  id: 58
+}, {
+  word: 'Drive',
+  translation: 'Водить',
+  image: 'assets/img/conditions/59.jpg',
+  audioSrc: 'assets/audio/conditions/59.mp3',
+  id: 59
+}, {
+  word: 'Boast',
+  translation: 'Хвастаться',
+  image: 'assets/img/conditions/60.jpg',
+  audioSrc: 'assets/audio/conditions/60.mp3',
+  id: 60
+}, {
+  word: 'Smile',
+  translation: 'Улыбаться',
+  image: 'assets/img/conditions/61.jpg',
+  audioSrc: 'assets/audio/conditions/61.mp3',
+  id: 61
+}, {
+  word: 'Caress',
+  translation: 'Гладить',
+  image: 'assets/img/conditions/62.jpg',
+  audioSrc: 'assets/audio/conditions/62.mp3',
+  id: 62
+}, {
+  word: 'Work',
+  translation: 'Работать',
+  image: 'assets/img/conditions/63.jpg',
+  audioSrc: 'assets/audio/conditions/63.mp3',
+  id: 63
+}, {
+  word: 'Relax',
+  translation: 'Отдыхать',
+  image: 'assets/img/conditions/64.jpg',
+  audioSrc: 'assets/audio/conditions/64.mp3',
+  id: 64
+}], [{
+  word: 'Village',
+  translation: 'Деревня',
+  image: 'assets/img/places/41.jpg',
+  audioSrc: 'assets/audio/places/41.mp3',
+  id: 41
+}, {
+  word: 'Forest',
+  translation: 'Лес',
+  image: 'assets/img/places/42.jpg',
+  audioSrc: 'assets/audio/places/42.mp3',
+  id: 42
+}, {
+  word: 'Field',
+  translation: 'Поле',
+  image: 'assets/img/places/43.jpg',
+  audioSrc: 'assets/audio/places/43.mp3',
+  id: 43
+}, {
+  word: 'City',
+  translation: 'Город',
+  image: 'assets/img/places/44.jpg',
+  audioSrc: 'assets/audio/places/44.mp3',
+  id: 44
+}, {
+  word: 'Beach',
+  translation: 'Пляж',
+  image: 'assets/img/places/45.jpg',
+  audioSrc: 'assets/audio/places/45.mp3',
+  id: 45
+}, {
+  word: 'River',
+  translation: 'Река',
+  image: 'assets/img/places/46.jpg',
+  audioSrc: 'assets/audio/places/46.mp3',
+  id: 46
+}, {
+  word: 'Room',
+  translation: 'Комната',
+  image: 'assets/img/places/47.jpg',
+  audioSrc: 'assets/audio/places/47.mp3',
+  id: 47
+}, {
+  word: 'Desert',
+  translation: 'Пустыня',
+  image: 'assets/img/places/48.jpg',
+  audioSrc: 'assets/audio/places/48.mp3',
+  id: 48
+}]]];
+/* harmony default export */ __webpack_exports__["default"] = (cardsArr);
+
+
+word: "swim",
+        translation: "плавать",
+        image: "./assets/swim.jpg",
+        audioSrc: "./assets/swim.mp3"

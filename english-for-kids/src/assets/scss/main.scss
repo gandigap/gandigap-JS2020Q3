@@ -1,0 +1,446 @@
+@import "utils/_normalize";
+@import "utils/_reset";
+@import "utils/vars";
+@import "utils/mixins";
+
+
+
+body{
+    width:100%;
+    margin: 0;
+    font-size: 16px;
+    background-color: $color_primary;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 2000 1500'%3E%3Cdefs%3E%3CradialGradient id='a' gradientUnits='objectBoundingBox'%3E%3Cstop offset='0' stop-color='%23ff9922'/%3E%3Cstop offset='1' stop-color='%23442266'/%3E%3C/radialGradient%3E%3ClinearGradient id='b' gradientUnits='userSpaceOnUse' x1='0' y1='750' x2='1550' y2='750'%3E%3Cstop offset='0' stop-color='%23ba1b67'/%3E%3Cstop offset='1' stop-color='%23442266'/%3E%3C/linearGradient%3E%3Cpath id='s' fill='url(%23b)' d='M1549.2 51.6c-5.4 99.1-20.2 197.6-44.2 293.6c-24.1 96-57.4 189.4-99.3 278.6c-41.9 89.2-92.4 174.1-150.3 253.3c-58 79.2-123.4 152.6-195.1 219c-71.7 66.4-149.6 125.8-232.2 177.2c-82.7 51.4-170.1 94.7-260.7 129.1c-90.6 34.4-184.4 60-279.5 76.3C192.6 1495 96.1 1502 0 1500c96.1-2.1 191.8-13.3 285.4-33.6c93.6-20.2 185-49.5 272.5-87.2c87.6-37.7 171.3-83.8 249.6-137.3c78.4-53.5 151.5-114.5 217.9-181.7c66.5-67.2 126.4-140.7 178.6-218.9c52.3-78.3 96.9-161.4 133-247.9c36.1-86.5 63.8-176.2 82.6-267.6c18.8-91.4 28.6-184.4 29.6-277.4c0.3-27.6 23.2-48.7 50.8-48.4s49.5 21.8 49.2 49.5c0 0.7 0 1.3-0.1 2L1549.2 51.6z'/%3E%3Cg id='g'%3E%3Cuse href='%23s' transform='scale(0.12) rotate(60)'/%3E%3Cuse href='%23s' transform='scale(0.2) rotate(10)'/%3E%3Cuse href='%23s' transform='scale(0.25) rotate(40)'/%3E%3Cuse href='%23s' transform='scale(0.3) rotate(-20)'/%3E%3Cuse href='%23s' transform='scale(0.4) rotate(-30)'/%3E%3Cuse href='%23s' transform='scale(0.5) rotate(20)'/%3E%3Cuse href='%23s' transform='scale(0.6) rotate(60)'/%3E%3Cuse href='%23s' transform='scale(0.7) rotate(10)'/%3E%3Cuse href='%23s' transform='scale(0.835) rotate(-40)'/%3E%3Cuse href='%23s' transform='scale(0.9) rotate(40)'/%3E%3Cuse href='%23s' transform='scale(1.05) rotate(25)'/%3E%3Cuse href='%23s' transform='scale(1.2) rotate(8)'/%3E%3Cuse href='%23s' transform='scale(1.333) rotate(-60)'/%3E%3Cuse href='%23s' transform='scale(1.45) rotate(-30)'/%3E%3Cuse href='%23s' transform='scale(1.6) rotate(10)'/%3E%3C/g%3E%3C/defs%3E%3Cg transform='translate(420 0)'%3E%3Cg transform='translate(0 435)'%3E%3Ccircle fill='url(%23a)' r='3000'/%3E%3Cg opacity='0.5'%3E%3Ccircle fill='url(%23a)' r='2000'/%3E%3Ccircle fill='url(%23a)' r='1800'/%3E%3Ccircle fill='url(%23a)' r='1700'/%3E%3Ccircle fill='url(%23a)' r='1651'/%3E%3Ccircle fill='url(%23a)' r='1450'/%3E%3Ccircle fill='url(%23a)' r='1250'/%3E%3Ccircle fill='url(%23a)' r='1175'/%3E%3Ccircle fill='url(%23a)' r='900'/%3E%3Ccircle fill='url(%23a)' r='750'/%3E%3Ccircle fill='url(%23a)' r='500'/%3E%3Ccircle fill='url(%23a)' r='380'/%3E%3Ccircle fill='url(%23a)' r='250'/%3E%3C/g%3E%3Cg transform='rotate(-10.8 0 0)'%3E%3Cuse href='%23g' transform='rotate(10)'/%3E%3Cuse href='%23g' transform='rotate(120)'/%3E%3Cuse href='%23g' transform='rotate(240)'/%3E%3C/g%3E%3Ccircle fill-opacity='0' fill='url(%23a)' r='3000'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    background-attachment: fixed;
+    background-size: cover;
+    @include p;
+}
+
+.body__container{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin:0 auto;
+    max-width: 900px;
+    min-height:100vh;
+    background-color: $color_container_color;
+}
+
+.header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: $color_primary;
+    height: 80px;
+}
+
+.switches{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height:100%;
+}
+
+.header__nav__list {
+  position: fixed;
+    top: 0;
+    padding: 80px 40px;
+    left: -320px;
+    width: 320px;
+    height: 100%;
+    justify-content: center;
+    flex-direction: column;
+    margin: 0px;
+    align-items: center;
+    background: $color_third;
+    transition: left 0.2s;
+    -webkit-transform: translateZ(0);
+    -webkit-backface-visibility: hidden;
+}
+
+
+.header__nav__list__item__link{
+  margin: 10px;
+  display: flex;
+  align-items: center;
+}
+
+.header__nav__list__item__link:hover .nav__list__icon{
+  transform: scale(1.2);
+  transition: 0.2s;
+}
+
+.header__nav__list__item__link:hover .nav__list__text{
+  border-bottom: 3px solid white;
+  transition: 0.2s;
+  color: $color_ligth;
+}
+
+.nav__list__icon{
+  margin: 0 20px;
+  width: 40px;
+  height: 40px;;
+}
+
+.label__burger__menu {
+  padding: 5px;
+    position: relative;
+    margin: 0 40px;
+    display: flex;
+    flex-direction: column;
+    font-size: 15px;
+    cursor: pointer;
+}
+
+.burger__line {
+  width: 30px;
+  height: 2px;
+  margin: 4px auto;
+  background-color: $color_third;
+}
+
+#check__burger__menu:checked ~ * .hidden__menu__overlay {
+    z-index: 2;
+    left: 0;
+    top: 0;
+    position: absolute;
+    width: 100%;
+    height: 100vh;
+    background-color: $color_hidden_overlay;
+
+    cursor: pointer;
+}
+
+#check__burger__menu:checked ~ * a.logo__link {
+    z-index: 10;
+    margin-right: 114px;
+    transition: 0.2s;
+}
+
+#check__burger__menu:checked ~ label.label__burger__menu {
+    z-index: 10;
+    padding: 5px;
+    border-radius: 20px;
+    transform: rotate(90deg);
+    transition: 0.2s;
+    background-color: $color_secondary;
+    position:absolute;
+    top:20px;
+    left: 0px;
+}
+
+#check__burger__menu:checked ~ * div.burger__line {
+  background-color: $color_ligth;
+}
+
+#check__burger__menu:checked ~ * ul.header__nav__list {
+    z-index: 2;
+    left: 0;
+}
+
+#check__burger__menu:checked ~ * div.menu a {
+
+}
+
+#check__burger__menu:checked ~ * div.menu a.active {
+    color: #FAFAFA;
+}
+
+.header__toogle{
+    margin:5px;
+    width: 60px;
+    height: 30px;
+    color:white;
+    background-color: $color_secondary;
+    border-radius: 5px;
+}
+
+#check__burger__menu{
+    display: none;
+}
+
+
+
+
+
+
+
+
+/*
+
+.flip__box {
+  background-color: transparent;
+  width: 200px;
+  height: 200px;
+  border: 1px solid #f1f1f1;
+  perspective: 1000px; /
+}
+
+
+.flip__box__inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+}
+
+.flip__box:hover .flip__box__inner {
+  transform: rotateY(180deg);
+}
+
+
+.flip__box__front, .flip__box__back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden; /
+  backface-visibility: hidden;
+}
+
+
+.flip__box__front {
+  background-color: #bbb;
+  color: black;
+}
+
+
+.flip__box__back {
+  background-color: dodgerblue;
+  color: white;
+  transform: rotateY(180deg);
+}
+ */
+
+
+
+
+
+
+
+
+.toogle__container{
+  margin: 0 20px;
+}
+
+#check__toogle {
+  width: 120px;
+  height: 20px;
+  background: $color_third;
+  -webkit-appearance: none;
+  border-radius: 20px;
+  outline: none;
+  transition: .4s;
+  box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+}
+
+#check__toogle:checked {
+  background: $color_secondary;
+}
+
+#check__toogle::before {
+  z-index: 1;
+  position: absolute;
+  content: "";
+  left: 0;
+  width: 55px;
+  height: 20px;
+  background: $color_ligth;
+  border-radius: 15px;
+  transform: scale(1.1);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  transition: .4s;
+}
+
+#check__toogle:checked::before {
+  left: 62px;
+}
+
+.toggle {
+  position: relative;
+  display: inline;
+}
+
+.label__toogle {
+  position: absolute;
+  color: #fff;
+  font-weight: 600;
+  font-size: 16px;
+  pointer-events: none;
+}
+
+.onbtn {
+  left: 15px;
+}
+
+.ofbtn {
+  right: 14px;
+  color: $color_primary;
+}
+
+
+
+
+
+
+
+
+
+.main{
+    padding:0 10px;
+}
+
+.cards{
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+
+
+
+
+//++++++++++++++++++++++++++++++++++++++++         FLIP BOX
+
+.card{
+
+  margin:10px;
+  width: 200px;
+  height: 200px;
+  perspective: 1000px;
+}
+
+.card__content{
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: transform 1s;
+  transform-style: preserve-3d;
+}
+
+.card_active:hover{
+  transform: rotateY(180deg);
+}
+
+.card:hover .card__content{
+  /* transform: rotateY(180deg); */
+  -webkit-box-shadow: 0px 0px 15px 3px rgba(73, 73, 73, 0.75);
+  -moz-box-shadow: 0px 0px 15px 3px rgba(73, 73, 73, 0.75);
+  box-shadow: 0px 0px 15px 3px rgba(73, 73, 73, 0.75);
+}
+
+.card__info{
+  position: absolute;
+  bottom: 0;
+  width: 200px;
+  height: 40px;
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: $color_secondary;
+}
+
+
+.flip_button{
+  background: transparent;
+  width: 40px;
+  cursor: pointer;
+}
+
+.flip_button:hover{
+  -webkit-box-shadow: 0px 0px 15px 3px rgba(255, 255, 255, 0.75);
+  -moz-box-shadow: 0px 0px 15px 3px  rgba(255, 255, 255, 0.75);
+  box-shadow: 0px 0px 15px 3px rgba(255, 255, 255, 0.75);
+  border-radius: 5px;
+  background-color: $color_third;
+}
+
+.card__content__front, .card__content__back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden; /* Safari */
+  backface-visibility: hidden;
+}
+
+/* Style the front side (fallback if image is missing) */
+.card__content__front {
+
+}
+
+/* Style the back side */
+.card__content__back {
+  transform: rotateY(180deg);
+}
+
+
+
+
+.game__control{
+  display: flex;
+  justify-content: center;
+}
+
+.game__control__btn{
+  padding: 5px;
+  margin: 10px 20px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  background-color: $color_third;
+  border-radius: 15px;
+  cursor: pointer;
+}
+
+.game__control__btn:hover{
+  background-color: $color_secondary;
+}
+
+.game__control__btn:active{
+  transform: scale(0.9);
+  transition: 0.5s;
+}
+
+.game__control__img{
+  padding: 5px;
+  width: 30px;
+  height: 30px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.footer{
+    display:flex;
+    justify-content: space-around;
+    height: 60px;
+    color: $color_ligth;
+    background-color: $color_primary;
+}
+
+.footer__link__text{
+  color:$color_third;
+}
+
+.footer__img{
+    min-width: 80px;
+}
