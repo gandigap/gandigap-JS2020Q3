@@ -18,7 +18,7 @@ export default class Card {
                           </figure>
                             <div class="card__info">
                               <p class="card__info__text">${cardWord}</p>
-                              <button class="flip_button">
+                              <button class="flip_button" id="flip_button__${cardWord}">
                                 <img class="flip_button__img" src="assets/icons/flip.png" alt="Flip">
                               </button>
                             </div>
@@ -34,11 +34,16 @@ export default class Card {
                           </div>
                         </div>`;
 
-    /* this.buttonF = document.getElementById(cardWord); */
-    this.el.onclick = () => {
-      this.cardContent = document.getElementById(cardWord);
+
+    this.cardContent = document.getElementById(cardWord);
+    this.flipBut = document.getElementById(`flip_button__${cardWord}`);
+    this.flipBut.onclick = () => {
       this.cardContent.classList.add('card_active');
     };
+
+    this.cardContent.addEventListener('mouseleave', () => {
+      this.cardContent.classList.remove('card_active');
+    }, false);
   }
 
   /* constructor(type, className, parentSelector) {
