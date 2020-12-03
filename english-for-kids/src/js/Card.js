@@ -33,8 +33,6 @@ export default class Card {
                             </div>
                           </div>
                         </div>`;
-
-
     this.cardContent = document.getElementById(cardWord);
     this.flipBut = document.getElementById(`flip_button__${cardWord}`);
     this.flipBut.onclick = () => {
@@ -44,6 +42,12 @@ export default class Card {
     this.cardContent.addEventListener('mouseleave', () => {
       this.cardContent.classList.remove('card_active');
     }, false);
+  }
+
+  playCard() {
+    this.el.onclick = () => {
+      this.cardContent.classList.add('card_active');
+    };
   }
 
   /* constructor(type, className, parentSelector) {

@@ -31,7 +31,7 @@ class Main {
     console.log('start cicle');
     this.data.forEach((element) => {
       if (element[0].nameCategory === category) {
-        for (let i = 1; i < 9; i += 1) {
+        for (let i = 1; i < 17; i += 1) {
           const card = new Card('div', '.cards', 'card');
           card.setStringCardHTML(element[i].word, element[i].translation, element[i].image);
           this.allCards.push(card);
@@ -60,8 +60,18 @@ const main = new Main();
 window.main = main;
 
 main.addBlock('.app__information', 'div', 'cards');
-main.addCards('categories');
+main.addCards('vegetables');
 /* main.removeElementsInBlock('.app__information'); */
+
+const clickcard = document.querySelectorAll('.card');
+console.log(clickcard);
+
+for (let i = 0; i < clickcard.length; i += 1) {
+  clickcard[i].addEventListener('click', () => {
+    console.log('a');
+    console.log(clickcard[i].querySelector('.card__img').classList.add('a'));
+  });
+}
 
 console.log(main.allCards);
 
