@@ -313,6 +313,10 @@ body{
   perspective: 1000px;
 }
 
+#categories .card {
+  cursor: pointer;
+}
+
 .card__content{
   position: relative;
   width: 100%;
@@ -342,6 +346,7 @@ body{
   justify-content: space-between;
   align-items: center;
   background-color: $color_secondary;
+  transition: .5s;
 }
 
 
@@ -383,6 +388,7 @@ body{
 .game__control{
   display: flex;
   justify-content: center;
+  height: 60px;
 }
 
 .game__control__btn{
@@ -390,10 +396,12 @@ body{
   margin: 10px 20px;
   height: 40px;
   display: flex;
+  opacity: 0;
   align-items: center;
   background-color: $color_third;
   border-radius: 15px;
   cursor: pointer;
+  transition: 0.2s;
 }
 
 .game__control__btn:hover{

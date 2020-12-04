@@ -4,12 +4,13 @@ export default class Card {
   constructor(type, parentSelector, className) {
     const parent = document.querySelector(parentSelector);
     this.el = document.createElement(type);
-
     this.el.classList.add(className);
+    this.toggleGameMode = document.getElementById('check__toogle');
+    this.isTrainActive = true;
     parent.appendChild(this.el);
   }
 
-  setStringCardHTML(cardWord, cardTranslation, cardSrcImage) {
+  createCard(cardWord, cardTranslation, cardSrcImage, cardSrcAudio) {
     this.el.innerHTML = `<div class="card__content" id="${cardWord}">
                           <div class="card__content__front ">
                             <figure class="card__img">
@@ -22,6 +23,7 @@ export default class Card {
                                 <img class="flip_button__img" src="assets/icons/flip.png" alt="Flip">
                               </button>
                             </div>
+                            <audio src="${cardSrcAudio}"></audio>
                           </div>
                           <div class="card__content__back">
                             <figure class="card__img">
@@ -42,13 +44,42 @@ export default class Card {
     this.cardContent.addEventListener('mouseleave', () => {
       this.cardContent.classList.remove('card_active');
     }, false);
+
+    this.el.onclick = () => {
+      if (this.toggleGameMode.checked) {
+        console.log('Play active');
+      }
+      else {
+        console.log('Train Active');
+        this.playCard();
+      }
+    };
+
+    /* this.toggleGameMode.onclick = () => {
+      if (this.toggleGameMode.checked) {
+        this.isTrainActive = false;
+        console.log('Checked');
+        this.hideElement();
+      }
+      else {
+        this.isTrainActive = true;
+        console.log('UNChecked');
+        this.hideElement();
+      }
+    }; */
   }
 
   playCard() {
-    this.el.onclick = () => {
-      this.cardContent.classList.add('card_active');
-    };
+    this.audioFile = this.el.querySelector('audio');
+    this.audioFile.play();
   }
+
+  /* hideElement() {
+    console.log('hide');
+    this.element = this.el.querySelector('.card__info');
+    console.log(this.element);
+    this.element.style.display = 'none';
+  } */
 
   /* constructor(type, className, parentSelector) {
     const parent = document.querySelector(parentSelector);

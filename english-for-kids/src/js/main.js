@@ -10,7 +10,9 @@ class Main {
     this.data = DATA_FOR_CARDS;
     this.isTrainActive = true;
     this.allCards = [];
-    console.log(this.data[1][1].translation);
+    this.toggleGameMode = document.getElementById('check__toogle');
+    this.isTrainActive = true;
+    this.tempCategory = '';
   }
 
   removeElementsInBlock(parentBlock) {
@@ -27,13 +29,40 @@ class Main {
     this.parentContainer.append(this.newContainer);
   }
 
-  addCards(category) {
-    console.log('start cicle');
+  getDefaultArray(length) {
+    this.arrayDefaultValues = [];
+    for (let i = 0; i < length; i += 1) {
+      this.arrayDefaultValues.push(i + 1);
+    }
+    return this.arrayDefaultValues;
+  }
+
+  getRandomArray(min, max, length) {
+    const size = length;
+    const arr = [];
+    this.arrayRandomValues = [];
+    for (let i = min; i <= max; i += 1) {
+      arr.push(i);
+    }
+    for (let i = min; i <= size; i += 1) {
+      const VALUE = arr.splice(Math.floor(Math.random() * ((max - i) - 1) + 1), 1);
+      this.arrayRandomValues.push(VALUE.pop());
+    }
+    return this.arrayRandomValues;
+  }
+
+  addCards(category, arrayValues) {
+    this.tempCategory = category;
+    document.querySelector('.cards').id = this.tempCategory;
     this.data.forEach((element) => {
       if (element[0].nameCategory === category) {
-        for (let i = 1; i < 17; i += 1) {
+        for (let i = 0; i < arrayValues.length; i += 1) {
+          const INDEX = arrayValues[i];
           const card = new Card('div', '.cards', 'card');
-          card.setStringCardHTML(element[i].word, element[i].translation, element[i].image);
+          card.createCard(element[INDEX].word,
+            element[INDEX].translation,
+            element[INDEX].image,
+            element[INDEX].audioSrc);
           this.allCards.push(card);
         }
       }
@@ -41,16 +70,14 @@ class Main {
   }
 
   flipCard(cardId) {
-    console.log('click');
     this.cardId = cardId;
     const CARD = document.getElementById(`${this.cardId}`);
-    console.log(CARD);
     CARD.classList.add('.flip_active');
   }
 
   getCards() {
     this.allCards = document.querySelectorAll('.card');
-    return this.addCards;
+    return this.allCards;
   }
 
   addTable() {}
@@ -60,34 +87,51 @@ const main = new Main();
 window.main = main;
 
 main.addBlock('.app__information', 'div', 'cards');
-main.addCards('vegetables');
+main.addCards('categories', main.getDefaultArray(8));
+/* main.addCards('transport', main.getRandomArray(1, 16, 8)); */
+
+main.toggleGameMode.addEventListener('click', () => {
+  const allTextInfo = document.querySelectorAll('.card__info');
+  if (main.isTrainActive) {
+    document.querySelectorAll('.card__content').forEach((element) => {
+      element.style.overflow = 'hidden';
+    });
+    allTextInfo.forEach((element) => {
+      element.style.bottom = '-40px';
+    });
+    document.querySelector('.start').style.opacity = '1';
+    main.isTrainActive = false;
+  } else {
+    document.querySelectorAll('.card__content').forEach((element) => {
+      element.style.overflow = 'initial';
+    });
+    allTextInfo.forEach((element) => {
+      element.style.bottom = '0px';
+    });
+    document.querySelector('.start').style.opacity = '0';
+    main.isTrainActive = true;
+  }
+});
+
+console.log(main.getCards());
 /* main.removeElementsInBlock('.app__information'); */
 
-const clickcard = document.querySelectorAll('.card');
-console.log(clickcard);
+main.getCards().forEach((element) => {
+  element.addEventListener('click', () => {
+    if (document.querySelector('.cards').getAttribute('id') === 'categories') {
+      console.log(element.querySelector('.card__info__text').textContent);
+    }
+  });
+});
 
-for (let i = 0; i < clickcard.length; i += 1) {
+/* for (let i = 0; i < clickcard.length; i += 1) {
   clickcard[i].addEventListener('click', () => {
     console.log('a');
     console.log(clickcard[i].querySelector('.card__img').classList.add('a'));
   });
-}
-
-console.log(main.allCards);
-
-/* main.getCards.onclick = () => {
-  console.log('click AAA');
-}; */
-
-/* const newElement = new BaseElement('div', '.cards');
-console.log(newElement); */
+} */
 
 /* const appInfo = document.querySelector('.app__information');
 while (appInfo.firstChild) {
   appInfo.removeChild(appInfo.firstChild);
-} */
-
-/* const cards = new Card('div', 'cards', '.app__information');
-for (let i = 0; i < 5; i += 1) {
-  cards.addChildElement('card+');
 } */
