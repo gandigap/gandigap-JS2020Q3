@@ -429,7 +429,7 @@ const DATA_FOR_CARDS = [
       word: 'supermarket',
       translation: 'супермаркет',
       image: 'assets/images/places/supermarket.jpg',
-      audioSrc: 'assets/sounds/places/v.mp3',
+      audioSrc: 'assets/sounds/places/supermarket.mp3',
     },
     {
       word: 'theater',

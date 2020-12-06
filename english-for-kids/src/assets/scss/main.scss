@@ -63,6 +63,7 @@ body{
   margin: 10px;
   display: flex;
   align-items: center;
+  cursor: pointer;
 }
 
 .header__nav__list__item__link:hover .nav__list__icon{
@@ -165,61 +166,6 @@ body{
 
 
 
-
-/*
-
-.flip__box {
-  background-color: transparent;
-  width: 200px;
-  height: 200px;
-  border: 1px solid #f1f1f1;
-  perspective: 1000px; /
-}
-
-
-.flip__box__inner {
-  position: relative;
-  width: 100%;
-  height: 100%;
-  text-align: center;
-  transition: transform 0.8s;
-  transform-style: preserve-3d;
-}
-
-.flip__box:hover .flip__box__inner {
-  transform: rotateY(180deg);
-}
-
-
-.flip__box__front, .flip__box__back {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  -webkit-backface-visibility: hidden; /
-  backface-visibility: hidden;
-}
-
-
-.flip__box__front {
-  background-color: #bbb;
-  color: black;
-}
-
-
-.flip__box__back {
-  background-color: dodgerblue;
-  color: white;
-  transform: rotateY(180deg);
-}
- */
-
-
-
-
-
-
-
-
 .toogle__container{
   margin: 0 20px;
 }
@@ -292,6 +238,10 @@ body{
     padding:0 10px;
 }
 
+.mark__container img {
+  height: 30px;
+}
+
 .cards{
     display: flex;
     justify-content: space-around;
@@ -311,9 +261,11 @@ body{
   width: 200px;
   height: 200px;
   perspective: 1000px;
+  border-radius: 14px;
+  overflow: hidden;
 }
 
-#categories .card {
+.cards .card {
   cursor: pointer;
 }
 
@@ -345,6 +297,9 @@ body{
   display: flex;
   justify-content: space-between;
   align-items: center;
+  color: $color_ligth;
+  font-size: 18px;
+  font-weight: bold;
   background-color: $color_secondary;
   transition: .5s;
 }
@@ -402,6 +357,7 @@ body{
   border-radius: 15px;
   cursor: pointer;
   transition: 0.2s;
+  font-weight: bold;
 }
 
 .game__control__btn:hover{
@@ -413,10 +369,23 @@ body{
   transition: 0.5s;
 }
 
-.game__control__img{
+.game__control__btn__img{
   padding: 5px;
   width: 30px;
   height: 30px;
+}
+
+.repeat {
+  background-color: $color_secondary;
+  border-radius: 3px;
+  border: 1px solid $color_ligth;
+}
+
+.repeat:hover .game__control__btn__img{
+  transform: rotate(90deg);
+  transition: .5s;
+  background-color: $color_ligth;
+  border-radius: 50%;
 }
 
 
@@ -440,13 +409,22 @@ body{
 .footer{
     display:flex;
     justify-content: space-around;
+    align-items: center;
     height: 60px;
     color: $color_ligth;
+    font-size: 20px;
     background-color: $color_primary;
+
 }
 
 .footer__link__text{
   color:$color_third;
+}
+
+.footer__logo{
+  padding: 5px;
+  border-radius: 5px;
+  background-color: #F89424;
 }
 
 .footer__img{

@@ -5,8 +5,8 @@ export default class Card {
     const parent = document.querySelector(parentSelector);
     this.el = document.createElement(type);
     this.el.classList.add(className);
-    this.toggleGameMode = document.getElementById('check__toogle');
-    this.isTrainActive = true;
+    /* this.toggleGameMode = document.getElementById('check__toogle');
+    this.isTrainActive = true; */
     parent.appendChild(this.el);
   }
 
@@ -35,7 +35,7 @@ export default class Card {
                             </div>
                           </div>
                         </div>`;
-    this.cardContent = document.getElementById(cardWord);
+    /* this.cardContent = document.getElementById(cardWord);
     this.flipBut = document.getElementById(`flip_button__${cardWord}`);
     this.flipBut.onclick = () => {
       this.cardContent.classList.add('card_active');
@@ -53,7 +53,7 @@ export default class Card {
         console.log('Train Active');
         this.playCard();
       }
-    };
+    }; */
 
     /* this.toggleGameMode.onclick = () => {
       if (this.toggleGameMode.checked) {
@@ -67,11 +67,6 @@ export default class Card {
         this.hideElement();
       }
     }; */
-  }
-
-  playCard() {
-    this.audioFile = this.el.querySelector('audio');
-    this.audioFile.play();
   }
 
   /* hideElement() {
