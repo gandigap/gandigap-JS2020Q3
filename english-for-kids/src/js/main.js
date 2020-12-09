@@ -171,6 +171,7 @@ class Main {
 
       this.currentAudioFile.play();
     } else if (this.NumberAudioOnGame === 7) {
+      this.NumberAudioOnGame = 0;
       this.gameOver();
     }
   }
@@ -201,6 +202,9 @@ class Main {
     setTimeout(() => {
       this.removeElementsInBlock('.cards');
       this.addCards('categories', this.getDefaultArray(8));}, 3000);
+    this.isGameActive = false;
+    this.isTrainActive = true;
+    this.mistakes = 0;
   }
 
   getResult(parentElement) {
