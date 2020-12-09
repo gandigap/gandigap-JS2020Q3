@@ -329,12 +329,6 @@ const DATA_FOR_CARDS = [
       audioSrc: 'assets/sounds/occupations/reporter.mp3',
     },
     {
-      word: 'painter',
-      translation: 'художник',
-      image: 'assets/images/occupations/painter.jpg',
-      audioSrc: 'assets/sounds/occupations/painter.mp3',
-    },
-    {
       word: 'teacher',
       translation: 'учитель',
       image: 'assets/images/occupations/teacher.jpg',

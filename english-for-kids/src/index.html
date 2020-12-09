@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>KFE </title>
+  <title>English 4 kids </title>
   <link rel="shortcut icon" href="assets/icons/favicon.ico">
 </head>
 
@@ -14,16 +14,16 @@
       <div class="header__menu__container">
         <input id="check__burger__menu" type="checkbox" />
         <label class="label__burger__menu" for="check__burger__menu">
-          <div class="burger__line"></div>
-          <div class="burger__line"></div>
-          <div class="burger__line"></div>
+          <div class="burger__line line1"></div>
+          <div class="burger__line line2 "></div>
+          <div class="burger__line line3"></div>
         </label>
 
         <nav class="header__nav">
           <label class="hidden__menu__overlay" for="check__burger__menu"></label>
           <ul class="header__nav__list">
             <li class="header__nav__list__item">
-              <div class="header__nav__list__item__link">
+              <div class="header__nav__list__item__link link__active">
                 <img src="assets/icons/menu.png" alt="Main menu" class="nav__list__icon"><p class="nav__list__text">Main menu</p>
               </div>
             </li>
@@ -88,9 +88,13 @@
       </div>
       <div class="marks">
         <div class="mark__container">
-          <img src="assets/icons/star-good.png" alt="Star" class="mark__img">
-          <img src="assets/icons/star-bad.png" alt="Star" class="mark__img">
+          <!-- <img src="assets/icons/star-good.png" alt="Star" class="mark__img">
+          <img src="assets/icons/star-bad.png" alt="Star" class="mark__img"> -->
         </div>
+        <audio class='correct__answer__audio' src="assets/sounds/answer/correct.mp3"></audio>
+        <audio class='correct__error__audio' src="assets/sounds/answer/error.mp3"></audio>
+        <audio class='correct__good__audio' src="assets/sounds/answer/success.mp3"></audio>
+        <audio class='correct__bad__audio' src="assets/sounds/answer/fail.mp3"></audio>
       </div>
 
       <section class="app__information">
@@ -100,15 +104,14 @@
     </main>
     <footer class="footer">
       <div class="footer__link">
-        <a class="footer__link__text"href="">Github</a>
+        <a class="footer__link__text"href="https://github.com/gandigap">Github</a>
       </div>
       <div class="year">2020</div>
       <div class="footer__logo">
-        <a href="">
+        <a href="https://rs.school/js/">
           <img class="footer__img" src="assets/icons/rs_school_js.svg" alt="">
         </a>
       </div>
-      <div id="box1"></div>
     </footer>
   </div>
 </body>

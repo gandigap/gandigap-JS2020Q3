@@ -6,7 +6,8 @@ const { default: Card } = require('./Card');
 
 class Main {
   constructor() {
-    console.log('Hello from JavaScript!');
+    this.bodyContent = document.querySelector('body');
+    this.burgerLink = document.querySelector('#check__burger__menu');
     this.data = DATA_FOR_CARDS;
     this.isTrainActive = true;
     this.allCards = [];
@@ -16,10 +17,13 @@ class Main {
     this.toggleGameMode = document.getElementById('check__toogle');
     this.gameStartButton = document.querySelector('.game__control__btn');
     this.gamePlayButton = document.querySelector('.play_btn');
-    this.gameRepeatButton = document.querySelector('.repeat');
     this.isGameActive = false;
     this.tempCategory = '';
     this.NumberAudioOnGame = 0;
+    this.arrayRandomValuesForAudioFiles = 0;
+    this.currentAudioFile = undefined;
+    this.marksContainer = document.querySelector('.mark__container');
+    this.mistakes = 0;
   }
 
   removeElementsInBlock(parentBlock) {
@@ -34,6 +38,17 @@ class Main {
     this.newContainer = document.createElement(newBlock);
     this.newContainer.classList.add(classNewBlock);
     this.parentContainer.append(this.newContainer);
+  }
+
+  addStar(value) {
+    const STAR = document.createElement('img');
+    STAR.classList.add('mark__img');
+    if (value === 'good') {
+      STAR.src = 'assets/icons/star-good.png';
+    } else if (value === 'bad') {
+      STAR.src = 'assets/icons/star-bad.png';
+    }
+    this.marksContainer.append(STAR);
   }
 
   getDefaultArray(length) {
@@ -79,10 +94,12 @@ class Main {
 
   openCategory(category) {
     this.removeElementsInBlock('.cards');
-    this.addCards(category, this.getRandomArray(1, 16, 8));
+    const ARRAY_RANDOM_VALUES = this.getRandomArray(1, 16, 8);
+    console.log(ARRAY_RANDOM_VALUES);
+    this.addCards(category, ARRAY_RANDOM_VALUES);
     this.tempCategory = category.toLowerCase();
     document.querySelector('.cards').id = this.tempCategory;
-    this.addEventListeners();
+    /*  this.addEventListeners(); */
   }
 
   addEventListeners() {
@@ -91,25 +108,35 @@ class Main {
         if (document.querySelector('.cards').getAttribute('id') === 'categories') {
           this.tempCategory = element.el.querySelector('.card__info__text').textContent.toLowerCase();
           this.openCategory(this.tempCategory);
-        } else {
-          console.log('click');
-          /* Flip card 0n click and backflipn on mouse leave */
-          const cardContent = element.el.querySelector('.card__content');
-          const flipBut = element.el.querySelector('.flip_button');
-          console.log(cardContent);
-          console.log(flipBut);
-          flipBut.onclick = () => {
-            cardContent.classList.add('card_active');
-          };
-          cardContent.addEventListener('mouseleave', () => {
-            cardContent.classList.remove('card_active');
-          }, false);
         }
-        /* Play audio */
-        if (this.isTrainActive) {
+
+        if (this.isTrainActive && !(this.isGameActive)) {
+          /* Play audio */
           const AUDIO_FILE = element.el.querySelector('audio');
           AUDIO_FILE.play();
         }
+
+        /* Check game mode and add star */
+        if (this.isGameActive && this.currentAudioFile === element.el.querySelector('audio')) {
+          element.el.classList.add('right__card');
+          const CORRECT_AUDIO = document.querySelector('.correct__answer__audio');
+          CORRECT_AUDIO.play();
+          setTimeout(() => this.playGame(), 1000);
+          this.addStar('good');
+        } else if (this.isGameActive) {
+          const ERROR_AUDIO = document.querySelector('.correct__error__audio');
+          ERROR_AUDIO.play();
+          this.addStar('bad');
+          this.mistakes += 1;
+        }
+      });
+      /* Flip card 0n click and backflipn on mouse leave */
+      const cardContent = element.el.querySelector('.card__content');
+      element.el.querySelector('.flip_button').addEventListener('click', () => {
+        cardContent.classList.add('card_active');
+        cardContent.addEventListener('mouseleave', () => {
+          cardContent.classList.remove('card_active');
+        }, false);
       });
     });
   }
@@ -131,14 +158,86 @@ class Main {
   }
 
   getAudio() {
-    this.allAudio = document.querySelectorAll('audio');
+    const CARDS = document.querySelector('.cards');
+    this.allAudio = CARDS.querySelectorAll('audio');
     return this.allAudio;
   }
 
   playGame() {
-    const ARRAY_RANDOM_VALUES = this.getRandomArray(0, 7, 8);
-    console.log(ARRAY_RANDOM_VALUES + ' sound');
-    this.getAudio()[ARRAY_RANDOM_VALUES[this.NumberAudioOnGame]].play();
+    if (this.NumberAudioOnGame < 7) {
+      this.NumberAudioOnGame += 1;
+      const NUMBER = this.NumberAudioOnGame;
+      this.currentAudioFile = this.getAudio()[this.arrayRandomValuesForAudioFiles[NUMBER]];
+
+      this.currentAudioFile.play();
+    } else if (this.NumberAudioOnGame === 7) {
+      this.gameOver();
+    }
+  }
+
+  repeatAudio() {
+    const NUMBER = this.NumberAudioOnGame;
+    this.currentAudioFile = this.getAudio()[this.arrayRandomValuesForAudioFiles[NUMBER]];
+    this.currentAudioFile.play();
+  }
+
+  removeActiveLink() {
+    this.document.querySelector('.link__active').classList.remove('link__active');
+  }
+
+  gameOver() {
+    this.removeElementsInBlock('.cards');
+    this.removeElementsInBlock('.mark__container');
+    this.getResult('.cards');
+    this.getDefaultButton();
+    if (this.mistakes === 0) {
+      const AUDIO_SUCCESS = document.querySelector('.correct__good__audio');
+      setTimeout(() => AUDIO_SUCCESS.play(), 1000);
+    } else {
+      const AUDIO_FAILURE = document.querySelector('.correct__bad__audio');
+      setTimeout(() => AUDIO_FAILURE.play(), 1000);
+    }
+    this.toggleGameMode.checked = false;
+    setTimeout(() => {
+      this.removeElementsInBlock('.cards');
+      this.addCards('categories', this.getDefaultArray(8));}, 3000);
+  }
+
+  getResult(parentElement) {
+    const BLOCK_FOR_RESULT = document.querySelector(parentElement);
+    const CARD_RESULT = document.createElement('div');
+    CARD_RESULT.classList.add('card');
+    let cardSrcImage;
+    BLOCK_FOR_RESULT.appendChild(CARD_RESULT);
+    let resultText = '';
+    if (this.mistakes === 0) {
+      resultText = 'Success';
+      cardSrcImage = 'assets/images/emotions/smile.png';
+    } else {
+      resultText = `Failure: ${this.mistakes} errors`;
+      cardSrcImage = 'assets/images/emotions/crying.png';
+    }
+    CARD_RESULT.innerHTML = `<div class="card__content">
+                                    <div class="card__content__front ">
+                                      <figure class="card__img">
+                                        <img class="image" src="${cardSrcImage}" alt="${resultText}">
+                                        <figcaption></figcaption>
+                                      </figure>
+                                      <div class="card__info">
+                                        <p class="card__info__text">${resultText}</p>
+                                      </div>
+                                    </div>
+                                  </div>`;
+  }
+
+  getDefaultButton() {
+    document.querySelector('.repeat').classList.add('game__control__btn');
+    document.querySelector('.repeat').classList.remove('repeat');
+    const BUTTON_REPEAT_TEXT = document.querySelector('.game__control__btn__text');
+    BUTTON_REPEAT_TEXT.textContent = 'Start';
+    const BUTTON_REPEAT_IMG = document.querySelector('.game__control__btn__img');
+    BUTTON_REPEAT_IMG.src = 'assets/icons/play.png';
+    this.gameStartButton.style.display = 'none';
   }
 }
 
@@ -152,50 +251,40 @@ main.addCards('categories', main.getDefaultArray(8));
 main.toggleGameMode.addEventListener('click', () => {
   const allTextInfo = document.querySelectorAll('.card__info');
   if (main.isTrainActive) {
+    // Hide text info when active Play Mode
     document.querySelectorAll('.card__content').forEach((element) => {
       element.style.overflow = 'hidden';
     });
     allTextInfo.forEach((element) => {
       element.style.bottom = '-40px';
     });
-    document.querySelector('.game__control__btn').style.opacity = '1';
+    document.querySelector('.game__control__btn').style.display = 'flex';
     main.isTrainActive = false;
+    // Create Array Random Audio Words from Cards on page
+    main.arrayRandomValuesForAudioFiles = main.getRandomArray(0, 7, 7);
   } else {
+    // Show text info when active Train Mode
     document.querySelectorAll('.card__content').forEach((element) => {
       element.style.overflow = 'initial';
     });
     allTextInfo.forEach((element) => {
       element.style.bottom = '0px';
     });
-    document.querySelector('.game__control__btn').style.opacity = '0';
+    if (main.isGameActive) {
+      main.getDefaultButton();
+    } else {
+      document.querySelector('.game__control__btn').style.display = 'none';
+    }
     main.isTrainActive = true;
+
+    /* main.repeatAudioButton.classList.add('game__control__btn');
+    main.repeatAudioButton.classList.remove('repeat');
+    const BUTTON_REPEAT_TEXT = document.querySelector('.game__control__btn__text');
+    BUTTON_REPEAT_TEXT.textContent = 'Start';
+    const BUTTON_REPEAT_IMG = document.querySelector('.game__control__btn__img');
+    BUTTON_REPEAT_IMG.src = 'assets/icons/play.png'; */
   }
 });
-
-/* main.removeElementsInBlock('.app__information'); */
-
-/* Make cards after click on card in cards category */
-/* main.getCards().forEach((element) => {
-  main.allCards = [];
-  element.addEventListener('click', () => {
-    if (document.querySelector('.cards').getAttribute('id') === 'categories') {
-      main.tempCategory = element.querySelector('.card__info__text').textContent.toLowerCase();
-      main.openCategory(main.tempCategory);
-    }
-    console.log('click');
-    const cardContent = element.querySelector('.card__content');
-    const flipBut = element.querySelector('.flip_button');
-    console.log(cardContent);
-    console.log(flipBut);
-    flipBut.onclick = () => {
-      main.cardContent.classList.add('card_active');
-    };
-
-    cardContent.addEventListener('mouseleave', () => {
-      main.cardContent.classList.remove('card_active');
-    }, false);
-  });
-}); */
 
 /* Make cards after click on link in nav menu */
 main.getLinks().forEach((element) => {
@@ -209,13 +298,25 @@ main.getLinks().forEach((element) => {
     main.allCards = [];
     main.removeElementsInBlock('.cards');
     if (main.tempCategory === 'categories') {
-      main.addCards(main.tempCategory, main.getDefaultArray(8));
+      const ARRAY_DEFAULT_VALUES = main.getDefaultArray(8);
+      main.addCards(main.tempCategory, ARRAY_DEFAULT_VALUES);
     } else {
-      main.addCards(main.tempCategory, main.getRandomArray(1, 16, 8));
+      const ARRAY_RANDOM_VALUES = main.getRandomArray(1, 16, 8);
+      main.addCards(main.tempCategory, ARRAY_RANDOM_VALUES);
     }
+    document.querySelector('.link__active').classList.remove('link__active');
+    element.classList.add('link__active');
     main.burgerMenu.checked = false;
     main.toggleGameMode.checked = false;
   });
+});
+
+main.burgerLink.addEventListener('click', () => {
+  if (main.burgerLink.checked) {
+    main.bodyContent.style.position = 'fixed';
+  } else {
+    main.bodyContent.style.position = 'initial';
+  }
 });
 
 main.gameStartButton.addEventListener('click', () => {
@@ -223,11 +324,22 @@ main.gameStartButton.addEventListener('click', () => {
   main.gameStartButton.classList.remove('game__control__btn');
   const BUTTON_REPEAT_TEXT = document.querySelector('.game__control__btn__text');
   BUTTON_REPEAT_TEXT.textContent = 'repeat';
-  BUTTON_REPEAT_TEXT.style.color = '#ffffff';
   const BUTTON_REPEAT_IMG = document.querySelector('.game__control__btn__img');
   BUTTON_REPEAT_IMG.src = 'assets/icons/repeat.png';
-  main.playGame();
+  main.isGameActive = true;
+  if (main.isGameActive
+    && main.NumberAudioOnGame === 0
+    && main.gameStartButton.getAttribute('class') !== 'repeat') {
+    main.playGame();
+  } else {
+    main.repeatAudio();
+  }
+  console.log(main.gameStartButton.getAttribute('class'));
 });
+
+/* main.repeatAudioButton.addEventListener('click', () => {
+  main.repeatAudio();
+}); */
 
 /* main.gameRepeatButton.addEventListener('click', () => {
   console.log('click repeat');
