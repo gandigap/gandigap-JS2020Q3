@@ -99,12 +99,16 @@ class Main {
     this.addCards(category, ARRAY_RANDOM_VALUES);
     this.tempCategory = category.toLowerCase();
     document.querySelector('.cards').id = this.tempCategory;
+    this.hideTextInfo();
     /*  this.addEventListeners(); */
   }
 
   addEventListeners() {
     this.allCards.forEach((element) => {
       element.el.addEventListener('click', () => {
+        if (document.querySelector('.cards').getAttribute('id') === 'categories') {
+          this.hideTextInfo();
+        }
         if (document.querySelector('.cards').getAttribute('id') === 'categories') {
           this.tempCategory = element.el.querySelector('.card__info__text').textContent.toLowerCase();
           this.openCategory(this.tempCategory);
@@ -201,10 +205,42 @@ class Main {
     this.toggleGameMode.checked = false;
     setTimeout(() => {
       this.removeElementsInBlock('.cards');
-      this.addCards('categories', this.getDefaultArray(8));}, 3000);
+      this.addCards('categories', this.getDefaultArray(8));
+    }, 3000);
     this.isGameActive = false;
     this.isTrainActive = true;
     this.mistakes = 0;
+  }
+
+  hideTextInfo() {
+    const allTextInfo = document.querySelectorAll('.card__info');
+    if (this.isTrainActive) {
+      // Hide text info when active Play Mode
+      document.querySelectorAll('.card__content').forEach((element) => {
+        element.style.overflow = 'hidden';
+      });
+      allTextInfo.forEach((element) => {
+        element.style.bottom = '-40px';
+      });
+      document.querySelector('.game__control__btn').style.display = 'flex';
+      this.isTrainActive = false;
+      // Create Array Random Audio Words from Cards on page
+      this.arrayRandomValuesForAudioFiles = this.getRandomArray(0, 7, 7);
+    } else {
+      // Show text info when active Train Mode
+      document.querySelectorAll('.card__content').forEach((element) => {
+        element.style.overflow = 'initial';
+      });
+      allTextInfo.forEach((element) => {
+        element.style.bottom = '0px';
+      });
+      if (this.isGameActive) {
+        this.getDefaultButton();
+      } else {
+        document.querySelector('.game__control__btn').style.display = 'none';
+      }
+      this.isTrainActive = true;
+    }
   }
 
   getResult(parentElement) {
@@ -253,41 +289,7 @@ main.addCards('categories', main.getDefaultArray(8));
 /* main.addCards('transport', main.getRandomArray(1, 16, 8)); */
 
 main.toggleGameMode.addEventListener('click', () => {
-  const allTextInfo = document.querySelectorAll('.card__info');
-  if (main.isTrainActive) {
-    // Hide text info when active Play Mode
-    document.querySelectorAll('.card__content').forEach((element) => {
-      element.style.overflow = 'hidden';
-    });
-    allTextInfo.forEach((element) => {
-      element.style.bottom = '-40px';
-    });
-    document.querySelector('.game__control__btn').style.display = 'flex';
-    main.isTrainActive = false;
-    // Create Array Random Audio Words from Cards on page
-    main.arrayRandomValuesForAudioFiles = main.getRandomArray(0, 7, 7);
-  } else {
-    // Show text info when active Train Mode
-    document.querySelectorAll('.card__content').forEach((element) => {
-      element.style.overflow = 'initial';
-    });
-    allTextInfo.forEach((element) => {
-      element.style.bottom = '0px';
-    });
-    if (main.isGameActive) {
-      main.getDefaultButton();
-    } else {
-      document.querySelector('.game__control__btn').style.display = 'none';
-    }
-    main.isTrainActive = true;
-
-    /* main.repeatAudioButton.classList.add('game__control__btn');
-    main.repeatAudioButton.classList.remove('repeat');
-    const BUTTON_REPEAT_TEXT = document.querySelector('.game__control__btn__text');
-    BUTTON_REPEAT_TEXT.textContent = 'Start';
-    const BUTTON_REPEAT_IMG = document.querySelector('.game__control__btn__img');
-    BUTTON_REPEAT_IMG.src = 'assets/icons/play.png'; */
-  }
+  main.hideTextInfo();
 });
 
 /* Make cards after click on link in nav menu */
@@ -324,21 +326,22 @@ main.burgerLink.addEventListener('click', () => {
 });
 
 main.gameStartButton.addEventListener('click', () => {
-  main.gameStartButton.classList.add('repeat');
-  main.gameStartButton.classList.remove('game__control__btn');
-  const BUTTON_REPEAT_TEXT = document.querySelector('.game__control__btn__text');
-  BUTTON_REPEAT_TEXT.textContent = 'repeat';
-  const BUTTON_REPEAT_IMG = document.querySelector('.game__control__btn__img');
-  BUTTON_REPEAT_IMG.src = 'assets/icons/repeat.png';
-  main.isGameActive = true;
-  if (main.isGameActive
-    && main.NumberAudioOnGame === 0
-    && main.gameStartButton.getAttribute('class') !== 'repeat') {
-    main.playGame();
-  } else {
-    main.repeatAudio();
+  if (main.tempCategory !== 'categories') {
+    main.gameStartButton.classList.add('repeat');
+    main.gameStartButton.classList.remove('game__control__btn');
+    const BUTTON_REPEAT_TEXT = document.querySelector('.game__control__btn__text');
+    BUTTON_REPEAT_TEXT.textContent = 'repeat';
+    const BUTTON_REPEAT_IMG = document.querySelector('.game__control__btn__img');
+    BUTTON_REPEAT_IMG.src = 'assets/icons/repeat.png';
+    main.isGameActive = true;
+    if (main.isGameActive
+      && main.NumberAudioOnGame === 0
+      && main.gameStartButton.getAttribute('class') !== 'repeat') {
+      main.playGame();
+    } else {
+      main.repeatAudio();
+    }
   }
-  console.log(main.gameStartButton.getAttribute('class'));
 });
 
 /* main.repeatAudioButton.addEventListener('click', () => {
