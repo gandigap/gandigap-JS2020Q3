@@ -1,0 +1,340 @@
+/* Components: anything reusable such as buttons, navbars, cards etc. */
+
+
+/* ___________________________________________ Scroll bar*/
+
+
+/* width */
+
+::-webkit-scrollbar {
+    width: 14px;
+    height: 14px;
+}
+
+::-webkit-scrollbar-button {
+    width: 0px;
+    height: 0px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #ffe400;
+    border: 1px double #ffffff;
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #14a76c;
+}
+
+::-webkit-scrollbar-thumb:active {
+    background: #ff652f;
+}
+
+::-webkit-scrollbar-track {
+    background: #14a76c;
+    border: 1px solid #ffffff;
+    border-radius: 0px;
+}
+
+::-webkit-scrollbar-track:hover {
+    background: #ff652f;
+}
+
+::-webkit-scrollbar-track:active {
+    background: #ffe400;
+}
+
+::-webkit-scrollbar-corner {
+    background: transparent;
+}
+
+#modal-container__button-open {
+    font-size: 20px;
+    background-color: #272727;
+    color: $color_green;
+    border: solid 1px $color_green;
+    cursor: pointer;
+    outline: none;
+    padding: 5px;
+    margin: 5px;
+}
+
+.search-container {
+    display: flex;
+    #search {
+        flex-basis: 90%;
+    }
+    .button__kb__view {
+        flex-basis: 10%;
+        @include button;
+        margin: 0 5px;
+        padding: 0 13px;
+        background-image: url('../assets/icons/keyboard.svg');
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position: 50% 50%;
+    }
+}
+
+.keyboard-wrapper {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    .caps_indicator {
+        float: right;
+        margin: 0 40px 10px 0;
+        width: 10px;
+        height: 10px;
+        background-color: #ffffff;
+        border: 1px solid #000000;
+        border-radius: 50%;
+    }
+    .keyboard_container {
+        display: flex;
+        flex-direction: column;
+        position: fixed;
+        padding: 15px;
+        bottom: -100%;
+        width: 800px;
+        background-color: $color_primary;
+        transition: 1s;
+    }
+    .keyboard_keys {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1rem 1rem;
+        max-width: 700px;
+        margin: 0 auto;
+    }
+    .key {
+        padding: 0 2px;
+        min-width: 39px;
+        min-height: 30px;
+        font-size: 16px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+        border: 2px solid #4889B2;
+        border-radius: 5px;
+        color: #ffffff;
+    }
+    .key span {
+        display: flex;
+        width: 100%;
+        height: 100%;
+        justify-content: center;
+        align-items: center;
+    }
+    .key span div {
+        color: orange;
+        font-size: 12px;
+        align-self: flex-start;
+        padding-left: 5px;
+        padding-top: 3px;
+    }
+    .key_active {
+        background-color: #4889B2;
+        box-shadow: 0 1px black;
+        transition: 0.1s ease-in-out;
+        transform: translateY(2px);
+    }
+    .key_pressed {
+        background-color: #4889B2;
+        box-shadow: 0 1px black;
+        transition: 0.1s ease-in-out;
+        transform: translateY(2px);
+    }
+    #Backspace {
+        width: 50px;
+        font-weight: bold;
+        font-size: 24px;
+    }
+    #Delete {
+        width: 50px;
+        font-weight: bold;
+        font-size: 24px;
+    }
+    #Tab {
+        width: 40px;
+        font-weight: bold;
+    }
+    #CapsLock {
+        width: 40px;
+        font-weight: bold;
+        font-size: 24px;
+    }
+    #Enter {
+        width: 40px;
+        font-weight: bold;
+        font-size: 24px;
+    }
+    #ShiftLeft {
+        width: 50px;
+        font-weight: bold;
+    }
+    #ShiftRight {
+        width: 50px;
+        font-weight: bold;
+    }
+    #ControlLeft,
+    #ControlRight {
+        width: 35px;
+        font-weight: bold;
+    }
+    #AltLeft,
+    #AltRight {
+        width: 30px;
+        font-weight: bold;
+    }
+    #MetaLeft {
+        width: 30px;
+        font-weight: bold;
+    }
+    #Lang {
+        width: 50px;
+        font-weight: bold;
+    }
+    #Microphone {
+        width: 50px;
+        font-size: 2.40px;
+    }
+    #Space {
+        width: 234px;
+        font-weight: bold;
+    }
+    #Space,
+    #ShiftLeft,
+    #ControlLeft,
+    #ControlRight,
+    #Tab {
+        justify-self: stretch;
+    }
+    #ArrowLeft,
+    #Backquote {
+        justify-self: end;
+    }
+    #ArrowRight {
+        justify-self: start;
+    }
+}
+
+@media (max-width: 767px) {
+    .keyboard-wrapper {
+        .keyboard_container {
+            display: flex;
+            flex-direction: column;
+            position: fixed;
+            padding: 15px;
+            width: 500px;
+        }
+        .keyboard_keys {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 5px 5px;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+        .key {
+            padding: 0 2px;
+            min-width: 28px;
+            min-height: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            border: 2px solid #4889B2;
+            border-radius: 5px;
+            color: #ffffff;
+        }
+        .key span {
+            display: flex;
+            width: 100%;
+            height: 100%;
+            justify-content: space-around;
+            align-items: center;
+        }
+        .key span div {
+            color: orange;
+            font-size: 10px;
+            align-self: flex-start;
+            padding-left: 3px;
+            padding-top: 3px;
+        }
+        .key-special {
+            background-color: #dbd8d8;
+        }
+        #Backspace {
+            width: 20px;
+            font-weight: bold;
+            font-size: 14px;
+        }
+        #Delete {
+            width: 21px;
+            font-weight: bold;
+            font-size: 14px;
+        }
+        #Tab {
+            width: 30px;
+            font-weight: normal;
+            font-size: 14px;
+        }
+        #CapsLock {
+            width: 30px;
+            font-weight: bold;
+            font-size: 14px;
+        }
+        #Enter {
+            width: 29px;
+            font-weight: bold;
+            font-size: 14px;
+        }
+        #ShiftRight,
+        #ShiftLeft {
+            width: 30px;
+            font-weight: normal;
+            font-size: 14px;
+        }
+        #ControlLeft,
+        #ControlRight {
+            width: 30px;
+            font-weight: normal;
+        }
+        #AltLeft,
+        #AltRight {
+            width: 30px;
+            font-weight: normal;
+        }
+        #MetaLeft {
+            width: 30px;
+            font-weight: normal;
+        }
+        #Lang {
+            width: 30px;
+            font-weight: bold;
+            font-size: 14px;
+        }
+        #Microphone {
+            width: 15px;
+            font-size: 14px;
+        }
+        #Space {
+            width: 150px;
+            font-weight: bold;
+        }
+        #Space,
+        #ShiftLeft,
+        #ControlLeft,
+        #ControlRight,
+        #Tab {
+            justify-self: stretch;
+        }
+        #ArrowLeft,
+        #Backquote {
+            justify-self: end;
+        }
+        #ArrowRight {
+            justify-self: start;
+        }
+    }
+}

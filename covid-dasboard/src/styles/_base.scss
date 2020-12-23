@@ -1,0 +1,94 @@
+/* Base: contained within this file are all 
+your resets, variables, mixins, and any utility classes. */
+
+$color_primary:#272727;
+$color_secondary:#747474;
+$color_primary_opacity:#74747474;
+$color_orange:#FF652F;
+$color_yellow:#FFE400;
+$color_green:#14A76C;
+$color_green--ligth:#23CB91;
+$color_ligth:#FFFFFF;
+body,
+html {
+    @media (max-width: 1500px) {
+        font-size: 10px;
+    }
+}
+
+@mixin p {
+    font: {
+        size: 16px;
+        family: Georgia;
+        style: normal;
+        weight: normal;
+    }
+    line-height: 130%;
+}
+
+@mixin button {
+    margin: 5px 20px;
+    cursor: pointer;
+    transition: 0.3s;
+    border: 0px;
+    outline: none;
+    background: transparent;
+}
+
+@mixin button-hover {
+    transition: 0.3s;
+    transform: scale(0.9);
+}
+
+@mixin button-active {
+    transition: 0.3s;
+    transform: scale(0.9);
+    border: 0px;
+}
+
+@mixin button__img__arrow {
+    width: 20px;
+    height: 20px;
+}
+
+@mixin button__img__reset {
+    width: 30px;
+    height: 30px;
+}
+
+@keyframes rotate {
+    from {
+        transform: rotate(-360deg);
+    }
+}
+
+@mixin background_pattern {
+    background-color: #272727;
+    background-image: url("../assets/covid.svg");
+}
+
+@mixin button__img {
+    width: 20px;
+    height: 20px;
+    page-break-after: 5px;
+}
+
+.button {
+    font-size: 14px;
+    background-color: $color_primary;
+    color: $color_green--ligth;
+    border: solid 1px $color_green--ligth;
+    cursor: pointer;
+    outline: none;
+    padding: 5px;
+    margin: 5px;
+    &:hover {
+        background-color: #363636;
+    }
+    &:active {
+        background-color: #202020;
+    }
+    &--active {
+        background-color: #363636;
+    }
+}
