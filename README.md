@@ -8,3 +8,5 @@ Private repository for @gandigap
 ### [Cсылка на проект Virtual keyboard](https://rolling-scopes-school.github.io/gandigap-JS2020Q3/keyboard/)
 ### [Cсылка на проект Gem-puzzle](https://rolling-scopes-school.github.io/gandigap-JS2020Q3/gem-puzzle/dist/)
 ### [Cсылка на проект English for kids](https://rolling-scopes-school.github.io/gandigap-JS2020Q3/english-for-kids/dist/)
+### [Cсылка на проект Covid dashboard](https://rolling-scopes-school.github.io/gandigap-JS2020Q3/covid-dashboard/dist/)
+### [Cсылка на проект Presentation](https://rolling-scopes-school.github.io/gandigap-JS2020Q3/presentation/)
