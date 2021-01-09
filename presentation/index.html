@@ -21,89 +21,58 @@
 			<section data-transition="convex">
 				<h2 style="font-size: 100px; font-weight: bold;">KISS</h2>
 				<img class="fragment fade-out" src="./examples/assets/KISS.jpg" alt="KISS"
-					style="height: 300px; margin: 0 auto 4rem auto; background: transparent;">
-				<!-- <p>
-					Hello. My name is Igor, and today I will talk to you about K.I.S.S.. No, you got it all wrong. We
-					will study the principle of software development, its advantages, why design
-					principles are useful to us, and how to implement them in our daily programming. We will explore
-					KISS software development principle.
-				</p> -->
+					style="height: 300px; margin: 0 auto 4rem auto; background: transparent;">				
 			</section>
 			<section data-transition="convex">
 				<h3>First mention</h3>
 				<img src="./examples/assets/Keep.jpg" alt="KISS"
 					style="height: 200px; margin: 0 auto 4rem auto; background: transparent;">
-				<!-- <p>
-					KISS, an acronym for keep it simple, stupid, is a design principle noted by the U.S. Navy in 1960.
-					The acronym was reportedly coined by Kelly Johnson, lead engineer at the Lockheed Skunk Works.
-					The principle is best exemplified by the story of Johnson handing a team of design engineers a handful
-					 of tools, with the challenge that the jet aircraft they were designing must be repairable by an average 
-					 mechanic in the field under combat conditions with only these tools.
-				</p> -->
+				
 			</section>
 			<section data-transition="convex">Slide 3
 				<h3>Descriptive</h3>
 				<img src="./examples/assets/simple.jpg" alt="Clear and simple"
-					style="height: 300px; margin: 0 auto 4rem auto; background: transparent;">
-				<!-- <p>The KISS principle is descriptive to keep the code simple and clear, making it easy to understand.
-					After all, programming languages are for humans to understand "computers can only understand 0
-					and 1" so keep coding simple and straightforward.</p> -->
+					style="height: 300px; margin: 0 auto 4rem auto; background: transparent;">				
 			</section>
 			<section>
-				<h3>Time to get smarter &#128526;</h3>
-				<!-- <p>
-					As our everyday coding includes javascript a lot, things tend to get a bit messy quite quickly.
-					Adding more code to the codebase means more mess added. And the end story is a hell no one want to
-					witness, if the coding pattern was not clean and well planned from the beginning.
-					But, maintaining a few simple patterns can make the whole experience a lot better. Let`s see some
-					examples
-				</p> -->
+				<h3>Time to get smarter &#128526;</h3>				
 			</section>
 			<section data-transition="convex">
 				<h3>Short-circuit Evaluation</h3>
-				<section>
-					<!-- <p>Look at this.The if statement executes a statement if a specified condition is truthy. 
-							If the condition is falsy, another statement can be executed.</p> -->
+				<section>					
 					<pre><code class="javascript" data-trim contenteditable style="font-size: 18px;">
                         if (variable === null || variable === undefined || variable === '') {
                             console.log("VARIABLE NOT FOUND!");
                        } else {
                            console.log(variable);
                        }
-                    </code></pre>
-					<!-- <p>The code above is pretty common, let`s do it smartly</p> -->
+                    </code></pre>					
 					<pre><code class="javascript fragment" data-trim contenteditable style="font-size: 18px;">
                         console.log( variable || "VARIABLE NOT FOUND!" );
-                    </code></pre>
-					<!-- <p>We can use short-circuit evaluation in many cases like -</p> -->
-
+                    </code></pre>	
 				</section>
 				<section>
 					<pre><code class="javascript" data-trim contenteditable style="font-size: 18px;">
                         const firstName = person && person.firstName;
                     </code></pre>
-					<!-- <p>This will return the persons firstName if the person is not invalid (undefined, null, etc).</p> -->
 				</section>
 
 			</section>
 			<section data-transition="convex">
 				<h3>Arrow Functions () =></h3>
-				<!-- <p>Arrow functions are undoubtedly one of the more popular features of ES6. </p> -->
+				
 				<pre><code class="javascript" data-trim contenteditable style="font-size: 18px;">
                     function sayHello(name) {
                         console.log('Hello', name);
                     }
                 </code></pre>
-				<!--  <p>This was a trivial function, which can be replaced with arrow function</p> -->
+				
 				<pre><code class="javascript fragment" data-trim contenteditable style="font-size: 18px;">
                     const sayHello = name => console.log("Hello", name);
                 </code></pre>
-				<!-- <p>How clean it is!
-                    WARNING: function and arrow functions have different scoping methodology. So, use them carefully.
-                </p>    -->
+				
 			</section>
-			<section data-transition="convex">
-				<!-- <p>Ok, got to the next slide</p> -->
+			<section data-transition="convex">				
 				<h3>Avoid boring old for loop</h3>
 				<pre><code class="javascript" data-trim contenteditable style="font-size: 18px;">
                     const list = [9, 1, 7, 12, 6, 2, 4, 5]
@@ -114,10 +83,10 @@
 				<pre><code class="javascript fragment" data-trim contenteditable style="font-size: 18px;">
                     list.forEach(number => console.log(number))
                 </code></pre>				
-				<!-- <p>I think I don`t have to describe, code speaks for itself</p> -->
+				
 			</section>
 			<section data-transition="convex">
-				<!-- <p>In this example, we will consider Implicit Return</p> -->
+				
 				<h3>Implicit Return</h3>
 				<section>
 					<pre><code class="javascript" data-trim contenteditable style="font-size: 18px;">
@@ -125,9 +94,7 @@
                             return value * 2
                         }
                         const doubleValue = value => value * 2
-                    </code></pre>
-					<!-- <p> When using arrow functions, we can return implicitly if the function has a single line/statement
-                    without using the return keyword. We could return more complex values implicitly like</p> -->
+                    </code></pre>					
 				</section>
 				<section>
 					<pre><code class="javascript" data-trim contenteditable style="font-size: 18px;">
@@ -136,13 +103,12 @@
                             volume: length * length * length
                             })
                     </code></pre>
-					<!-- <p>The code above returns an Object. Notice the braces () before curly braces {}.</p> -->
+					
 				</section>
 			</section>
 			<section data-transition="convex">
 				<h3>Default Parameters</h3>
-				<!-- <p>Default function parameters allow named parameters to be initialized with default values if no value or
-					undefined is passed.</p> -->
+				
 				<pre><code class="javascript" data-trim contenteditable style="font-size: 18px;">
                     function volume(l, w, h) {
                         if (w === undefined)
@@ -169,23 +135,23 @@
                     const firstName = person.firstName;
                     const lastName = person.lastName;
                 </code></pre>
-				<!-- <p>The repetitive assignment work is boring, so let`s make it less-boring</p> -->
+				
 				<pre><code class="javascript fragment" data-trim contenteditable style="font-size: 18px;">
                     let { firstName, lastName } = person;
                 </code></pre>
-				<!-- <p>Now, we can also set default values here if the property doesn`t exist</p> -->
+				
 				<pre><code class="javascript fragment" data-trim contenteditable style="font-size: 18px;">
                     let { firstName = 'Ihar' , lastName = 'Berasneu' } = person;
                 </code></pre>
-				<!-- <p>We can also rename some property if need to,</p> -->
+				
 				<pre><code class="javascript fragment" data-trim contenteditable style="font-size: 18px;">
                     let { firstName, lastName: surname} = person;
                 </code></pre>
-				<!-- <p>Now, the last name will be assigned to surname</p> -->
+				
 			</section>
 			<section data-transition="convex">
 				<h3> Spread Operator</h3>
-				<!-- <p>Opetator spread allows you to write beautifully and simply code</p> -->
+				
 				<section>
 					<pre><code class="javascript" data-trim contenteditable style="font-size: 18px;">
                         const odd = [1, 2, 3]
@@ -196,14 +162,14 @@
                     </code></pre>
 					<p>now the nums will be { a: 1, b: 2, c: 3, d: 4}</p>
 				</section>
-				<!-- <p>This also works with Object types</p> -->
+				
 				<section>
 					<pre><code class="javascript" data-trim contenteditable style="font-size: 18px;">
                         const obj1 = { a: 1, b: 2, c: 3}
                         const obj2 = { ...obj1, d: 4 }
                     </code></pre>
 					<p>the obj2 also will be { a: 1, b: 2, c: 3, d: 4}</p>
-					<!-- <p>We could use spread operator anywhere (beginning, end, middle)</p> -->
+					
 				</section>
 
 			</section>
@@ -212,17 +178,14 @@
 				<pre><code class="javascript" data-trim contenteditable style="font-size: 18px;">
                     import table from './table.js'
                 </code></pre>
-				<!-- <p>Most of the time we don`t need the whole library to work with. We need only a few things most of the
-                    time. We can easily do that using partial imports which uses destructuring.</p> -->
+			
 				<pre><code class="javascript fragment" data-trim contenteditable style="font-size: 18px;">
                     import { getThead, getTbody, getTr } from "./table.js"
                 </code></pre>
 			</section>
 			<section data-transition="convex">
 				<h3>Async/Await over Promises</h3>
-				<!-- <p>This is quite an important topic to discuss and can be discussed for some time. In javascript we use
-                    callbacks here and there and also promises. Things can get pretty nasty if we use multiple nested
-                    promises. Even a single promise can lose readability pretty soon.</p> -->
+				
 				<pre><code class="javascript" data-trim contenteditable style="font-size: 18px;">
                     const makeRequest = () =>
                     getJSON()
@@ -233,7 +196,7 @@
 
                     makeRequest()
                 </code></pre>
-				<!-- <p>If we transform this promise based code to async/await code block, it`ll look like below</p> -->
+				
 				<pre><code class="javascript fragment" data-trim contenteditable style="font-size: 18px;">
                     const makeRequest = async () => {
                         console.log(await getJSON())
@@ -242,14 +205,12 @@
 
                     makeRequest()
                 </code></pre>
-				<!-- <p>Notice the indentation thing. This makes the code more readable, easily debuggable.</p> -->
+				
 			</section>
 			<section data-transition="convex">
 				<h3>Map, Filter, Reduce</h3>
 				<section>
-					<!-- <p>Let`s imagine a scenario. We need to calculate the total distance in miles of all items in our
-                    distances array where distance is less than 10000 km
-                    If we use our traditional for-loop -</p> -->
+					
 					<pre><code class="javascript" data-trim contenteditable style="font-size: 18px;">
                     let distances = [
                         { from: 'New York', to: 'Dhaka', distance: 12654},
@@ -267,7 +228,7 @@
                 </code></pre>
 				</section>
 				<section data-transition="convex">
-					<!-- <p>The code works! Now, let`s try it with map-filter-reduce</p> -->
+					
 					<pre><code class="javascript" data-trim contenteditable style="font-size: 18px;">
                     let distances = [
                         { from: 'New York', to: 'Dhaka', distance: 12654},
@@ -280,33 +241,31 @@
                                         .reduce((prev, distance) => prev + distance, 0)
                     console.log(total)
                 </code></pre>
-					<!-- <p>See, how readable and clean the code is!</p>
-					<p>Some of these practices may be debatable, but that depends on the person.</p> -->
+					
 				</section>				
 			</section>
 			<section data-transition="convex">
 					<h3>Results</h3>
 					<ul>
-						<li>Be Humble</li>
-						<li>Break down your tasks</li>
-						<li>Break down your problems</li>
-						<li>Keep your methods small</li>
+						<li>Be Humble</li>						
 						<li>Don't be afraid to throw away code</li>
-					</ul>
-					<!-- <p>Now, let's summarize.How we can apply the KISS principle to our work
-						1)Be Humble, don't think of yourself as a super genius, this is your first mistake
-						2)Break down your tasks into sub tasks that you think should take no longer than 4-12 hours to code
-						3)Break down your problems into many small problems. Each problem should be able to be solved within one or
-						a very few classes
-						4)Keep your methods small, each method should never be more than 30-40 lines. Each method should only solve
-						one little problem, not many uses cases
-						If you have a lot of conditions in your method, break these out into smaller methods.
-						Not only will this be easier to read and maintain, but you will find bugs a lot faster.
-						You will learn to love Right Click+Refactor in your editor.
-						5)Don't be afraid to throw away code. Refactoring and recoding are two very important areas. As you come
-						across requirements that didn't exist, or you weren't aware of when you wrote the code to begin with you
-						might be able to solve the old and the new problems with an even better solution.
-					</p> -->					
+						<li>Don`t overdo it</li>
+						
+						<pre><code class="javascript fragment" data-trim contenteditable style="font-size: 18px;">												
+						console.log(10 / 2) // 5 - good
+						console.log(-10 - 1) // -11 - good
+
+						function devideByTwo(value){
+							return value >> 1;
+						}
+						function subtraction(value){
+							return (~value);
+						}
+						console.log(devideByTwo(10)) //5 - bad						
+						console.log(subtraction(10)) //-11 - bad
+						</code></pre>
+					</ul>				
+									
 				</section>
 		</div>
 	</div>
