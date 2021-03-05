@@ -329,12 +329,12 @@ const figcaption = document.querySelector('figcaption');
 const btn = document.querySelector('.refresh__button__quote');
 
 async function getQuote() {
-  const url = `https://quote-garden.herokuapp.com/api/v2/quotes/random`;
+  const url = `https://favqs.com/api/qotd`;
   const res = await fetch(url);
   const data = await res.json();
 
-  blockquote.textContent = data.quote.quoteText;
-  figcaption.textContent = data.quote.quoteAuthor;
+  blockquote.textContent = data.quote.body;
+  figcaption.textContent = data.quote.author;
 }
 document.addEventListener('DOMContentLoaded', getQuote);
 btn.addEventListener('click', getQuote);
