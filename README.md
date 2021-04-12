@@ -10,3 +10,4 @@ Private repository for @gandigap
 ### [Cсылка на проект English for kids](https://rolling-scopes-school.github.io/gandigap-JS2020Q3/english-for-kids/dist/)
 ### [Cсылка на проект Covid dashboard](https://gandigap-covid-dashboard.netlify.app/)
 ### [Cсылка на проект Presentation](https://rolling-scopes-school.github.io/gandigap-JS2020Q3/presentation/)
+### [Cсылка на проект RS-clone](https://rs-clonewars.web.app/)
